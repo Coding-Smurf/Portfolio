@@ -1,15 +1,14 @@
-version: "3.9"
-
+version: '3'
 services:
   frontend:
     build:
       context: ./Frontend
-      dockerfile: Dockerfile
     ports:
       - "5173:5173"
     volumes:
-      - ./Frontend:/app:cached
+      - ./Frontend:/app
       - /app/node_modules
     environment:
-      - NODE_ENV=development
-    command: npm run dev -- --host
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    command: npm run dev

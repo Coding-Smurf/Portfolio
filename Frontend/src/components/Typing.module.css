@@ -1,0 +1,25 @@
+.wrapper {
+  transform: translateY(-5vh);
+}
+
+.normalText {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.importantText {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-left: 0.2rem;
+}
+
+.fadeContainer {
+  transition: opacity 1s ease-out;
+  opacity: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+}

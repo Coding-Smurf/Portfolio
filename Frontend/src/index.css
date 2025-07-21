@@ -50,8 +50,8 @@ body {
   place-items: center;
   flex-direction: column;
   min-width: 320px;
-  background-color: var(--color-bg-light);
-  color: var(--color-text-light);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
 }
 
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Landing.module.css';
 import Typing from '../components/Typing.jsx';
+import NavigationBar from '../components/NavigationBar.jsx';
 
 export default function Landing() {
   const [typingFinished, setTypingFinished] = useState(false);
@@ -8,7 +9,6 @@ export default function Landing() {
 
   useEffect(() => {
     if (typingFinished) {
-      // Trigger fade after next animation frame
       requestAnimationFrame(() => {
         setFadeStarted(true);
       });
@@ -17,13 +17,26 @@ export default function Landing() {
 
   return (
     <main className={styles.container}>
+      {
+        // LOAD TYPING ANIMATION AT START //
+      }
       {!typingFinished ? (
         <Typing onTypingEnd={() => setTypingFinished(true)} />
       ) : (
-        <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
-          <h1>Welcome to My Portfolio</h1>
-          <p>Explore my projects and skills.</p>
-        </div>
+        <>
+          {
+            // FADE IN CONTENT AFTER TYPING ENDS //
+          }
+          <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
+            {
+              // LOAD NAVIGATION BAR ON TOP OF THE PAGE //
+            }
+            <NavigationBar />
+
+
+
+          </div>
+        </>
       )}
     </main>
   );

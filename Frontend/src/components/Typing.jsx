@@ -32,7 +32,7 @@ export default function Typing({ onTypingEnd }) {
       </span>
       <span className={styles.importantText}>
         <TypeAnimation
-          sequence={[500, 'Adrian!', 1500, () => setStep(2)]}
+          sequence={[600, 'Adrian!', 1500, () => setStep(2)]}
           speed={50}
           wrapper="span"
           cursor={true}

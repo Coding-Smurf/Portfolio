@@ -20,9 +20,19 @@ export default function Projects() {
   // and the rest of the content
   return (
     <main className={styles.container}>
+
+      {/* Navigation Bar */}
+      <NavigationBar currentPage="Projects" />
+      {/* Navigation Bar */}
+
       <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
-        {/* Navigation Bar */}
-        <NavigationBar currentPage="Projects" />
+        
+        {/* Fullscreen Hero */}
+        <section className={styles.hero}>
+          <h1>PROJECTS</h1>
+          <p>Explore my work and the projects I've contributed to.</p>
+        </section>
+        {/* Fullscreen Hero */}
 
         {/* Page Content */}
         <p>Projects</p>

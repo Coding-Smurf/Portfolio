@@ -1,13 +1,15 @@
 /* ========== CONTAINER ========== */
 .navContainer {
-  width: 100%;
+  position: fixed;
+  top: 50px;  /* distance from top of screen */
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
-  position: sticky; /* stick to top */
-  top: 50px;   /* small gap from top */
-  z-index: 1000;    /* stay above content */
-  background: var(--color-bg-dark); /* ensure no transparency gap on scroll */
+  z-index: 1000;
+  background: var(--color-bg-dark);
 }
+
 
 /* ========== NAVBAR ========== */
 .navbar {
@@ -136,10 +138,19 @@ a:hover {
     flex-direction: column;
     align-items: center;
     max-height: 0;
-    padding: 0px 30px !important;
+    overflow: hidden; /* keep hidden when closed */
+    position: absolute; /* <-- take out of normal flow */
+    top: 60px; /* adjust to sit below sticky navContainer */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 30px !important;
     margin: 0;
     border-radius: 20px;
     font-size: 1.3rem;
+    background-color: var(--color-bg-dark); /* ensure background covers content */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 999; /* above other content */
+    transition: max-height 0.5s ease, padding 0.5s ease;
   }
 
   .navbar.open {

@@ -20,9 +20,19 @@ export default function ContactMe() {
   // and the rest of the content
   return (
     <main className={styles.container}>
+
+      {/* Navigation Bar */}
+      <NavigationBar currentPage="ContactMe" />
+      {/* Navigation Bar */}
+
       <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
-        {/* Navigation Bar */}
-        <NavigationBar currentPage="ContactMe" />
+        
+        {/* Fullscreen Hero */}
+        <section className={styles.hero}>
+          <h1>CONTACT ME</h1>
+          <p>Get in touch with me for collaboration or just a friendly chat!</p>
+        </section>
+        {/* Fullscreen Hero */}
 
         {/* Page Content */}
         <p>Contact Me</p>

@@ -20,9 +20,19 @@ export default function AboutMe() {
   // and the rest of the content
   return (
     <main className={styles.container}>
+
+      {/* Navigation Bar */}
+      <NavigationBar currentPage="AboutMe" />
+      {/* Navigation Bar */}
+
       <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
-        {/* Navigation Bar */}
-        <NavigationBar currentPage="AboutMe" />
+        
+        {/* Fullscreen Hero */}
+        <section className={styles.hero}>
+          <h1>ABOUT ME</h1>
+          <p>Get to know more about my background, skills, and passions.</p>
+        </section>
+        {/* Fullscreen Hero */}
 
         {/* Page Content */}
         <p>About Me</p>

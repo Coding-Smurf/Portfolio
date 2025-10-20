@@ -20,25 +20,21 @@ export default function MyJourney() {
   // and the rest of the content
   return (
     <main className={styles.container}>
+
+      {/* Navigation Bar */}
+      <NavigationBar currentPage="MyJourney" />
+      {/* Navigation Bar */}
+
       <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
-        {/* Navigation Bar */}
-        <NavigationBar currentPage="MyJourney" />
+        
+        {/* Fullscreen Hero */}
+        <section className={styles.hero}>
+          <h1>MY JOURNEY</h1>
+          <p>Discover the path I've taken and the lessons I've learned.</p>
+        </section>
+        {/* Fullscreen Hero */}
 
         {/* Page Content */}
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
-        <p>My Journey</p>
         <p>My Journey</p>
         <p>My Journey</p>
         <p>My Journey</p>

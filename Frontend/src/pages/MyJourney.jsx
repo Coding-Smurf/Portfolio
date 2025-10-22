@@ -30,7 +30,9 @@ export default function MyJourney() {
         {/* Fullscreen Hero */}
         <section className={styles.hero}>
           <h1>MY JOURNEY</h1>
-          <p>Discover the path I've taken and the lessons I've learned.</p>
+          <p>𝕰𝖝𝖕𝖑𝖔𝖗𝖊 𝖒𝖞 𝖕𝖆𝖙𝖍 𝖆𝖓𝖉 𝖊𝖝𝖕𝖊𝖗𝖎𝖊𝖓𝖈𝖊𝖘</p>
+          <div className={styles.heroSeparator}></div>
+          <p>Scroll</p>
         </section>
         {/* Fullscreen Hero */}
 

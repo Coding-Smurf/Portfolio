@@ -30,7 +30,9 @@ export default function AboutMe() {
         {/* Fullscreen Hero */}
         <section className={styles.hero}>
           <h1>ABOUT ME</h1>
-          <p>Get to know more about my background, skills, and passions.</p>
+          <p>𝕲𝖊𝖙 𝖙𝖔 𝖐𝖓𝖔𝖜 𝖒𝖔𝖗𝖊 𝖆𝖇𝖔𝖚𝖙 𝖒𝖞 𝖇𝖆𝖈𝖐𝖌𝖗𝖔𝖚𝖓𝖉, 𝖘𝖐𝖎𝖑𝖑𝖘, 𝖆𝖓𝖉 𝖕𝖆𝖘𝖘𝖎𝖔𝖓𝖘</p>
+          <div className={styles.heroSeparator}></div>
+          <p>Scroll</p>
         </section>
         {/* Fullscreen Hero */}
 

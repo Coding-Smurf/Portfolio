@@ -30,7 +30,9 @@ export default function ContactMe() {
         {/* Fullscreen Hero */}
         <section className={styles.hero}>
           <h1>CONTACT ME</h1>
-          <p>Get in touch with me for collaboration or just a friendly chat!</p>
+          <p>𝕲𝖊𝖙 𝖎𝖓 𝖙𝖔𝖚𝖈𝖍 𝖜𝖎𝖙𝖍 𝖒𝖊 𝖋𝖔𝖗 𝖈𝖔𝖑𝖑𝖆𝖇𝖔𝖗𝖆𝖙𝖎𝖔𝖓 𝖔𝖗 𝖏𝖚𝖘𝖙 𝖆 𝖋𝖗𝖎𝖊𝖓𝖉𝖑𝔂 𝖈𝖍𝖆𝖙!</p>
+          <div className={styles.heroSeparator}></div>
+          <p>Scroll</p>
         </section>
         {/* Fullscreen Hero */}
 

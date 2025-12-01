@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@splinetool/react-spline": "^4.1.0",
     "@splinetool/runtime": "^1.10.48",
     "@testing-library/dom": "^10.4.0",

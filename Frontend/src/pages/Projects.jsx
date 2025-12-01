@@ -10,9 +10,17 @@ export default function Projects() {
   // Event that triggers fade animation
   // when the component mounts
   useEffect(() => {
+    document.body.style.overflowY = 'hidden';
     requestAnimationFrame(() => {
       setFadeStarted(true);
     });
+    const timer = setTimeout(() => {
+      document.body.style.overflowY = 'auto';
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflowY = 'auto';
+    };
   }, []);
 
 
@@ -20,9 +28,21 @@ export default function Projects() {
   // and the rest of the content
   return (
     <main className={styles.container}>
+
+      {/* Navigation Bar */}
+      <NavigationBar currentPage="Projects" />
+      {/* Navigation Bar */}
+
       <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
-        {/* Navigation Bar */}
-        <NavigationBar currentPage="Projects" />
+        
+        {/* Fullscreen Hero */}
+        <section className={styles.hero}>
+          <h1>PROJECTS</h1>
+          <p>𝕲𝖊𝖙 𝖙𝖔 𝖘𝖊𝖊 𝖙𝖍𝖊 𝖕𝖗𝖔𝖏𝖊𝖈𝖙𝖘 𝕴'𝖛𝖊 𝖈𝖔𝖓𝖙𝖗𝖎𝖇𝖚𝖙𝖊𝖉 𝖙𝖔.</p>
+          <div className={styles.heroSeparator}></div>
+          <p>Scroll</p>
+        </section>
+        {/* Fullscreen Hero */}
 
         {/* Page Content */}
         <p>Projects</p>

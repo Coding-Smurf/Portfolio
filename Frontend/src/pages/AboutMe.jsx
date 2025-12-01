@@ -10,9 +10,17 @@ export default function AboutMe() {
   // Event that triggers fade animation
   // when the component mounts
   useEffect(() => {
+    document.body.style.overflowY = 'hidden';
     requestAnimationFrame(() => {
       setFadeStarted(true);
     });
+    const timer = setTimeout(() => {
+      document.body.style.overflowY = 'auto';
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflowY = 'auto';
+    };
   }, []);
 
 

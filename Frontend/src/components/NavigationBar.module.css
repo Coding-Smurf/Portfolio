@@ -1,7 +1,7 @@
 /* ========== CONTAINER ========== */
 .navContainer {
   position: fixed;
-  top: 50px;  /* distance from top of screen */
+  top: 50px;
   left: 0;
   right: 0;
   display: flex;
@@ -9,7 +9,6 @@
   z-index: 1000;
   background: var(--color-bg-dark);
 }
-
 
 /* ========== NAVBAR ========== */
 .navbar {
@@ -125,6 +124,12 @@ a:hover {
     flex-direction: column;
     align-items: center;
     top: 50px;
+    /* Remove left/right to stop full-width spanning */
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: auto;
+    background: transparent; /* Remove background so only menu has it */
   }
 
   .hamburger {
@@ -138,18 +143,19 @@ a:hover {
     flex-direction: column;
     align-items: center;
     max-height: 0;
-    overflow: hidden; /* keep hidden when closed */
-    position: absolute; /* <-- take out of normal flow */
-    top: 60px; /* adjust to sit below sticky navContainer */
+    overflow: hidden;
+    width: max-content;
+    position: absolute;
+    top: 60px;
     left: 50%;
     transform: translateX(-50%);
     padding: 0 30px !important;
     margin: 0;
     border-radius: 20px;
     font-size: 1.3rem;
-    background-color: var(--color-bg-dark); /* ensure background covers content */
+    background-color: var(--color-bg-dark);
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 999; /* above other content */
+    z-index: 999;
     transition: max-height 0.5s ease, padding 0.5s ease;
   }
 

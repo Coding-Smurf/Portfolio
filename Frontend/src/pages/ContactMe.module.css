@@ -1,7 +1,7 @@
 .container {
   display: flex;
-  min-height: 100vh;
-  width: 90vw;
+  min-height: 90vh;
+  width: 100%;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
@@ -9,10 +9,22 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+.hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  padding-top: 150px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .landingContent {
   width: 100%;
   padding: 0rem;
-  min-height: calc(100vh - 6rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,22 +53,13 @@
 html, body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
-.hero {
-  position: relative;        /* allows absolute positioning inside */
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   /* centers h1 + subtitle vertically */
-  align-items: center;
-  padding: 0 1rem;
-  text-align: center;
-}
+
 
 .hero h1 {
-  font-size: 10rem;
+  font-size: 5rem;
   color: var(--color-bg-dark);
   text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
   margin: 0;
@@ -67,51 +70,256 @@ html, body {
   margin: 0;
 }
 
-.heroSeparator {
-  margin-top: 30px;
-  margin-bottom: 4rem;
-  width: 10px;
-  height: 60px;
-  background-color: var(--color-bg-dark);
-  border-radius: 4px;
+.contactWrapper {
+  margin-top: 3rem;
+  width: 90%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* ============================
+   LEFT COLUMN - INFO
+   ============================ */
+.infoColumn {
+  padding: 2rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.infoColumn ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.infoColumn li {
+  margin-bottom: 1.5rem;
+}
+
+.infoTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+
+.infoContent {
+  font-size: 1.2rem;
+  font-weight: 100;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ============================
+   RIGHT COLUMN - FORM
+   ============================ */
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.formColumn {
+  padding: 2rem;
+  padding-top: 0;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.formColumn h2 {
+  font-size: 1.8rem;
+}
+
+/* Form structure */
+.formColumn form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.formColumn label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: 12px;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  box-sizing: border-box;
 }
 
-.heroSeparator,
-.hero p:last-of-type {
-  position: absolute;
-  bottom: 3rem;              /* distance from bottom edge */
-  left: 50%;
-  transform: translateX(-50%);
+/* Update the input/textarea styles */
+.formColumn input,
+.formColumn textarea {
+  padding: 0.4rem 0;
+  padding-bottom: 0.5rem;
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: none;
+  background: var(--color-bg-dark);
+  font-size: 1rem;
+  color: #000000;
+  font-family: inherit;
+  transition: border-bottom-color 0.3s ease;
+  resize: none;
+  box-sizing: border-box;
+  width: 100%;
 }
 
+.formColumn input:focus,
+.formColumn textarea:focus,
+.formColumn input.hasContent,
+.formColumn textarea.hasContent {
+  background: var(--color-bg-dark);
+  border-bottom-color: #000000;
+}
 
+.formColumn input::placeholder,
+.formColumn textarea::placeholder {
+  color: #cccccc;
+  opacity: 1;
+}
+
+/* Submit button */
+.formColumn button {
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.3s ease, cursor 0.3s ease;
+  text-align: right;
+  color: #000000;
+  font-weight: 700;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.formColumn button:hover {
+  background-color: transparent;
+}
+
+.formColumn button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.formColumn button:active:not(:disabled) {
+  transform: translateY(0px);
+}
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .hero h1 {
-    font-size: 7rem;
+    font-size: 4rem;
+  }
+  
+  .contactWrapper {
+    width: 80%;
+  }
+}
+@media (max-width: 900px) {
+  .contactWrapper {
+    grid-template-columns: 1fr;
+    width: 85%;
+    gap: 2rem;
+  }
+  
+  .hero {
+    padding: 3rem 1rem;
+    padding-top: 120px;
+    height: auto;
+    min-height: 100vh;
+    justify-content: flex-start;
+  }
+  
+  .infoColumn {
+    padding: 1.5rem;
+  }
+  
+  .formColumn {
+    padding: 1.5rem;
+    padding-top: 0;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .hero {
-    padding: 0 2rem;
+    padding: 2rem 1rem;
+    padding-top: 120px;
   }
+  
   .hero h1 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
+  
   .landingContent p {
     font-size: 1rem;
     padding: 0 1rem;
   }
+  
+  .contactWrapper {
+    width: 90%;
+    margin-top: 2rem;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .infoContent {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2.5rem;
+  .hero {
+    padding: 1rem 0.5rem;
+    padding-top: 120px;
   }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
   .landingContent p {
     font-size: 0.9rem;
+  }
+  
+  .contactWrapper {
+    width: 95%;
+    padding: 0.25rem;
+    gap: 1.5rem;
+  }
+  
+  .infoColumn {
+    padding: 1rem;
+  }
+  
+  .formColumn {
+    padding: 0.5rem;
+    padding-top: 0;
+  }
+  
+  .formColumn label {
+    padding: 0.75rem;
+  }
+  
+  .infoContent {
+    font-size: 0.9rem;
+  }
+  
+  .infoColumn li {
+    margin-bottom: 1rem;
   }
 }

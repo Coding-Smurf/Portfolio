@@ -44,12 +44,12 @@ html, body {
 }
 
 .hero {
-  position: relative;        /* allows absolute positioning inside */
+  position: relative;
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* centers h1 + subtitle vertically */
+  justify-content: center;
   align-items: center;
   padding: 0 1rem;
   text-align: center;
@@ -80,10 +80,123 @@ html, body {
 .heroSeparator,
 .hero p:last-of-type {
   position: absolute;
-  bottom: 3rem;              /* distance from bottom edge */
+  bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
 }
+
+.timelineSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  position: relative; 
+}
+
+/* === LÍNEA GLOBAL === */
+.timelineSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 270px);
+  width: 10px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+}
+
+/* === EACH TIMELINE ENTRY === */
+.timelineContainer {
+  position: relative;
+  padding-left: 70px;
+  width: 400px; 
+  max-width: 90vw; 
+}
+
+.timelineContainer::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  width: 50px;
+  height: 8px;
+  border-radius: 50px;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16),-3px -3px 5px rgba(255, 255, 255, 1);
+  transition: box-shadow 0.2s ease;
+}
+
+.timelineContainer:hover::after {
+  box-shadow: none;
+}
+
+/* === TEXTO DEL EVENTO === */
+.timelineEntry {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  align-items: flex-end; 
+  gap: 1rem; 
+  text-align: left;
+  padding: 10px 0; 
+  cursor: pointer; 
+}
+
+.timelineContentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex-grow: 1;
+}
+.timelineEntryDate {
+  color: #cccccc;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.timelineEntryTitle {
+  color: #838383;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Organization Element: Aligns to the right */
+.timelineEntryOrganization {
+  font-weight: 800;
+  font-style: italic;
+  color: #cccccc;
+  font-size: 1rem;
+  text-align: right;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.footer {
+  margin-top: 7rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  color: #cccccc;
+}
+
+.contactIconsWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactIcon {
+  height: 40px;
+  object-fit: contain;
+}
+
 
 
 
@@ -104,6 +217,36 @@ html, body {
   .landingContent p {
     font-size: 1rem;
     padding: 0 1rem;
+  }
+
+}
+
+@media screen and (max-width: 610px) {
+  .timelineContainer {
+    padding-left: 70px; /* Reduced from 70px */
+    margin: 0 auto; /* Centers the container */
+    width: 200px
+  }
+  
+  .timelineContainer::after {
+    width: 50px;
+    left: 0px;
+  }
+  
+  .timelineEntry {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .timelineEntryOrganization {
+    text-align: left;
+    white-space: normal;
+  }
+  
+  /* Hide the vertical line on mobile */
+  .timelineSection::before {
+    display: none;
   }
 }
 

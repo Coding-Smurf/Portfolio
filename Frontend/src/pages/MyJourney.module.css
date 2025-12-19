@@ -67,24 +67,6 @@ html, body {
   margin: 0;
 }
 
-.heroSeparator {
-  margin-top: 30px;
-  margin-bottom: 4rem;
-  width: 10px;
-  height: 60px;
-  background-color: var(--color-bg-dark);
-  border-radius: 4px;
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
-}
-
-.heroSeparator,
-.hero p:last-of-type {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .timelineSection {
   width: 100%;
   display: flex;

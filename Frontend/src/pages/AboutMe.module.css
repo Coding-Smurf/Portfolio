@@ -75,6 +75,13 @@ html, body {
   background-color: var(--color-bg-dark);
   border-radius: 4px;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none; /* optional: prevent interaction */
 }
 
 .heroSeparator,

@@ -57,31 +57,69 @@ export default function AboutMe() {
         {/* Fullscreen Hero */}
 
         {/* Page Content */}
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
-        <p>About Me</p>
+        <section className={styles.contentSection}>
 
+          {/* Intro Section */}
+          <section className={styles.introSection}>
+            <div className={styles.imageWrapper}>
+              <img src={`${import.meta.env.BASE_URL}images/other/AdrianOrtizRamirez.png`} alt="Adrián Ortiz Ramírez" className={styles.profileImage}/>
+            </div>
+            <div className={styles.textColumn}>
+              <p>Computer Scientist</p>
+              <h2>Adrián Ortiz Ramírez</h2>
+              <p>Hi there! I’m Adrián and I’m currently working as an AI engineer. Lately, I’ve been focused on bringing Speech Emotion Recognition, AI Compliance Evaluation and Psychology AI into the real world.</p>
+              <p>I love making things look simple.</p>
+            </div>
+          </section>
+          {/* Intro Section */}
+
+          {/* Personal Info Section */}
+          <section className={styles.personalInfoSection}>
+            <h3>About Me</h3>
+            <div>
+              <span className="material-symbols-rounded">person</span>
+              <p>22 Years old.</p>
+            </div>
+            <div>
+              <span className="material-symbols-rounded">school</span>
+              <p>BSc in Computer Science. Specialty in Cybersecurity.</p>
+            </div>
+            <div>
+              <span className="material-symbols-rounded">language_chinese_dayi</span>
+              <p>Spanish (Native). English (C2).</p>
+            </div>
+            <div>
+              <span className="material-symbols-rounded">location_on</span>
+              <p>Madrid, Spain.</p>
+            </div>
+          </section>
+          {/* Personal Info Section */}
+
+          {/* Hashtags Section */}
+          <section className={styles.hashtagsSection}>
+            <h3>Hashtags i love</h3>
+            <div className={styles.hashtagsContainer}>
+              <div>
+                <p>#Data Science</p>
+              </div>
+              <div>
+                <p>#Machine Learning</p>
+              </div>
+              <div>
+                <p>#Deep Learning</p>
+              </div>
+              <div>
+                <p>#Solving Real Problems</p>
+              </div>
+              <div>
+                <p>#Always Learning</p>
+              </div>
+            </div>
+          </section>
+          {/* Hashtags Section */}
+
+        </section>
+        {/* Page Content */}
       </div>
     </main>
   );

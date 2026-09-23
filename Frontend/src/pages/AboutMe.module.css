@@ -92,6 +92,325 @@ html, body {
   transform: translateX(-50%);
 }
 
+.contentSection {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 65%;
+}
+
+/* El resto de la estructura flex para las columnas */
+.introSection {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* Contenedor principal para poner los elementos en fila */
+/* El contenedor se queda igual */
+.imageWrapper {
+  width: 200px;  /* El tamaño del círculo en tu web */
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden; 
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+  position: relative; /* Para posicionar la imagen dentro */
+}
+
+.profileImage {
+  /* En lugar de 100%, le damos un tamaño mucho mayor */
+  /* Si tu foto es 4K, esto usará sus píxeles reales */
+  width: 135%; 
+  height: auto;
+  
+  /* La centramos y la movemos hacia arriba para el crop */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); 
+  
+  /* Esto asegura que el navegador use el mejor algoritmo de reescalado */
+  image-rendering: high-quality;
+}
+
+/* Columna de texto */
+.textColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* First p of the text column */
+.textColumn p:first-of-type {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--color-bg-light);
+  margin: 0;
+}
+
+.textColumn h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-bg-light);
+  margin-top: -10px !important;
+}
+
+.textColumn p {
+  font-size: 1.125rem;
+  font-weight: 300;
+  text-align: left;
+  color: var(--color-bg-light);
+  margin: 0;
+}
+
+.textColumn p:last-of-type {
+  width: 100%;
+  font-style: italic;
+  text-align: right;
+  font-weight: 200;
+}
+
+.textColumn h2 {
+  margin: 0.5rem 0;
+}
+
+
+
+
+
+
+
+
+
+.personalInfoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea todo el bloque a la izquierda */
+  margin-top: 10rem;
+  width: 100%;            /* Asegura que ocupe todo el ancho disponible */
+}
+
+.personalInfoSection h3 {
+  align-self: flex-start;
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-top: 1rem !important;
+  margin: 0;
+}
+
+/* Cada fila que contiene Icono + Texto */
+.personalInfoSection div {
+  display: flex;
+  align-items: center;     /* Centra verticalmente el icono con el texto */
+  gap: 18px;               /* Espacio horizontal entre el icono y el texto */
+  width: 100%;             /* Para que el contenedor ocupe el ancho necesario */
+}
+
+.personalInfoSection p {
+  margin: 0;               /* Quita márgenes por defecto para que no se descuadre */
+  font-size: 1.2rem;
+  color: var(--color-bg-light);
+  font-weight: 300;
+}
+
+/* Opcional: Estilo para los iconos */
+.personalInfoSection span {
+  font-size: 27px;         /* Ajusta el tamaño del icono */
+  color: #727171;             /* Un gris oscuro, o el color que prefieras */
+  flex-shrink: 0;          /* Evita que el icono se aplaste si el texto es largo */
+}
+
+
+
+
+
+.hashtagsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.hashtagsSection h3 {
+  align-self: flex-start;
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-top: 1rem !important;
+  margin: 0;
+}
+
+.hashtagsContainer {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 60%;
+}
+
+.hashtagsContainer div{
+  background-color: var(--color-bg-dark);
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  padding: 0px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.hashtagsContainer div p {
+  margin: 0.4rem 1rem;
+  color: var(--color-bg-light);
+  font-weight: 300;
+}
+
+/* ... existing styles ... */
+
+/* --------------------------------------------------------- */
+/* RESPONSIVE STYLES FOR CONTENT BELOW HERO */
+/* --------------------------------------------------------- */
+
+/* Tablet Portrait & Mobile Devices (max-width: 1024px) */
+/* This covers iPads in portrait and most mobile phones */
+@media (max-width: 1024px) {
+  
+  /* 1. Widen the main container so content isn't squashed in the middle */
+  .contentSection {
+    width: 90%;
+    margin-top: 2rem;
+  }
+
+  /* 2. Stack the Intro Section (Image on top, Text below) */
+  .introSection {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  /* 3. Center the Text Column elements */
+  .textColumn {
+    align-items: center;
+    width: 100%;
+  }
+
+  .textColumn p {
+    text-align: center;
+  }
+
+  /* Specifically fix the "I love making things look simple" text 
+     which was right-aligned on desktop */
+  .textColumn p:last-of-type {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .textColumn h2 {
+    font-size: 2.5rem; /* Slightly smaller heading */
+    text-align: center;
+  }
+
+.personalInfoSection {
+    align-items: center; /* Centers the 'About Me' title */
+    width: 100%;
+  }
+
+  .personalInfoSection h3 {
+    align-self: center;
+    font-size: 2rem;
+  }
+
+  /* The Container for each row (Icon + Text) */
+  .personalInfoSection div {
+    display: grid;
+    /* This is the magic part:
+       Column 1: 50px fixed width for the icon (centers it perfectly)
+       Column 2: 1fr (takes up remaining space for text)
+    */
+    grid-template-columns: 50px 1fr;
+    align-items: center;
+    
+    /* Control the width of the rows */
+    width: 100%;
+    max-width: 450px; /* Keeps the block compact so it looks centered */
+    margin-bottom: 1rem;
+    gap: 0; /* Gap is handled by the column width */
+  }
+
+  /* The Text */
+  .personalInfoSection p {
+    text-align: left; /* Crucial: Keeps text readable */
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* The Icon */
+  .personalInfoSection span {
+    justify-self: center; /* Centers the icon within its 50px column */
+    font-size: 24px;
+  }
+
+  /* 5. Adjust Hashtags Section */
+  .hashtagsSection h3 {
+    align-self: center;
+    font-size: 2rem;
+  }
+
+  .hashtagsContainer {
+    width: 100%; /* Use full width available */
+    justify-content: center; /* Center the tags */
+  }
+}
+
+/* Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  
+  /* Reduce Image Size slightly */
+  .imageWrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* Adjust font sizes for readability */
+  .textColumn p:first-of-type {
+    font-size: 1.1rem;
+  }
+
+  .textColumn h2 {
+    font-size: 2rem;
+  }
+
+  .textColumn p {
+    font-size: 1rem;
+  }
+
+  /* Tweak Personal Info spacing */
+  .personalInfoSection div {
+    gap: 12px;
+  }
+
+  .personalInfoSection p {
+    font-size: 1rem;
+  }
+  
+  .personalInfoSection span {
+    font-size: 24px;
+  }
+  
+  /* Make hashtags smaller and stack tighter */
+  .hashtagsContainer {
+    gap: 10px;
+  }
+  
+  .hashtagsContainer div {
+    font-size: 0.9rem;
+  }
+}
+
 
 
 /* Responsive adjustments */

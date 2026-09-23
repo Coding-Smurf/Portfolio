@@ -95,15 +95,15 @@ export default function ContactMe() {
               <ul>
                 <li>
                   <div className={styles.infoTitle}>PHONE</div>
-                  <div className={styles.infoContent}>+34 660164574</div>
+                  <div><a href="tel:+34660164574" className={styles.infoContent}>+34 660 164 574</a></div>
                 </li>
                 <li>
                   <div className={styles.infoTitle}>EMAIL</div>
-                  <div className={styles.infoContent}>adrian.ortiz.prof@gmail.com</div>
+                  <div><a href="mailto:adrian.ortiz.prof@gmail.com" className={styles.infoContent}>adrian.ortiz.prof@gmail.com</a></div>
                 </li>
                 <li>
                   <div className={styles.infoTitle}>LINKEDIN</div>
-                  <div className={styles.infoContent}>www.linkedin.com/in/adri-ortiz</div>
+                  <div><a href="https://www.linkedin.com/in/adri-ortiz" target="_blank" rel="noopener noreferrer" className={styles.infoContent}>www.linkedin.com/in/adri-ortiz</a></div>
                 </li>
                 <li>
                   <div className={styles.infoTitle}>ADDRESS</div>

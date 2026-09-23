@@ -173,10 +173,10 @@ export default function MyJourney() {
             <p>Want to contact me?</p>
             <div className={styles.contactIconsWrapper}>
                 <a href="https://www.linkedin.com/in/adri-ortiz" target="_blank" className={styles.contactLink}>
-                    <img src="/images/icons/linkedin.png" alt="LinkedIn Icon" className={styles.contactIcon} />
+                    <img src={`${import.meta.env.BASE_URL}images/icons/linkedin.png`} alt="LinkedIn Icon" className={styles.contactIcon} />
                 </a>
                 <a href="mailto:adrian.ortiz.prof@gmail.com" className={styles.contactLink}>
-                    <img src="/images/icons/outlook.png" alt="Email Icon" className={styles.contactIcon} />
+                    <img src={`${import.meta.env.BASE_URL}images/icons/outlook.png`} alt="Email Icon" className={styles.contactIcon} />
                 </a>
             </div>
         </section>

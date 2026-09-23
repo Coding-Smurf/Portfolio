@@ -39,8 +39,6 @@ export default function Projects() {
         <section className={styles.hero}>
           <h1>PROJECTS</h1>
           <p>𝕲𝖊𝖙 𝖙𝖔 𝖘𝖊𝖊 𝖙𝖍𝖊 𝖕𝖗𝖔𝖏𝖊𝖈𝖙𝖘 𝕴'𝖛𝖊 𝖈𝖔𝖓𝖙𝖗𝖎𝖇𝖚𝖙𝖊𝖉 𝖙𝖔.</p>
-          <div className={styles.heroSeparator}></div>
-          <p>Scroll</p>
         </section>
         {/* Fullscreen Hero */}
 

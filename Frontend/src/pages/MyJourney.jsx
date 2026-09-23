@@ -43,8 +43,6 @@ export default function MyJourney() {
         <section className={styles.hero}>
           <h1>MY JOURNEY</h1>
           <p>𝕰𝖝𝖕𝖑𝖔𝖗𝖊 𝖒𝖞 𝖕𝖆𝖙𝖍 𝖆𝖓𝖉 𝖊𝖝𝖕𝖊𝖗𝖎𝖊𝖓𝖈𝖊𝖘</p>
-          <div className={styles.heroSeparator}></div>
-          <p>Scroll</p>
         </section>
         {/* Fullscreen Hero */}
  
@@ -175,10 +173,10 @@ export default function MyJourney() {
             <p>Want to contact me?</p>
             <div className={styles.contactIconsWrapper}>
                 <a href="https://www.linkedin.com/in/adri-ortiz" target="_blank" className={styles.contactLink}>
-                    <img src="/images/icons/linkedin.png" alt="LinkedIn Icon" className={styles.contactIcon} />
+                    <img src={`${import.meta.env.BASE_URL}images/icons/linkedin.png`} alt="LinkedIn Icon" className={styles.contactIcon} />
                 </a>
                 <a href="mailto:adrian.ortiz.prof@gmail.com" className={styles.contactLink}>
-                    <img src="/images/icons/outlook.png" alt="Email Icon" className={styles.contactIcon} />
+                    <img src={`${import.meta.env.BASE_URL}images/icons/outlook.png`} alt="Email Icon" className={styles.contactIcon} />
                 </a>
             </div>
         </section>

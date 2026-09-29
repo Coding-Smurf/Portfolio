@@ -1,6 +1,7 @@
 // AboutMe.jsx
 
 import NavigationBar from '../components/NavigationBar.jsx';
+import Seo from '../components/Seo.jsx';
 import { useState, useEffect } from 'react';
 import styles from './AboutMe.module.css';
 
@@ -42,6 +43,7 @@ export default function AboutMe() {
     <main className={styles.container}>
 
       {/* Navigation Bar */}
+      <Seo title="AI Engineer" path="AboutMe" description="Background, skills and passions of Adrián Ortiz Ramírez, AI engineer and computer scientist based in Madrid." />
       <NavigationBar currentPage="AboutMe" />
       {/* Navigation Bar */}
 

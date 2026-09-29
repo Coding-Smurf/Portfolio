@@ -1,6 +1,7 @@
 // ContactMe.jsx
 
 import NavigationBar from '../components/NavigationBar.jsx';
+import Seo from '../components/Seo.jsx';
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from './ContactMe.module.css';
@@ -85,6 +86,7 @@ export default function ContactMe() {
   // and the rest of the content
   return (
     <main className={styles.container}>
+      <Seo title="Contact Me" path="ContactMe" description="Get in touch with Adrián Ortiz Ramírez for collaborations, job opportunities or a friendly chat." />
       <NavigationBar currentPage="ContactMe" />
       <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
         <section className={styles.hero}>

@@ -1,6 +1,7 @@
 // Projects.jsx
 
 import NavigationBar from '../components/NavigationBar.jsx';
+import Seo from '../components/Seo.jsx';
 import { useState, useEffect } from 'react';
 import styles from './Projects.module.css';
 
@@ -30,6 +31,7 @@ export default function Projects() {
     <main className={styles.container}>
 
       {/* Navigation Bar */}
+      <Seo title="Projects" path="Projects" description="AI and software projects by Adrián Ortiz Ramírez, including Speech Emotion Recognition and AI compliance evaluation." />
       <NavigationBar currentPage="Projects" />
       {/* Navigation Bar */}
 

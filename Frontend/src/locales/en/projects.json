@@ -1,0 +1,146 @@
+{
+  "seo": {
+    "title": "Projects",
+    "description": "AI and software projects by Adrián Ortiz Ramírez, including Speech Emotion Recognition and AI compliance evaluation."
+  },
+  "ui": {
+    "title": "PROJECTS",
+    "ledeBefore": "A selection of ",
+    "ledeEm": "AI & Software",
+    "ledeAfter": " work, from Madrid.",
+    "selectedWorks": "Selected works",
+    "backToAll": "← all projects",
+    "prev": "← prev",
+    "next": "next →",
+    "prevAria": "Previous project",
+    "nextAria": "Next project",
+    "readMore": "read more",
+    "readMoreAria": "Read more about {{title}}",
+    "openCollection": "open collection",
+    "openAria": "Open {{title}}",
+    "close": "close ✕",
+    "closeAria": "Close",
+    "myRating": "My rating",
+    "ratedAria": "Rated {{rating}} out of 5",
+    "number": "No.",
+    "closingText": "Want to make something together?",
+    "closingLink": "Get in touch"
+  },
+  "items": {
+    "museum": {
+      "title": "Museum Conversational Guide",
+      "blurb": "Real-time object detection meets a RAG chatbot to give museum visitors a guide that knows what they are looking at.",
+      "description": [
+        "An interactive system that moves museum visits beyond static, traditional access to information. It combines real-time object detection with a Retrieval Augmented Generation pipeline to offer a context-aware, personalised and immersive conversational guide.",
+        "Validation showed accurate spatial and conversational understanding, and a significant improvement in the veracity and relevance of the answers compared with standard LLM responses.",
+        "Published in Street Art & Urban Creativity, Vol. 11 No. 7 (2025), Special Issue: Smart City World Congress, with Álvaro Illana and Marta Salas (UFV).",
+        "Also presented on stage at the [Smart City Expo World Congress 2025](https://www.smartcityexpo.com/), the world’s leading event on urban innovation, at Fira Barcelona Gran Via."
+      ],
+      "stack": "Object Detection · RAG · Generative AI",
+      "role": "Author",
+      "status": "Published & presented",
+      "tag": ["Article", "Published", "Smart City Expo World Congress 2025"],
+      "links": { "doi": "Paper (DOI)", "pdf": "PDF" }
+    },
+    "robustBiomarkers": {
+      "title": "Robust Speech Biomarkers",
+      "blurb": "Keeping Parkinson’s speech biomarkers stable when a phone’s noise cancellation changes mid-study.",
+      "description": [
+        "A comparative evaluation of four classifier architectures under simulated post-OS-update conditions, using the [Italian Parkinson’s Voice and Speech Dataset](https://doi.org/10.1109/MeMeA.2016.7533761). It asks whether deep-learning speech biomarkers survive a change in the operating system’s noise-cancellation algorithm during longitudinal Parkinson’s Disease monitoring.",
+        "Across six mid-study noise-cancellation change scenarios, our dual-pipeline classifier kept sensitivity within an 11.3 percentage-point spread (86.4% to 97.7%), while the three baseline architectures showed spreads of 42 to 46 points, roughly four times wider.",
+        "Selected as a poster at the [9th Annual Digital Biomarkers in Clinical Trials Summit](https://digitalbiomarkers.panagorapharma.com/) (Basel, June 2026), hosted in partnership with Roche. The evaluation used one public cohort (n = 50, 10 held-out test subjects) and software-simulated algorithms, so the results are exploratory evidence rather than direct validation against real OS updates.",
+        "The same question, applied to Alzheimer’s disease trials, was also accepted as poster P446 at [CTAD 2026 (Clinical Trials on Alzheimer’s Disease)](https://www.ctad-alzheimer.com/program-0): “Noise-cancellation variability as a source of longitudinal drift in speech-based digital endpoints for Alzheimer’s disease trials”, with Lisa Chiang (Cephalgo, Strasbourg), who presented it."
+      ],
+      "stack": "Deep Learning · Speech Biomarkers · Parkinson’s Disease",
+      "role": "Research, Cephalgo SAS",
+      "status": "Accepted posters",
+      "tag": ["Poster", "Accepted", "Digital Biomarkers Summit · CTAD 2026"],
+      "links": { "publications": "Research publications" }
+    },
+    "explainableAlzheimer": {
+      "title": "Explainable Alzheimer’s Screening",
+      "blurb": "Screening for Alzheimer’s and mild cognitive impairment with speech features that can be traced back to what they measure.",
+      "description": [
+        "Validation of fully explainable speech biomarkers for AD/MCI screening. Every feature is interpretable and traceable to a specific acoustic or linguistic construct, so a result can be explained and not only reported.",
+        "Evaluated on 44 AD/MCI cases (mean age 80.3) and 44 age-matched healthy controls (mean age 80.5), the approach reached an AUC of 0.94, with 89.3% balanced accuracy, 92.4% sensitivity and 86.3% specificity.",
+        "Accepted as an ePoster at the [AD/PD™ 2026 International Conference on Alzheimer’s and Parkinson’s Diseases](https://adpd2026.kenes.com/), with Hanyu Peng at Cephalgo SAS."
+      ],
+      "stack": "Explainable AI · Voice Analysis · Alzheimer’s Disease",
+      "role": "Research, Cephalgo SAS",
+      "status": "ePoster",
+      "tag": ["ePoster", "Accepted", "AD/PD 2026"],
+      "links": {}
+    },
+    "explainableParkinson": {
+      "title": "Explainable Parkinson’s Screening",
+      "blurb": "A retrospective check that Parkinson’s can be screened from voice with features that explain themselves.",
+      "description": [
+        "Validation of fully explainable speech biomarkers for PD/HC screening, the Parkinson’s counterpart of the Alzheimer’s work. Every feature is interpretable and traceable to a specific acoustic or linguistic construct.",
+        "Evaluated retrospectively on 28 Parkinson’s cases (mean age 67.2) and 37 healthy controls (mean age 48.3), the approach reached an AUC of 0.97, with 91.4% balanced accuracy, 88.5% sensitivity and 96.3% specificity. The age gap between the groups is a known imbalance of this public dataset.",
+        "Selected as an ePoster at the [AD/PD™ 2026 International Conference on Alzheimer’s and Parkinson’s Diseases](https://adpd2026.kenes.com/), with Hanyu Peng at Cephalgo SAS."
+      ],
+      "stack": "Explainable AI · Voice Analysis · Parkinson’s Disease",
+      "role": "Research, Cephalgo SAS",
+      "status": "ePoster",
+      "tag": ["ePoster", "Selected", "AD/PD 2026"],
+      "links": { "parkinson": "Parkinson’s page" }
+    },
+    "alpaca": {
+      "title": "Alpaca",
+      "blurb": "A mobile app that cuts food waste at home by keeping track of what is in your pantry.",
+      "description": [
+        "Alpaca (“Control En Tu Despensa”) is a mobile app for managing household food and reducing waste. It keeps a digital record of the products in the pantry, so nothing gets forgotten at the back of a shelf, expires unnoticed or ends up in the bin, and so you stop buying what you already have.",
+        "Born as a third-year university project, it was presented in the Health Informatics track of [CISTI’2024](https://web.tecnico.ulisboa.pt/~mcasquilho/ist/2024cisti-program.pdf), the 19th Iberian Conference on Information Systems and Technologies (University of Salamanca, 25–28 June 2024)."
+      ],
+      "stack": "Mobile App · Food Waste · Health Informatics",
+      "role": "University project, 3rd year",
+      "status": "Presented",
+      "tag": ["Conference", "Presented", "CISTI 2024"],
+      "links": {}
+    },
+    "kaggleStudies": {
+      "title": "Kaggle Studies",
+      "blurb": "A handful of small but professional data-science projects.",
+      "stack": "Data Science · Machine Learning",
+      "year": "Ongoing",
+      "status": "{{n}} projects",
+      "tag": ["Collection", "Kaggle"]
+    },
+    "titanic": {
+      "title": "Titanic",
+      "blurb": "A deliberately simple XGBoost model for Kaggle’s Titanic competition, scoring 0.78.",
+      "description": [
+        "My entry to the Kaggle competition [Titanic – Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic): predict which passengers survived the shipwreck. The model is deliberately simple, a single XGBoost classifier, and reached a score of 0.78.",
+        "It placed 1,753rd out of 10,599 participants, which puts it in roughly the top 16.5%."
+      ],
+      "stack": "Python · XGBoost",
+      "role": "Solo project",
+      "status": "Competition",
+      "links": { "notebook": "Kaggle notebook", "competition": "Competition" }
+    },
+    "electricVehicles": {
+      "title": "Electric Vehicles",
+      "blurb": "An XGBoost model for a Kaggle Playground competition on predicting electric vehicle purchases, reaching 0.94119 AUC.",
+      "description": [
+        "My entry to the Kaggle competition [Predicting Electric Vehicle Purchases](https://www.kaggle.com/competitions/playground-series-s6e9), part of the Playground Series (Season 6, Episode 9).",
+        "An XGBoost model reached an AUC of 0.94119."
+      ],
+      "stack": "Python · XGBoost",
+      "role": "Solo project",
+      "status": "Competition",
+      "links": { "notebook": "Kaggle notebook", "competition": "Competition" }
+    },
+    "kagglePlaceholder": {
+      "title": "Project Title",
+      "blurb": "A short description of the Kaggle project goes here, one or two lines at most.",
+      "description": [
+        "Placeholder text: a longer account of the project goes here. Describe the problem it set out to solve, the approach that was taken and what was learned along the way.",
+        "A second paragraph can cover the results, the tools involved and anything worth remembering about the work."
+      ],
+      "stack": "Python · Pandas · scikit-learn",
+      "role": "Solo project",
+      "status": "Notebook",
+      "links": {}
+    }
+  }
+}

@@ -24,7 +24,7 @@
 .landingContent p {
   font-size: 1.125rem;
   font-weight: 400;
-  color: #cccccc;
+  color: var(--text-faint);
   margin-top: 1rem;
 }
 
@@ -58,7 +58,7 @@ html, body {
 .hero h1 {
   font-size: 10rem;
   color: var(--color-bg-dark);
-  text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  text-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
   margin: 0;
 }
 
@@ -86,7 +86,7 @@ html, body {
   left: calc(50% - 270px);
   width: 10px;
   border-radius: 20px;
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  box-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
 }
 
 /* === EACH TIMELINE ENTRY === */
@@ -107,13 +107,13 @@ html, body {
   height: 8px;
   border-radius: 50px;
   /* Estado de reposo: relieve suave, a medio salir. */
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.16), -1.5px -1.5px 3px rgba(255, 255, 255, 1);
+  box-shadow: 2px 2px 3px var(--shadow-dark), -1.5px -1.5px 3px var(--shadow-light);
   transition: box-shadow 0.2s ease;
 }
 
 .timelineContainer:hover::after {
   /* Al pasar el cursor, el marcador se eleva por completo. */
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  box-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
 }
 
 /* === TEXTO DEL EVENTO === */
@@ -158,7 +158,7 @@ html, body {
   overflow: hidden;
   box-sizing: border-box;
   padding: 0 1.15rem;
-  color: #303030;
+  color: var(--text-strong);
   font-size: 0.9rem;
   line-height: 1.45;
   text-align: left;
@@ -169,14 +169,14 @@ html, body {
 
 .timelineDetailsInner p {
   margin: 0 !important;
-  color: #303030 !important;
+  color: var(--text-strong) !important;
   font-size: 0.9rem !important;
   font-weight: 400;
 }
 
 .timelineCitation {
   margin-top: 0.8rem !important;
-  color: #6f6f6f;
+  color: var(--text-muted);
   font-size: 0.72rem;
   font-style: italic;
 }
@@ -184,7 +184,7 @@ html, body {
 .timelineDoi {
   display: inline-block;
   margin-top: 0.55rem;
-  color: #454545;
+  color: var(--text-soft);
   font-size: 0.74rem;
   font-weight: 600;
   text-decoration: underline;
@@ -210,7 +210,7 @@ html, body {
   opacity: 1;
   transform: translateY(0);
   border-radius: 6px;
-  box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.2), inset -3px -3px 6px rgba(255, 255, 255, 1);
+  box-shadow: inset 2px 2px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
 }
 
 .timelineContentWrapper {
@@ -220,13 +220,13 @@ html, body {
   flex-grow: 1;
 }
 .timelineEntryDate {
-  color: #cccccc;
+  color: var(--text-faint);
   font-size: 0.75rem;
   font-style: italic;
 }
 
 .timelineEntryTitle {
-  color: #838383;
+  color: var(--text-muted);
   font-size: 1rem;
   font-style: italic;
 }
@@ -235,7 +235,7 @@ html, body {
 .timelineEntryOrganization {
   font-weight: 800;
   font-style: italic;
-  color: #cccccc;
+  color: var(--text-faint);
   font-size: 1rem;
   text-align: right;
   white-space: nowrap;
@@ -246,7 +246,7 @@ html, body {
   margin-top: 7rem;
   margin-bottom: 4rem;
   text-align: center;
-  color: #cccccc;
+  color: var(--text-faint);
 }
 
 .contactIconsWrapper {

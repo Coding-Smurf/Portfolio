@@ -5,29 +5,69 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-
-  /* Use CSS variables for easier theming */
-  --color-text-light: #e4e4e4;
+  /* Theme colours (light is the default; dark overrides them below).
+     Note: --color-bg-dark is the page background and --color-bg-light the main
+     text colour; the names are historical. */
+  --color-text-light: #213547;
   --color-text-dark: #213547;
 
   --color-bg-light: #213547;
   --color-bg-dark: #eeeeee;
 
+  /* Neumorphic shadows: one dark, one light */
+  --shadow-dark: rgba(0, 0, 0, 0.16);
+  --shadow-light: rgba(255, 255, 255, 1);
+
+  /* Text greys */
+  --text-strong: #303030;
+  --text-soft: #454545;
+  --text-muted: #6f6f6f;
+  --text-faint: #cccccc;
+  --border-soft: #cccccc;
+  --nav-link: #333333;
+  --nav-link-hover: #a8a8a8;
+
   --color-primary: #646cff;
-  --color-primary-hover: #535bf2;
-  --color-primary-hover-light: #747bff;
+  --color-primary-hover: #747bff;
 
-  --color-button-bg-light: #1a1a1a;
-  --color-button-bg-dark: #f9f9f9;
+  --color-button-bg: #f9f9f9;
+  --color-button-text: #213547;
 
-  color: var(--color-text-light);
+  color-scheme: light;
+  color: var(--color-text-dark);
   background-color: var(--color-bg-dark);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark theme: chosen with the toggle at the top right (see hooks/useTheme.js) */
+:root[data-theme='dark'] {
+  --color-text-light: #e6e8eb;
+  --color-text-dark: #e6e8eb;
+
+  --color-bg-light: #e6e8eb;
+  --color-bg-dark: #25282e;
+
+  --shadow-dark: rgba(0, 0, 0, 0.55);
+  --shadow-light: rgba(255, 255, 255, 0.06);
+
+  --text-strong: #eceef1;
+  --text-soft: #c2c6cc;
+  --text-muted: #9097a0;
+  --text-faint: #4c515a;
+  --border-soft: #3b4048;
+  --nav-link: #dcdfe3;
+  --nav-link-hover: #8b919a;
+
+  --color-primary-hover: #8e94ff;
+
+  --color-button-bg: #30343b;
+  --color-button-text: #e6e8eb;
+
+  color-scheme: dark;
 }
 
 /* Scrollbar Track */
@@ -57,8 +97,8 @@
 ::selection {
   background-color: rgba(218, 218, 218, 0.3);
   text-shadow:
-    5px 5px 8px rgba(0, 0, 0, 0.23),
-    -7px -7px 20px rgba(255, 255, 255, 1);
+    5px 5px 8px var(--shadow-dark),
+    -7px -7px 20px var(--shadow-light);
 }
 
 /* Firefox-specific scrollbar styles (limited control) */
@@ -90,6 +130,22 @@ body {
   color: var(--color-text-dark);
 }
 
+/* While the theme is switching (class set for a moment by hooks/useTheme.js), every element
+   fades its colours at the same speed, so the navigation bar and the page change together */
+:root.theme-transition,
+:root.theme-transition *,
+:root.theme-transition *::before,
+:root.theme-transition *::after {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    text-shadow 0.4s ease,
+    fill 0.4s ease,
+    stroke 0.4s ease !important;
+}
+
 
 h1 {
   font-size: clamp(2.5rem, 5vw, 3.2rem); /* responsive font size */
@@ -104,8 +160,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: var(--color-button-bg-light);
-  color: var(--color-text-light);
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
   cursor: pointer;
   transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
 }
@@ -115,29 +171,4 @@ button:focus-visible {
   outline: none; /* focus-visible outline instead */
   background-color: var(--color-primary);
   color: #fff;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: var(--color-text-dark);
-    background-color: var(--color-bg-dark);
-  }
-  a:hover,
-  a:focus-visible {
-    color: var(--color-primary-hover-light);
-    outline-color: var(--color-primary-hover-light);
-  }
-  body {
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-dark);
-  }
-  button {
-    background-color: var(--color-button-bg-dark);
-    color: var(--color-text-dark);
-  }
-  button:hover,
-  button:focus-visible {
-    background-color: var(--color-primary);
-    color: #fff;
-  }
 }

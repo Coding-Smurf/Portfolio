@@ -1,0 +1,119 @@
+{
+  "seo": {
+    "title": "Mi trayectoria",
+    "description": "Formación y experiencia profesional de Adrián Ortiz Ramírez en ingeniería de IA, ciencia de datos y aprendizaje automático."
+  },
+  "hero": {
+    "title": "MI TRAYECTORIA",
+    "subtitle": "Explora mi camino y mis experiencias"
+  },
+  "timelineLabel": "Cronología profesional y académica",
+  "doi": "DOI",
+  "footer": {
+    "contact": "¿Quieres contactar conmigo?",
+    "linkedinAlt": "Icono de LinkedIn",
+    "emailAlt": "Icono de correo"
+  },
+  "entries": {
+    "journalPublication": {
+      "date": "Nov 2025",
+      "title": "Publicación en revista",
+      "organization": "SAUC",
+      "description": "“Object Recognition and Conversational AI in Real-World Contexts” se deriva de mi Trabajo de Fin de Grado en Informática. El trabajo diseña y valida una guía interactiva para museos que combina detección de objetos en tiempo real con Generación Aumentada por Recuperación (RAG), lo que permite conversaciones personalizadas y contextuales en torno al patrimonio cultural.",
+      "citation": "Street Art & Urban Creativity, vol. 11, pp. 21–47 · Publicado el 28 de noviembre de 2025"
+    },
+    "articlePresentation": {
+      "date": "6 nov 2025",
+      "title": "Presentación del artículo",
+      "organization": "FIRA BARCELONA",
+      "description": "Subí al escenario del Smart City Expo World Congress 2025, el principal evento mundial sobre innovación urbana, para presentar mi trabajo sobre reconocimiento de objetos e IA conversacional para experiencias museísticas interactivas.",
+      "citation": "Fira Barcelona Gran Via · Smart City Expo World Congress 2025",
+      "linkLabel": "Smart City Expo World Congress 2025"
+    },
+    "cephalgo": {
+      "date": "Jun 2025 - ...",
+      "title": "Ingeniero de IA",
+      "organization": "Cephalgo",
+      "description": "Lidero el desarrollo y entrenamiento de modelos de voz de aprendizaje profundo, en colaboración con socios clínicos, para identificar signos vocales tempranos asociados principalmente a las enfermedades de Alzheimer y Parkinson, así como a afecciones como la ELA y la enfermedad de Huntington. Mi trabajo previo incluye el desarrollo de un sistema RAG y la dirección de un equipo internacional en análisis y cumplimiento normativo de modelos de IA multiagente.",
+      "citation": "Aprendizaje profundo · Análisis de voz · RAG · Sistemas multiagente · Evaluación de modelos · Fine-tuning",
+      "linkLabel": "cephalgo.com"
+    },
+    "cybersecurityDiploma": {
+      "date": "Jun 2025",
+      "title": "Diploma en Ciberseguridad y Hacking Ético",
+      "organization": "UFV",
+      "description": "Completé una especialización práctica en ciberseguridad junto a mi grado en Informática, que abarcó hacking ético y pruebas de penetración, análisis forense digital, desarrollo seguro con OWASP, administración de sistemas y seguridad en entornos web, móviles e IoT.",
+      "citation": "Pentesting · Análisis forense digital · OWASP · Seguridad web, móvil e IoT · Blockchain",
+      "linkLabel": "Programa oficial de la UFV"
+    },
+    "bachelor": {
+      "date": "Jun 2025",
+      "title": "Grado en Ingeniería Informática",
+      "organization": "UFV",
+      "description": "Completé un grado de cuatro años en Informática e Ingeniería, con una base sólida en algoritmia, matemáticas, bases de datos, redes de computadores, sistemas operativos, ingeniería del software e inteligencia artificial.",
+      "citation": "Algoritmia · Matemáticas · Bases de datos · Redes · Ingeniería del software · Inteligencia artificial",
+      "linkLabel": "Grado oficial de la UFV"
+    },
+    "nttdata": {
+      "date": "Sep 2024 - Jun 2025",
+      "title": "Prácticas en Datos y Analítica",
+      "organization": "NTTDATA",
+      "description": "Trabajé en la intersección entre los datos y la IA generativa, convirtiendo grandes colecciones de documentos técnicos complejos de grandes compañías energéticas en conocimiento accesible y fiable. Combiné OCR y extracción estructurada con pipelines RAG cuidadosamente diseñados y LLMs de primera generación para producir respuestas fundamentadas. Más allá de la entrega de proyectos, investigué prácticas emergentes de prompt engineering y las condensé en sesiones internas de conocimiento, lo que permitió a los equipos adoptar formas más eficaces de trabajar con LLMs.",
+      "citation": "RAG · IA documental · OCR · Extracción estructurada · Bases de datos vectoriales · Recuperación avanzada · Prompt engineering",
+      "linkLabel": "NTT DATA"
+    },
+    "excellence": {
+      "date": "Jul 2024",
+      "title": "Reconocimiento a la excelencia académica",
+      "organization": "UFV",
+      "description": "Reconocido por la dirección del grado en Informática e Ingeniería por situarme entre los cinco mejores estudiantes de mi promoción durante el curso 2023/2024, reflejo de un rendimiento académico sostenido, dedicación y compromiso con la excelencia.",
+      "citation": "Top 5 de la promoción · Curso 2023/2024",
+      "linkLabel": "Informática e Ingeniería en la UFV"
+    },
+    "cisti": {
+      "date": "Jun 2024",
+      "title": "Presentación en congreso internacional",
+      "organization": "CISTI",
+      "description": "Coautor y ponente de ALPACA en CISTI 2024, la 19.ª Conferencia Ibérica de Sistemas y Tecnologías de la Información. El proyecto exploró cómo una aplicación móvil podría reducir el desperdicio de comida en los hogares convirtiendo los datos de la despensa, escaneados por código de barras, en seguimiento de caducidades y sugerencias personalizadas de recetas.",
+      "citation": "Universidad de Salamanca · 25–28 de junio de 2024 · Congreso internacional de investigación",
+      "linkLabel": "Resumen de ALPACA en la conferencia",
+      "secondaryLinkLabel": "Programa de CISTI 2024"
+    },
+    "hackforgood": {
+      "date": "Mar 2024",
+      "title": "Hackathon HackForGood",
+      "organization": "Telefónica",
+      "description": "Seleccionado como uno de los proyectos premiados en la edición de Madrid de HackForGood 2024, el mayor hackathon de España, celebrado en el campus 42 Madrid de Telefónica. Nuestro equipo ideó una aplicación tecnológica para ayudar a las personas antes y durante desastres meteorológicos, convirtiendo un reto social en una solución digital práctica.",
+      "citation": "Proyecto premiado · 42 Madrid · Cerca de 1.000 participantes en 16 ciudades · 48 horas",
+      "linkLabel": "Cobertura de Fundación Telefónica"
+    },
+    "adabyron": {
+      "date": "Mar 2024",
+      "title": "Programación competitiva “AdaByron”",
+      "organization": "uc3m",
+      "description": "Seleccionado como uno de los estudiantes que representaron a la UFV en la 10.ª edición de Madrid del Concurso de Programación Universitario Ada Byron, compitiendo como miembro de ByteHunters en un reto algorítmico por equipos organizado por la Universidad Carlos III de Madrid.",
+      "citation": "Representante de la UFV · Equipo ByteHunters · 10.ª edición de Madrid",
+      "linkLabel": "Equipos participantes oficiales"
+    },
+    "mentor": {
+      "date": "Sep 2022 - Jun 2023",
+      "title": "Mentor voluntario · UniDiversidad",
+      "organization": "Fundación ONCE",
+      "description": "Mentoricé a jóvenes adultos con discapacidad intelectual mientras desarrollaban las habilidades digitales necesarias para futuros puestos en revisión de accesibilidad web. Ayudé a los participantes a ganar confianza con herramientas de software prácticas y a entender cómo se evalúan las interfaces digitales según los requisitos legales y las pautas de accesibilidad reconocidas.",
+      "citation": "Inclusión digital · Accesibilidad web · Mentoría · Empleabilidad",
+      "linkLabel": "Fundación ONCE · Universidad y Discapacidad"
+    },
+    "english": {
+      "date": "Mar 2021",
+      "title": "Inglés C2 (Proficiency)",
+      "organization": "Cambridge",
+      "description": "Obtuve el nivel C2 de inglés, que acredita una comunicación avanzada en contextos académicos y profesionales."
+    },
+    "french": {
+      "date": "Mar 2019",
+      "title": "Francés B1 DELF",
+      "organization": "République Française",
+      "description": "Obtuve la titulación DELF B1, que certifica la capacidad de comunicarse con autonomía en francés."
+    }
+  }
+}

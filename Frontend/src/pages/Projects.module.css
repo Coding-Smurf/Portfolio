@@ -1,4 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500&family=IM+Fell+English:ital@0;1&display=swap');
+
+/* Dark theme palette for this page (the sheet is rendered in a portal, so it is listed too) */
+:global(:root[data-theme='dark']) .container,
+:global(:root[data-theme='dark']) .overlay {
+  --paper: #1d1c1a;
+  --ink: #ebe7df;
+  --ink-soft: #a8a196;
+}
+
 .container {
+  --paper: #f4f3ef;
+  --ink: #1a1816;
+  --ink-soft: #57504a;
+
   display: flex;
   min-height: 100vh;
   width: 90vw;
@@ -6,12 +20,35 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'IM Fell English', Georgia, serif;
+  color: var(--ink);
+}
+
+/* Soft off-white page covering the whole viewport */
+.container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--paper);
+}
+
+/* Visually hidden: takes no space and cannot be seen, but stays in the DOM text */
+.agentNote {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 .landingContent {
   width: 100%;
-  padding: 0rem;
+  padding: 9.5rem 0 2.5rem;
   min-height: calc(100vh - 6rem);
   display: flex;
   flex-direction: column;
@@ -19,18 +56,6 @@
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
-}
-
-.landingContent p {
-  font-size: 1.125rem;
-  font-weight: 400;
-  color: #cccccc;
-  margin-top: 1rem;
-}
-
-.landingContent h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
 }
 
 .fadeIn {
@@ -43,55 +68,826 @@ html, body {
   padding: 0;
 }
 
-.hero {
-  position: relative;        /* allows absolute positioning inside */
-  height: 100vh;
+.title {
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--ink);
+  margin: 0 0 2rem;
+}
+
+.lede {
+  max-width: 22rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+}
+
+/* Curved carousel: cards sit on an arc in 3D space */
+.stage {
+  --cw: 240px;
+  --ch: 300px;
+
+  position: relative;
   width: 100%;
+  /* extra room below the cards so their shadows are not clipped by overflow: hidden */
+  height: calc(var(--ch) + var(--top) + 3.5rem);
+  perspective: 1600px;
+  perspective-origin: 50% 40%;
+  /* not clipped: the card shadows may spill below (.viewport already clips the sides) */
+  overflow: visible;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+}
+
+.stage:focus-visible {
+  outline: 1px solid var(--ink-soft);
+  outline-offset: -4px;
+}
+
+.dragging {
+  cursor: grabbing;
+}
+
+/* Two carousels share one grid cell. The inactive one swings away to the side
+   (and the other swings in), like turning to another carousel. */
+.viewport {
+  position: relative;
+  padding-top: 1.6rem;
+  display: grid;
+  width: 100%;
+  overflow-x: clip;
+  perspective: 2200px;
+}
+
+.pane {
+  grid-area: 1 / 1;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* centers h1 + subtitle vertically */
   align-items: center;
+  min-width: 0;
+  transition:
+    transform 0.9s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.9s ease,
+    filter 0.9s ease,
+    visibility 0s;
+}
+
+.paneLeft,
+.paneRight {
+  opacity: 0;
+  filter: blur(6px);
+  visibility: hidden;
+  pointer-events: none;
+  /* stay visible until the swing has finished, then hide */
+  transition:
+    transform 0.9s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.9s ease,
+    filter 0.9s ease,
+    visibility 0s 0.9s;
+}
+
+.paneLeft {
+  transform: translateX(-115%) rotateY(40deg) scale(0.8);
+}
+
+.paneRight {
+  transform: translateX(115%) rotateY(-40deg) scale(0.8);
+}
+
+/* Back button of a collection: sits in the top padding of .viewport, above the carousels */
+.backBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.backBarShown {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* A collection card shows a small grid of its projects */
+.mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+  background: var(--paper, #f4f3ef);
+}
+
+.mosaic > * {
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pane,
+  .paneLeft,
+  .paneRight {
+    transition: opacity 0.3s ease, visibility 0s;
+  }
+  .paneLeft,
+  .paneRight {
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Small caption above the centred card */
+.tag {
+  position: absolute;
+  top: 0.6rem;
+  left: 0;
+  right: 0;
+  margin: 0;
   padding: 0 1rem;
   text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  pointer-events: none;
+  animation: detailIn 0.6s ease;
 }
 
-.hero h1 {
-  font-size: 10rem;
-  color: var(--color-bg-dark);
-  text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
-  margin: 0;
+.ring {
+  position: absolute;
+  top: var(--top);
+  left: 0;
+  width: 100%;
+  height: var(--ch);
+  transform-style: preserve-3d;
 }
 
-.hero h1,
-.hero p:first-of-type {
+.card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--cw);
+  height: var(--ch);
+  margin-left: calc(var(--cw) / -2);
+  backface-visibility: hidden;
+  transition:
+    transform 0.6s cubic-bezier(0.22, 0.8, 0.3, 1),
+    opacity 0.6s ease,
+    filter 0.6s ease,
+    box-shadow 0.6s ease;
+}
+
+.dragging .card {
+  transition: none;
+}
+
+.cardActive {
+  cursor: pointer;
+}
+
+.card img,
+.plate {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+
+/* Black-and-white image; the colour is painted over it on a canvas near the pointer */
+.trail {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.trail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+.trail canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Placeholders in the carousel: also black and white; only the centred card
+   gets its colour back on hover, and it lingers a little */
+.card > .plate,
+.mosaic > * {
+  filter: grayscale(1);
+  transition: filter 1.4s ease;
+}
+
+.cardActive > .plate:hover,
+.cardActive .mosaic > *:hover {
+  filter: none;
+  transition-duration: 0.25s;
+}
+
+/* Placeholder plates, printed-looking until real images exist */
+.plate {
+  position: relative;
+}
+
+.plate::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.3  0 0 0 0 0.25  0 0 0 0 0.2  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+}
+
+.plateDusk {
+  background:
+    radial-gradient(circle at 70% 25%, #e8b27a 0, rgba(232, 178, 122, 0) 35%),
+    linear-gradient(160deg, #3b3a4a 0%, #7b5e57 55%, #c58a5c 100%);
+}
+
+.plateMoss {
+  background:
+    radial-gradient(circle at 30% 70%, #d9d29a 0, rgba(217, 210, 154, 0) 40%),
+    linear-gradient(200deg, #2f3d2a 0%, #55693c 60%, #8a8f4f 100%);
+}
+
+.plateClay {
+  background:
+    radial-gradient(circle at 60% 30%, #f0d9bd 0, rgba(240, 217, 189, 0) 38%),
+    linear-gradient(140deg, #5a3a2e 0%, #a4593a 55%, #d99b6c 100%);
+}
+
+.plateSlate {
+  background:
+    radial-gradient(circle at 25% 30%, #c9d3d6 0, rgba(201, 211, 214, 0) 38%),
+    linear-gradient(170deg, #27323a 0%, #4d6270 60%, #8fa3ad 100%);
+}
+
+/* Details of the active project */
+.detailStack {
+  position: relative; /* paints above the card shadows that spill down */
+  display: grid;
+  width: min(28rem, 100%);
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+.detail {
+  grid-area: 1 / 1;
+}
+
+.detailActive {
+  animation: detailIn 0.6s ease;
+}
+
+.detailHidden {
+  visibility: hidden;
+}
+
+@keyframes detailIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.counter {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+}
+
+.detail h2 {
+  margin: 0 0 0.6rem;
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 500;
+  font-size: 1.9rem;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+/* Star rating: outlined stars with a filled layer clipped to the rating */
+.stars {
+  display: inline-flex;
+  gap: 0.3rem;
+  color: var(--ink, #1a1816);
+  vertical-align: middle;
+}
+
+.star {
+  position: relative;
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* ink-bleed roughness comes from the #ink-rough filter defined in Projects.jsx */
+.star svg {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  flex: none;
+  filter: url(#ink-rough);
+}
+
+.star path {
+  stroke: currentColor;
+  stroke-width: 0.9;
+  stroke-linejoin: miter;
+}
+
+.starEmpty path {
+  fill: none;
+  opacity: 0.45;
+}
+
+.starFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.starFill path {
+  fill: currentColor;
+}
+
+.detail .stars {
+  margin-bottom: 0.7rem;
+}
+
+.detail h2 {
+  margin-bottom: 0.45rem;
+}
+
+.blurb,
+.details {
   margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+
+.details {
+  margin-top: 0.4rem;
+  color: var(--ink-soft);
+}
+
+/* Plain text buttons (override the global button styles) */
+.arrow {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--ink);
+  font-family: inherit;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.arrow:hover,
+.arrow:focus-visible {
+  border-color: transparent;
+  background: none;
+  color: var(--ink);
+  opacity: 0.6;
+  outline: none;
+}
+
+/* Prev / next arrows at the sides of the carousel, level with the centred card */
+.carousel {
+  --top: 3rem; /* space above the cards, for the caption */
+  position: relative;
+  width: 100%;
+}
+
+.navArrow {
+  position: absolute;
+  top: calc(var(--top) + var(--ch) / 2);
+  transform: translateY(-50%);
+  z-index: 2;
+  padding: 0.5rem 0;
+  white-space: nowrap;
+}
+
+/* just outside the visible row of cards (--edge is its reach from the middle),
+   but never further out than the screen edge */
+.navPrev {
+  right: min(calc(50% + var(--edge) + 0.5rem), calc(100% - 5.5rem));
+}
+
+.navNext {
+  left: min(calc(50% + var(--edge) + 0.5rem), calc(100% - 5.5rem));
+}
+
+.arrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+/* Project sheet: rendered in a portal, so it defines its own variables */
+.overlay {
+  --paper: #f4f3ef;
+  --ink: #1a1816;
+  --ink-soft: #57504a;
+
+  position: fixed;
+  inset: 0;
+  z-index: 1100; /* above the navigation bar and the preferences */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(26, 24, 22, 0.55);
+  font-family: 'IM Fell English', Georgia, serif;
+  color: var(--ink);
+  animation: overlayIn 0.4s ease both;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sheet {
+  position: relative;
+  display: flex;
+  width: min(62rem, 100%);
+  max-height: 100%;
+  background: var(--paper);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.5);
+  /* curtain reveal from the middle */
+  animation: sheetIn 0.8s cubic-bezier(0.22, 0.8, 0.3, 1) both;
+}
+
+.sheetScroll {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+  /* rows keep the height of their content: without this, the image row (overflow hidden)
+     is squeezed to nothing when the text is taller than the screen and the image overlaps it */
+  grid-auto-rows: max-content;
+  align-content: start;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4rem 3.5rem 3.5rem;
+}
+
+@keyframes sheetIn {
+  from { clip-path: inset(50% 0 50% 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 1;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  padding: 0;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.close:hover,
+.close:focus-visible {
+  border-color: transparent;
+  background: none;
+  color: var(--ink);
+  opacity: 0.6;
+  outline: none;
+}
+
+.sheetImage {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 18px 30px -14px rgba(26, 24, 22, 0.45);
+  animation: imageIn 1.2s cubic-bezier(0.22, 0.8, 0.3, 1) 0.2s both;
+}
+
+.sheetImage img,
+.sheetImage .plate {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes imageIn {
+  from { transform: scale(1.12); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Text fades up one line after another */
+.sheetText > * {
+  animation: textIn 0.7s ease both;
+}
+
+.sheetText > :nth-child(1) { animation-delay: 0.45s; }
+.sheetText > :nth-child(2) { animation-delay: 0.55s; }
+.sheetText > :nth-child(3) { animation-delay: 0.65s; }
+.sheetText > :nth-child(4) { animation-delay: 0.75s; }
+.sheetText > :nth-child(5) { animation-delay: 0.85s; }
+.sheetText > :nth-child(6) { animation-delay: 0.95s; }
+.sheetText > :nth-child(7) { animation-delay: 1.05s; }
+
+@keyframes textIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sheetText {
+  text-align: left;
+}
+
+.sheetText h2 {
+  margin: 0 0 0.5rem;
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+}
+
+.sheetMeta {
+  margin: 0 0 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+.sheetRating {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.sheetRating .stars {
+  color: var(--ink);
+}
+
+.sheetBody p {
+  margin: 0 0 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.sheetBody a {
+  color: inherit;
+  font-weight: 400;
+  border-bottom: 1px solid currentColor;
+}
+
+.sheetBody a:hover,
+.sheetBody a:focus-visible {
+  color: inherit;
+  outline: none;
+  opacity: 0.6;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.tags li {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--ink) 50%, transparent);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.links a {
+  color: var(--ink);
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+}
+
+.links a:hover,
+.links a:focus-visible {
+  color: var(--ink);
+  outline: none;
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .sheet,
+  .sheetImage,
+  .sheetText > * {
+    animation: none;
+  }
+}
+
+.closing {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  font-style: italic;
+}
+
+.closing a {
+  color: var(--ink);
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--ink);
+}
+
+.closing a:hover,
+.closing a:focus-visible {
+  color: var(--ink);
+  outline: none;
+  opacity: 0.6;
 }
 
 /* Responsive adjustments */
-@media (max-width: 1200px) {
-  .hero h1 {
-    font-size: 7rem;
+
+/* Narrower than a laptop there is no room beside the cards: the arrows move to the
+   row under them, at the left and right, with the counter between */
+@media (max-width: 1100px) {
+  .navArrow {
+    top: calc(var(--top) + var(--ch) + 3.2rem);
+    padding: 0.4rem 0;
+  }
+  .navPrev {
+    right: auto;
+    left: 1.25rem;
+  }
+  .navNext {
+    left: auto;
+    right: 1.25rem;
+  }
+}
+
+/* Tablet: the sheet keeps its two columns, just tighter */
+@media (max-width: 1024px) {
+  .sheetScroll {
+    gap: 2rem;
+    padding: 3.5rem 2.5rem 2.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    padding: 0 2rem;
+  .landingContent {
+    padding: 8rem 1.5rem 2rem;
   }
-  .hero h1 {
-    font-size: 4rem;
+  /* let the carousels use the page padding so side cards are not cut off */
+  .viewport {
+    width: calc(100% + 3rem);
   }
-  .landingContent p {
-    font-size: 1rem;
-    padding: 0 1rem;
+  .lede {
+    max-width: 20rem;
+    font-size: 0.9rem;
+  }
+  .detail h2 {
+    font-size: 1.6rem;
+  }
+  /* the sheet becomes a single column */
+  .overlay {
+    padding: 1rem;
+  }
+  .sheetScroll {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3.5rem 1.5rem 2rem;
+  }
+  .sheetImage {
+    max-width: 18rem;
+    margin: 0 auto;
   }
 }
 
+/* Phone */
 @media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2.5rem;
+  .landingContent {
+    padding: 7.5rem 1rem 1.5rem;
   }
-  .landingContent p {
+  .viewport {
+    width: calc(100% + 2rem);
+  }
+  .lede {
+    max-width: 17rem;
+    margin-bottom: 0.5rem;
+  }
+  .carousel {
+    --top: 3.9rem; /* the caption can wrap to two lines */
+  }
+  .tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+  .navArrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+  .detail h2 {
+    font-size: 1.4rem;
+  }
+  .blurb,
+  .details {
+    font-size: 0.85rem;
+    padding: 0 0.25rem;
+  }
+  /* the sheet fills the screen */
+  .overlay {
+    padding: 0;
+  }
+  .sheet {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
+  .sheetScroll {
+    gap: 1.5rem;
+    padding: 3.25rem 1.25rem 1.75rem;
+  }
+  .sheetImage {
+    max-width: 14rem;
+  }
+  .sheetBody p {
     font-size: 0.9rem;
+    text-align: left;
+  }
+  /* text scrolls underneath the close button, so give it a background */
+  .close {
+    top: 0.75rem;
+    right: 1rem;
+    padding: 0.3rem 0.5rem;
+    background: var(--paper);
   }
 }

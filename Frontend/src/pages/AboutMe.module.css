@@ -24,7 +24,7 @@
 .landingContent p {
   font-size: 1.125rem;
   font-weight: 400;
-  color: #cccccc;
+  color: var(--text-faint);
   margin-top: 1rem;
 }
 
@@ -58,7 +58,7 @@ html, body {
 .hero h1 {
   font-size: 10rem;
   color: var(--color-bg-dark);
-  text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  text-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
   margin: 0;
 }
 
@@ -74,7 +74,7 @@ html, body {
   height: 60px;
   background-color: var(--color-bg-dark);
   border-radius: 4px;
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  box-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
   transition: opacity 0.5s, transform 0.5s;
 }
 
@@ -117,7 +117,7 @@ html, body {
   height: 200px;
   border-radius: 50%;
   overflow: hidden; 
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-soft);
   flex-shrink: 0;
   position: relative; /* Para posicionar la imagen dentro */
 }
@@ -222,7 +222,7 @@ html, body {
 /* Opcional: Estilo para los iconos */
 .personalInfoSection span {
   font-size: 27px;         /* Ajusta el tamaño del icono */
-  color: #727171;             /* Un gris oscuro, o el color que prefieras */
+  color: var(--text-muted);             /* Un gris oscuro, o el color que prefieras */
   flex-shrink: 0;          /* Evita que el icono se aplaste si el texto es largo */
 }
 
@@ -256,7 +256,7 @@ html, body {
 
 .hashtagsContainer div{
   background-color: var(--color-bg-dark);
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  box-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
   padding: 0px;
   border-radius: 20px;
   font-size: 1rem;

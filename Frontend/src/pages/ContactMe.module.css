@@ -37,7 +37,7 @@
 .landingContent p {
   font-size: 1.125rem;
   font-weight: 400;
-  color: #cccccc;
+  color: var(--text-faint);
   margin-top: 1rem;
 }
 
@@ -62,7 +62,7 @@ html, body {
 .hero h1 {
   font-size: 5rem;
   color: var(--color-bg-dark);
-  text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  text-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
   margin: 0;
 }
 
@@ -108,7 +108,7 @@ html, body {
 .infoTitle {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #000000;
+  color: var(--text-strong);
   margin-bottom: 0.25rem;
 }
 
@@ -154,7 +154,7 @@ html, body {
   font-weight: 700;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.16), -3px -3px 5px rgba(255, 255, 255, 1);
+  box-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
   box-sizing: border-box;
 }
 
@@ -169,7 +169,7 @@ html, body {
   outline: none;
   background: var(--color-bg-dark);
   font-size: 1rem;
-  color: #000000;
+  color: var(--text-strong);
   font-family: inherit;
   transition: border-bottom-color 0.3s ease;
   resize: none;
@@ -182,12 +182,12 @@ html, body {
 .formColumn input.hasContent,
 .formColumn textarea.hasContent {
   background: var(--color-bg-dark);
-  border-bottom-color: #000000;
+  border-bottom-color: var(--text-strong);
 }
 
 .formColumn input::placeholder,
 .formColumn textarea::placeholder {
-  color: #cccccc;
+  color: var(--text-faint);
   opacity: 1;
 }
 
@@ -200,7 +200,7 @@ html, body {
   cursor: pointer;
   transition: opacity 0.3s ease, cursor 0.3s ease;
   text-align: right;
-  color: #000000;
+  color: var(--text-strong);
   font-weight: 700;
   width: fit-content;
   align-self: flex-end;

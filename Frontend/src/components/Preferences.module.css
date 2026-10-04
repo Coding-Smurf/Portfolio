@@ -1,0 +1,94 @@
+/* Fixed at the top right, vertically centred on the navigation bar (which is 55px tall at top: 50px) */
+.preferences {
+  position: fixed;
+  top: 50px;
+  right: 1.5rem;
+  height: 55px;
+  /* above the navigation bar, whose full-width background (z-index 1000) would otherwise hide it */
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ========== LANGUAGE SELECTOR ========== */
+.languages {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 20px;
+  background: var(--color-bg-dark);
+  box-shadow: 3px 3px 5px var(--shadow-dark), -2px -2px 4px var(--shadow-light);
+}
+
+/* Plain buttons: they override the global button styles (including hover and focus) */
+.languageButton,
+.themeButton {
+  border: 0;
+  background: none;
+  color: var(--color-bg-light);
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.languageButton {
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0.55;
+}
+
+.languageButton:hover,
+.languageButton:focus-visible {
+  border: 0;
+  background: none;
+  color: var(--color-bg-light);
+  opacity: 1;
+  outline: none;
+}
+
+/* the selected language looks pressed in */
+.languageButton.active {
+  opacity: 1;
+  box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+}
+
+/* ========== THEME TOGGLE ========== */
+.themeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--color-bg-dark);
+  box-shadow: 3px 3px 5px var(--shadow-dark), -2px -2px 4px var(--shadow-light);
+}
+
+.themeButton:hover,
+.themeButton:focus-visible {
+  border: 0;
+  background: var(--color-bg-dark);
+  color: var(--color-bg-light);
+  outline: none;
+  box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+}
+
+.themeButton span {
+  font-size: 20px;
+}
+
+/* ========== RESPONSIVE ========== */
+/* Not enough room beside the navigation bar: sit above it instead */
+@media screen and (max-width: 1100px) {
+  .preferences {
+    top: 6px;
+    right: 1rem;
+    height: auto;
+  }
+}

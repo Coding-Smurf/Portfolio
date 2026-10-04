@@ -33,10 +33,10 @@ export default defineConfig({
   // El repositorio se publica como proyecto de GitHub Pages en /Portfolio/.
   base: '/Portfolio/',
   server: {
+    host: '0.0.0.0',
+    port: 5173,
     watch: {
       usePolling: true,
     },
-    port: 5173,
-    host: true,
   },
 })

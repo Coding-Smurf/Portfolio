@@ -1,0 +1,31 @@
+{
+  "seo": {
+    "title": "Contacto",
+    "description": "Ponte en contacto con Adrián Ortiz Ramírez para colaboraciones, oportunidades laborales o una charla amistosa."
+  },
+  "hero": {
+    "title": "CONTACTO",
+    "subtitle": "¡Escríbeme para colaborar o simplemente para charlar!"
+  },
+  "info": {
+    "phone": "TELÉFONO",
+    "email": "CORREO",
+    "linkedin": "LINKEDIN",
+    "address": "DIRECCIÓN",
+    "addressValue": "Madrid, España"
+  },
+  "form": {
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "subject": "Asunto",
+    "subjectPlaceholder": "Asunto",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "Tu correo electrónico",
+    "message": "Mensaje",
+    "messagePlaceholder": "Tu mensaje...",
+    "send": "ENVIAR →",
+    "sending": "ENVIANDO...",
+    "success": "¡Mensaje enviado correctamente! ✓",
+    "error": "No se pudo enviar el mensaje. Inténtalo de nuevo."
+  }
+}

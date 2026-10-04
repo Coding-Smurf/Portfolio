@@ -1,0 +1,34 @@
+{
+  "seo": {
+    "title": "Ingeniero de IA",
+    "description": "Trayectoria, habilidades y pasiones de Adrián Ortiz Ramírez, ingeniero de IA e informático afincado en Madrid."
+  },
+  "hero": {
+    "title": "SOBRE MÍ",
+    "subtitle": "Descubre más sobre mi trayectoria, mis habilidades y mis pasiones",
+    "scroll": "Desliza"
+  },
+  "intro": {
+    "role": "Informático",
+    "name": "Adrián Ortiz Ramírez",
+    "p1": "¡Hola! Soy Adrián y actualmente trabajo como ingeniero de IA. Últimamente me he centrado en llevar al mundo real el reconocimiento de emociones en el habla, la evaluación del cumplimiento normativo de la IA y la IA aplicada a la psicología.",
+    "p2": "Me encanta hacer que las cosas parezcan sencillas."
+  },
+  "info": {
+    "title": "Sobre mí",
+    "age": "22 años.",
+    "degree": "Grado en Informática. Especialidad en Ciberseguridad.",
+    "languages": "Español (nativo). Inglés (C2).",
+    "location": "Madrid, España."
+  },
+  "hashtags": {
+    "title": "Hashtags que me encantan",
+    "items": [
+      "#Ciencia de Datos",
+      "#Aprendizaje Automático",
+      "#Aprendizaje Profundo",
+      "#Resolver Problemas Reales",
+      "#Siempre Aprendiendo"
+    ]
+  }
+}

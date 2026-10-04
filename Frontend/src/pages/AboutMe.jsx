@@ -3,9 +3,12 @@
 import NavigationBar from '../components/NavigationBar.jsx';
 import Seo from '../components/Seo.jsx';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import fraktur from '../utils/fraktur.js';
 import styles from './AboutMe.module.css';
 
 export default function AboutMe() {
+  const { t } = useTranslation('about');
   const [fadeStarted, setFadeStarted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -43,7 +46,7 @@ export default function AboutMe() {
     <main className={styles.container}>
 
       {/* Navigation Bar */}
-      <Seo title="AI Engineer" path="AboutMe" description="Background, skills and passions of Adrián Ortiz Ramírez, AI engineer and computer scientist based in Madrid." />
+      <Seo title={t('seo.title')} path="AboutMe" description={t('seo.description')} />
       <NavigationBar currentPage="AboutMe" />
       {/* Navigation Bar */}
 
@@ -51,10 +54,10 @@ export default function AboutMe() {
         
         {/* Fullscreen Hero */}
         <section className={styles.hero}>
-          <h1>ABOUT ME</h1>
-          <p>𝕲𝖊𝖙 𝖙𝖔 𝖐𝖓𝖔𝖜 𝖒𝖔𝖗𝖊 𝖆𝖇𝖔𝖚𝖙 𝖒𝖞 𝖇𝖆𝖈𝖐𝖌𝖗𝖔𝖚𝖓𝖉, 𝖘𝖐𝖎𝖑𝖑𝖘, 𝖆𝖓𝖉 𝖕𝖆𝖘𝖘𝖎𝖔𝖓𝖘</p>
+          <h1>{t('hero.title')}</h1>
+          <p>{fraktur(t('hero.subtitle'))}</p>
           <div className={`${styles.heroSeparator} ${scrolled ? styles.hidden : ''}`}></div>
-          <p className={scrolled ? styles.hidden : ''}>Scroll</p>
+          <p className={scrolled ? styles.hidden : ''}>{t('hero.scroll')}</p>
         </section>
         {/* Fullscreen Hero */}
 
@@ -64,58 +67,48 @@ export default function AboutMe() {
           {/* Intro Section */}
           <section className={styles.introSection}>
             <div className={styles.imageWrapper}>
-              <img src={`${import.meta.env.BASE_URL}images/other/AdrianOrtizRamirez.png`} alt="Adrián Ortiz Ramírez" className={styles.profileImage}/>
+              <img src={`${import.meta.env.BASE_URL}images/other/AdrianOrtizRamirez.png`} alt={t('intro.name')} className={styles.profileImage}/>
             </div>
             <div className={styles.textColumn}>
-              <p>Computer Scientist</p>
-              <h2>Adrián Ortiz Ramírez</h2>
-              <p>Hi there! I’m Adrián and I’m currently working as an AI engineer. Lately, I’ve been focused on bringing Speech Emotion Recognition, AI Compliance Evaluation and Psychology AI into the real world.</p>
-              <p>I love making things look simple.</p>
+              <p>{t('intro.role')}</p>
+              <h2>{t('intro.name')}</h2>
+              <p>{t('intro.p1')}</p>
+              <p>{t('intro.p2')}</p>
             </div>
           </section>
           {/* Intro Section */}
 
           {/* Personal Info Section */}
           <section className={styles.personalInfoSection}>
-            <h3>About Me</h3>
+            <h3>{t('info.title')}</h3>
             <div>
               <span className="material-symbols-rounded">person</span>
-              <p>22 Years old.</p>
+              <p>{t('info.age')}</p>
             </div>
             <div>
               <span className="material-symbols-rounded">school</span>
-              <p>BSc in Computer Science. Specialty in Cybersecurity.</p>
+              <p>{t('info.degree')}</p>
             </div>
             <div>
               <span className="material-symbols-rounded">language_chinese_dayi</span>
-              <p>Spanish (Native). English (C2).</p>
+              <p>{t('info.languages')}</p>
             </div>
             <div>
               <span className="material-symbols-rounded">location_on</span>
-              <p>Madrid, Spain.</p>
+              <p>{t('info.location')}</p>
             </div>
           </section>
           {/* Personal Info Section */}
 
           {/* Hashtags Section */}
           <section className={styles.hashtagsSection}>
-            <h3>Hashtags i love</h3>
+            <h3>{t('hashtags.title')}</h3>
             <div className={styles.hashtagsContainer}>
-              <div>
-                <p>#Data Science</p>
-              </div>
-              <div>
-                <p>#Machine Learning</p>
-              </div>
-              <div>
-                <p>#Deep Learning</p>
-              </div>
-              <div>
-                <p>#Solving Real Problems</p>
-              </div>
-              <div>
-                <p>#Always Learning</p>
-              </div>
+              {t('hashtags.items', { returnObjects: true }).map((tag) => (
+                <div key={tag}>
+                  <p>{tag}</p>
+                </div>
+              ))}
             </div>
           </section>
           {/* Hashtags Section */}

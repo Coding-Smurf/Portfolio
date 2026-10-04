@@ -3,6 +3,9 @@ FROM node:22 AS builder
 
 WORKDIR /app
 
+COPY package.json package-lock.json* .npmrc* ./
+
+RUN npm install
 COPY package*.json ./
 RUN npm ci
 

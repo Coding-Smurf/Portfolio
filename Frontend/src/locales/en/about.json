@@ -1,0 +1,34 @@
+{
+  "seo": {
+    "title": "AI Engineer",
+    "description": "Background, skills and passions of Adrián Ortiz Ramírez, AI engineer and computer scientist based in Madrid."
+  },
+  "hero": {
+    "title": "ABOUT ME",
+    "subtitle": "Get to know more about my background, skills, and passions",
+    "scroll": "Scroll"
+  },
+  "intro": {
+    "role": "Computer Scientist",
+    "name": "Adrián Ortiz Ramírez",
+    "p1": "Hi there! I’m Adrián and I’m currently working as an AI engineer. Lately, I’ve been focused on bringing Speech Emotion Recognition, AI Compliance Evaluation and Psychology AI into the real world.",
+    "p2": "I love making things look simple."
+  },
+  "info": {
+    "title": "About Me",
+    "age": "22 Years old.",
+    "degree": "BSc in Computer Science. Specialty in Cybersecurity.",
+    "languages": "Spanish (Native). English (C2).",
+    "location": "Madrid, Spain."
+  },
+  "hashtags": {
+    "title": "Hashtags i love",
+    "items": [
+      "#Data Science",
+      "#Machine Learning",
+      "#Deep Learning",
+      "#Solving Real Problems",
+      "#Always Learning"
+    ]
+  }
+}

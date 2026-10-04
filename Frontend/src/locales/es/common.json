@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "aboutMe": "Sobre mí",
+    "projects": "Proyectos",
+    "myJourney": "Mi trayectoria",
+    "contactMe": "Contacto",
+    "menu": "Menú"
+  },
+  "preferences": {
+    "label": "Preferencias",
+    "language": "Idioma",
+    "switchToDark": "Cambiar a tema oscuro",
+    "switchToLight": "Cambiar a tema claro"
+  },
+  "notFound": "Página no encontrada"
+}

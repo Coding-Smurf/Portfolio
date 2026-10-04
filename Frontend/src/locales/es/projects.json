@@ -1,0 +1,146 @@
+{
+  "seo": {
+    "title": "Proyectos",
+    "description": "Proyectos de IA y software de Adrián Ortiz Ramírez, incluidos el reconocimiento de emociones en el habla y la evaluación del cumplimiento normativo de la IA."
+  },
+  "ui": {
+    "title": "PROYECTOS",
+    "ledeBefore": "Una selección de trabajos de ",
+    "ledeEm": "IA y software",
+    "ledeAfter": ", desde Madrid.",
+    "selectedWorks": "Trabajos destacados",
+    "backToAll": "← todos los proyectos",
+    "prev": "← anterior",
+    "next": "siguiente →",
+    "prevAria": "Proyecto anterior",
+    "nextAria": "Proyecto siguiente",
+    "readMore": "leer más",
+    "readMoreAria": "Leer más sobre {{title}}",
+    "openCollection": "abrir colección",
+    "openAria": "Abrir {{title}}",
+    "close": "cerrar ✕",
+    "closeAria": "Cerrar",
+    "myRating": "Mi valoración",
+    "ratedAria": "Valorado con {{rating}} de 5",
+    "number": "N.º",
+    "closingText": "¿Quieres que hagamos algo juntos?",
+    "closingLink": "Ponte en contacto"
+  },
+  "items": {
+    "museum": {
+      "title": "Guía conversacional para museos",
+      "blurb": "La detección de objetos en tiempo real se une a un chatbot RAG para ofrecer a los visitantes del museo una guía que sabe qué están mirando.",
+      "description": [
+        "Un sistema interactivo que lleva la visita al museo más allá del acceso estático y tradicional a la información. Combina detección de objetos en tiempo real con un pipeline de Generación Aumentada por Recuperación (RAG) para ofrecer una guía conversacional contextual, personalizada e inmersiva.",
+        "La validación mostró una comprensión espacial y conversacional precisa, y una mejora significativa en la veracidad y la relevancia de las respuestas frente a las de un LLM estándar.",
+        "Publicado en Street Art & Urban Creativity, vol. 11, n.º 7 (2025), número especial: Smart City World Congress, junto a Álvaro Illana y Marta Salas (UFV).",
+        "También presentado en el escenario del [Smart City Expo World Congress 2025](https://www.smartcityexpo.com/), el principal evento mundial sobre innovación urbana, en Fira Barcelona Gran Via."
+      ],
+      "stack": "Detección de objetos · RAG · IA generativa",
+      "role": "Autor",
+      "status": "Publicado y presentado",
+      "tag": ["Artículo", "Publicado", "Smart City Expo World Congress 2025"],
+      "links": { "doi": "Artículo (DOI)", "pdf": "PDF" }
+    },
+    "robustBiomarkers": {
+      "title": "Biomarcadores de voz robustos",
+      "blurb": "Mantener estables los biomarcadores de voz del Parkinson cuando cambia la cancelación de ruido del teléfono a mitad de un estudio.",
+      "description": [
+        "Una evaluación comparativa de cuatro arquitecturas de clasificación en condiciones simuladas posteriores a una actualización del sistema operativo, usando el [Italian Parkinson’s Voice and Speech Dataset](https://doi.org/10.1109/MeMeA.2016.7533761). Se plantea si los biomarcadores de voz basados en aprendizaje profundo resisten un cambio en el algoritmo de cancelación de ruido del sistema operativo durante la monitorización longitudinal de la enfermedad de Parkinson.",
+        "En seis escenarios de cambio del algoritmo de cancelación de ruido a mitad de estudio, nuestro clasificador de doble pipeline mantuvo la sensibilidad dentro de un margen de 11,3 puntos porcentuales (del 86,4 % al 97,7 %), mientras que las tres arquitecturas de referencia mostraron márgenes de 42 a 46 puntos, unas cuatro veces mayores.",
+        "Seleccionado como póster en la [9.ª Annual Digital Biomarkers in Clinical Trials Summit](https://digitalbiomarkers.panagorapharma.com/) (Basilea, junio de 2026), organizada en colaboración con Roche. La evaluación usó una sola cohorte pública (n = 50, 10 sujetos de test retenidos) y algoritmos simulados por software, por lo que los resultados son evidencia exploratoria y no una validación directa frente a actualizaciones reales del sistema operativo.",
+        "La misma cuestión, aplicada a ensayos de la enfermedad de Alzheimer, también fue aceptada como póster P446 en [CTAD 2026 (Clinical Trials on Alzheimer’s Disease)](https://www.ctad-alzheimer.com/program-0): “Noise-cancellation variability as a source of longitudinal drift in speech-based digital endpoints for Alzheimer’s disease trials”, con Lisa Chiang (Cephalgo, Estrasburgo), quien lo presentó."
+      ],
+      "stack": "Aprendizaje profundo · Biomarcadores de voz · Enfermedad de Parkinson",
+      "role": "Investigación, Cephalgo SAS",
+      "status": "Pósteres aceptados",
+      "tag": ["Póster", "Aceptado", "Digital Biomarkers Summit · CTAD 2026"],
+      "links": { "publications": "Publicaciones de investigación" }
+    },
+    "explainableAlzheimer": {
+      "title": "Cribado explicable del Alzheimer",
+      "blurb": "Cribado de Alzheimer y deterioro cognitivo leve con rasgos de voz que se pueden rastrear hasta lo que miden.",
+      "description": [
+        "Validación de biomarcadores de voz totalmente explicables para el cribado de EA/DCL. Cada rasgo es interpretable y rastreable hasta un constructo acústico o lingüístico concreto, de modo que un resultado se puede explicar y no solo reportar.",
+        "Evaluado con 44 casos de EA/DCL (edad media 80,3) y 44 controles sanos de la misma edad (edad media 80,5), el enfoque alcanzó un AUC de 0,94, con una precisión equilibrada del 89,3 %, una sensibilidad del 92,4 % y una especificidad del 86,3 %.",
+        "Aceptado como ePóster en el [AD/PD™ 2026 International Conference on Alzheimer’s and Parkinson’s Diseases](https://adpd2026.kenes.com/), con Hanyu Peng, en Cephalgo SAS."
+      ],
+      "stack": "IA explicable · Análisis de voz · Enfermedad de Alzheimer",
+      "role": "Investigación, Cephalgo SAS",
+      "status": "ePóster",
+      "tag": ["ePóster", "Aceptado", "AD/PD 2026"],
+      "links": {}
+    },
+    "explainableParkinson": {
+      "title": "Cribado explicable del Parkinson",
+      "blurb": "Una comprobación retrospectiva de que el Parkinson se puede detectar con la voz mediante rasgos que se explican solos.",
+      "description": [
+        "Validación de biomarcadores de voz totalmente explicables para el cribado EP/CS, la contraparte para Parkinson del trabajo sobre Alzheimer. Cada rasgo es interpretable y rastreable hasta un constructo acústico o lingüístico concreto.",
+        "Evaluado de forma retrospectiva con 28 casos de Parkinson (edad media 67,2) y 37 controles sanos (edad media 48,3), el enfoque alcanzó un AUC de 0,97, con una precisión equilibrada del 91,4 %, una sensibilidad del 88,5 % y una especificidad del 96,3 %. La diferencia de edad entre los grupos es un desequilibrio conocido de este conjunto de datos público.",
+        "Seleccionado como ePóster en el [AD/PD™ 2026 International Conference on Alzheimer’s and Parkinson’s Diseases](https://adpd2026.kenes.com/), con Hanyu Peng, en Cephalgo SAS."
+      ],
+      "stack": "IA explicable · Análisis de voz · Enfermedad de Parkinson",
+      "role": "Investigación, Cephalgo SAS",
+      "status": "ePóster",
+      "tag": ["ePóster", "Seleccionado", "AD/PD 2026"],
+      "links": { "parkinson": "Página de Parkinson" }
+    },
+    "alpaca": {
+      "title": "Alpaca",
+      "blurb": "Una app móvil que reduce el desperdicio de comida en casa llevando el control de lo que hay en tu despensa.",
+      "description": [
+        "Alpaca («Control En Tu Despensa») es una app móvil para gestionar la comida del hogar y reducir el desperdicio. Mantiene un registro digital de los productos de la despensa, para que nada se olvide al fondo de un estante, caduque sin darte cuenta o acabe en la basura, y para que dejes de comprar lo que ya tienes.",
+        "Nacida como proyecto universitario de tercer curso, se presentó en la sesión de Health Informatics de [CISTI’2024](https://web.tecnico.ulisboa.pt/~mcasquilho/ist/2024cisti-program.pdf), la 19.ª Conferencia Ibérica de Sistemas y Tecnologías de la Información (Universidad de Salamanca, 25–28 de junio de 2024)."
+      ],
+      "stack": "App móvil · Desperdicio alimentario · Informática de la salud",
+      "role": "Proyecto universitario, 3.º curso",
+      "status": "Presentado",
+      "tag": ["Congreso", "Presentado", "CISTI 2024"],
+      "links": {}
+    },
+    "kaggleStudies": {
+      "title": "Estudios de Kaggle",
+      "blurb": "Un puñado de proyectos pequeños pero profesionales de ciencia de datos.",
+      "stack": "Ciencia de datos · Aprendizaje automático",
+      "year": "En curso",
+      "status": "{{n}} proyectos",
+      "tag": ["Colección", "Kaggle"]
+    },
+    "titanic": {
+      "title": "Titanic",
+      "blurb": "Un modelo XGBoost deliberadamente sencillo para la competición Titanic de Kaggle, con una puntuación de 0,78.",
+      "description": [
+        "Mi participación en la competición de Kaggle [Titanic – Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic): predecir qué pasajeros sobrevivieron al naufragio. El modelo es deliberadamente simple, un único clasificador XGBoost, y alcanzó una puntuación de 0,78.",
+        "Quedó en el puesto 1.753 de 10.599 participantes, lo que lo sitúa aproximadamente en el 16,5 % superior."
+      ],
+      "stack": "Python · XGBoost",
+      "role": "Proyecto individual",
+      "status": "Competición",
+      "links": { "notebook": "Notebook de Kaggle", "competition": "Competición" }
+    },
+    "electricVehicles": {
+      "title": "Vehículos eléctricos",
+      "blurb": "Un modelo XGBoost para una competición Playground de Kaggle sobre predecir la compra de vehículos eléctricos, con 0,94119 de AUC.",
+      "description": [
+        "Mi participación en la competición de Kaggle [Predicting Electric Vehicle Purchases](https://www.kaggle.com/competitions/playground-series-s6e9), parte de la Playground Series (temporada 6, episodio 9).",
+        "Un modelo XGBoost alcanzó un AUC de 0,94119."
+      ],
+      "stack": "Python · XGBoost",
+      "role": "Proyecto individual",
+      "status": "Competición",
+      "links": { "notebook": "Notebook de Kaggle", "competition": "Competición" }
+    },
+    "kagglePlaceholder": {
+      "title": "Título del proyecto",
+      "blurb": "Aquí irá una breve descripción del proyecto de Kaggle, de una o dos líneas como máximo.",
+      "description": [
+        "Texto de relleno: aquí irá una explicación más larga del proyecto. Describe el problema que quería resolver, el enfoque que se siguió y lo que se aprendió por el camino.",
+        "Un segundo párrafo puede cubrir los resultados, las herramientas utilizadas y cualquier cosa que merezca la pena recordar del trabajo."
+      ],
+      "stack": "Python · Pandas · scikit-learn",
+      "role": "Proyecto individual",
+      "status": "Notebook",
+      "links": {}
+    }
+  }
+}

@@ -1,2 +1,75 @@
 # Adrian Ortiz Ramirez's AI Engineering Portfolio
 
+> The site is rendered with JavaScript. This file is the plain-text version of its content.
+> Texts are available in English and Spanish; this file is in English.
+
+## Projects
+
+Page: /Projects. A selection of AI & Software work, from Madrid. The page is a carousel of project cards; opening a card shows the full description. Each project has a "My rating" out of 5 stars, given by the author. The last card is a collection, "Kaggle Studies", which opens a second carousel.
+
+### Museum Conversational Guide
+- Year: 2025. Rating: 5/5. Role: Author. Status: Published and presented.
+- Type: Article, published; presented at Smart City Expo World Congress 2025.
+- Stack: Object Detection, RAG, Generative AI.
+- Summary: Real-time object detection meets a RAG chatbot to give museum visitors a guide that knows what they are looking at.
+- An interactive system that moves museum visits beyond static, traditional access to information. It combines real-time object detection with a Retrieval Augmented Generation pipeline to offer a context-aware, personalised and immersive conversational guide.
+- Validation showed accurate spatial and conversational understanding, and a significant improvement in the veracity and relevance of the answers compared with standard LLM responses.
+- Published in Street Art & Urban Creativity, Vol. 11 No. 7 (2025), Special Issue: Smart City World Congress, with Álvaro Illana and Marta Salas (UFV).
+- Also presented on stage at the Smart City Expo World Congress 2025 (https://www.smartcityexpo.com/), at Fira Barcelona Gran Via.
+- Links: Paper (DOI) https://doi.org/10.62161/sauc.v11.6010 ; PDF https://visualcompublications.es/SAUC/article/view/6010/4435
+
+### Robust Speech Biomarkers
+- Year: 2026. Rating: 5/5. Role: Research, Cephalgo SAS. Status: Accepted posters.
+- Type: Poster, accepted; Digital Biomarkers Summit and CTAD 2026.
+- Stack: Deep Learning, Speech Biomarkers, Parkinson's Disease.
+- Summary: Keeping Parkinson's speech biomarkers stable when a phone's noise cancellation changes mid-study.
+- A comparative evaluation of four classifier architectures under simulated post-OS-update conditions, using the Italian Parkinson's Voice and Speech Dataset (https://doi.org/10.1109/MeMeA.2016.7533761). It asks whether deep-learning speech biomarkers survive a change in the operating system's noise-cancellation algorithm during longitudinal Parkinson's Disease monitoring.
+- Across six mid-study noise-cancellation change scenarios, the dual-pipeline classifier kept sensitivity within an 11.3 percentage-point spread (86.4% to 97.7%), while the three baseline architectures showed spreads of 42 to 46 points, roughly four times wider.
+- Selected as a poster at the 9th Annual Digital Biomarkers in Clinical Trials Summit (https://digitalbiomarkers.panagorapharma.com/), Basel, June 2026, hosted in partnership with Roche. The evaluation used one public cohort (n = 50, 10 held-out test subjects) and software-simulated algorithms, so the results are exploratory evidence rather than direct validation against real OS updates.
+- The same question, applied to Alzheimer's disease trials, was also accepted as poster P446 at CTAD 2026, Clinical Trials on Alzheimer's Disease (https://www.ctad-alzheimer.com/program-0): "Noise-cancellation variability as a source of longitudinal drift in speech-based digital endpoints for Alzheimer's disease trials", with Lisa Chiang (Cephalgo, Strasbourg), who presented it.
+- Link: Research publications https://www.cephalgo.com/speech-analysis/research-publications#methodology
+
+### Explainable Alzheimer's Screening
+- Year: 2026. Rating: 5/5. Role: Research, Cephalgo SAS. Status: ePoster.
+- Type: ePoster, accepted at AD/PD 2026.
+- Stack: Explainable AI, Voice Analysis, Alzheimer's Disease.
+- Summary: Screening for Alzheimer's and mild cognitive impairment with speech features that can be traced back to what they measure.
+- Validation of fully explainable speech biomarkers for AD/MCI screening. Every feature is interpretable and traceable to a specific acoustic or linguistic construct, so a result can be explained and not only reported.
+- Evaluated on 44 AD/MCI cases (mean age 80.3) and 44 age-matched healthy controls (mean age 80.5), the approach reached an AUC of 0.94, with 89.3% balanced accuracy, 92.4% sensitivity and 86.3% specificity.
+- Accepted as an ePoster at the AD/PD 2026 International Conference on Alzheimer's and Parkinson's Diseases (https://adpd2026.kenes.com/), with Hanyu Peng at Cephalgo SAS.
+
+### Explainable Parkinson's Screening
+- Year: 2026. Rating: 5/5. Role: Research, Cephalgo SAS. Status: ePoster.
+- Type: ePoster, selected at AD/PD 2026.
+- Stack: Explainable AI, Voice Analysis, Parkinson's Disease.
+- Summary: A retrospective check that Parkinson's can be screened from voice with features that explain themselves.
+- Validation of fully explainable speech biomarkers for PD/HC screening, the Parkinson's counterpart of the Alzheimer's work. Every feature is interpretable and traceable to a specific acoustic or linguistic construct.
+- Evaluated retrospectively on 28 Parkinson's cases (mean age 67.2) and 37 healthy controls (mean age 48.3), the approach reached an AUC of 0.97, with 91.4% balanced accuracy, 88.5% sensitivity and 96.3% specificity. The age gap between the groups is a known imbalance of this public dataset.
+- Selected as an ePoster at the AD/PD 2026 International Conference on Alzheimer's and Parkinson's Diseases (https://adpd2026.kenes.com/), with Hanyu Peng at Cephalgo SAS.
+- Link: Parkinson's page https://www.cephalgo.com/speech-analysis/parkinson#evidence
+
+### Alpaca
+- Year: 2024. Rating: 3.5/5. Role: University project, 3rd year. Status: Presented.
+- Type: Conference, presented at CISTI 2024.
+- Stack: Mobile App, Food Waste, Health Informatics.
+- Summary: A mobile app that cuts food waste at home by keeping track of what is in your pantry.
+- Alpaca ("Control En Tu Despensa") is a mobile app for managing household food and reducing waste. It keeps a digital record of the products in the pantry, so nothing gets forgotten at the back of a shelf, expires unnoticed or ends up in the bin, and so you stop buying what you already have.
+- Born as a third-year university project, it was presented in the Health Informatics track of CISTI'2024 (https://web.tecnico.ulisboa.pt/~mcasquilho/ist/2024cisti-program.pdf), the 19th Iberian Conference on Information Systems and Technologies (University of Salamanca, 25-28 June 2024).
+
+### Kaggle Studies (collection)
+A handful of small but professional data-science projects. Stack: Data Science, Machine Learning. Status: ongoing. The collection contains the following projects (the carousel also has placeholder cards that are not real projects yet and are not listed here).
+
+#### Titanic
+- Rating: 3/5. Role: Solo project. Status: Competition.
+- Stack: Python, XGBoost.
+- Summary: A deliberately simple XGBoost model for Kaggle's Titanic competition, scoring 0.78.
+- My entry to the Kaggle competition Titanic - Machine Learning from Disaster (https://www.kaggle.com/competitions/titanic): predict which passengers survived the shipwreck. The model is deliberately simple, a single XGBoost classifier, and reached a score of 0.78.
+- It placed 1,753rd out of 10,599 participants, roughly the top 16.5%.
+- Links: Kaggle notebook https://www.kaggle.com/code/codingsmurf/competition-titanic-simple-xgboost-0-78 ; Competition https://www.kaggle.com/competitions/titanic
+
+#### Electric Vehicles
+- Rating: 3/5. Role: Solo project. Status: Competition.
+- Stack: Python, XGBoost.
+- Summary: An XGBoost model for a Kaggle Playground competition on predicting electric vehicle purchases, reaching 0.94119 AUC.
+- My entry to the Kaggle competition Predicting Electric Vehicle Purchases (https://www.kaggle.com/competitions/playground-series-s6e9), part of the Playground Series (Season 6, Episode 9). An XGBoost model reached an AUC of 0.94119.
+- Links: Kaggle notebook https://www.kaggle.com/code/codingsmurf/competition-electric-vehicles-xgboost-0-94119auc ; Competition https://www.kaggle.com/competitions/playground-series-s6e9

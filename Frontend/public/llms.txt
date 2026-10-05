@@ -3,6 +3,14 @@
 > The site is rendered with JavaScript. This file is the plain-text version of its content.
 > Texts are available in English and Spanish; this file is in English.
 
+## Site structure
+
+The site is a personal portfolio with five pages, reached from a navigation bar: Landing (/), About Me (/AboutMe), Projects (/Projects), My Journey (/MyJourney) and Contact Me (/ContactMe). Any other address shows a "Page not found" message. The top right of every page (inside the menu on phones) has a language selector (EN / ES) and a light / dark theme toggle. The pages share one visual style: a soft off-white "paper" background in light theme, serif typography, and a large title with a short subtitle at the top.
+
+### Landing
+
+Page: /. A typed greeting: "Hey, I'm Adrian! Welcome to my Portfolio."
+
 ## Projects
 
 Page: /Projects. A selection of AI & Software work. The page is a carousel of project cards; opening a card shows the full description. Each project has a "My rating" out of 5 stars, given by the author. The last card is a collection, "Kaggle Studies", which opens a second carousel.
@@ -111,3 +119,87 @@ Honors and awards:
 - Jul 2024. Academic Excellence Recognition, UFV. Among the top five students of the cohort in the 2023/2024 academic year.
 - Mar 2024. HackForGood Hackathon, Telefónica. Prize-winning project at the Madrid edition of Spain's largest hackathon, at Telefónica's 42 Madrid campus: an app to support people before and during meteorological disasters.
 - Mar 2024. Competitive Programming "AdaByron", uc3m. Represented UFV with team ByteHunters at the 10th Madrid edition of the Ada Byron University Programming Contest.
+
+## My Journey
+
+Page: /MyJourney. Title "MY JOURNEY", subtitle "Explore my path and experiences". A vertical timeline, newest first, of education, work, publications, awards and certificates. Each entry shows a date, a title and an organisation, and opens to show a description, a citation line and links. The page ends with "Want to contact me?" and links to LinkedIn (https://www.linkedin.com/in/adri-ortiz) and email (adrian.ortiz.prof@gmail.com). The entries are:
+
+### Journal Publication
+- Nov 2025. SAUC.
+- "Object Recognition and Conversational AI in Real-World Contexts" is derived from my Computer Science Bachelor's thesis. The work designs and validates an interactive museum guide that combines real-time object detection with Retrieval-Augmented Generation (RAG), enabling context-aware and personalised conversations around cultural heritage.
+- Street Art & Urban Creativity, vol. 11, pp. 21-47. Published 28 November 2025.
+- Link: DOI 10.62161/sauc.v11.6010 https://doi.org/10.62161/sauc.v11.6010
+
+### Article Presentation
+- 6 Nov 2025. Fira Barcelona.
+- Took the stage at Smart City Expo World Congress 2025, the world's leading event on urban innovation, to present my work on object recognition and conversational AI for interactive museum experiences.
+- Fira Barcelona Gran Via. Smart City Expo World Congress 2025.
+- Link: Smart City Expo World Congress 2025 https://www.smartcityexpo.com/
+
+### AI Engineer
+- Jun 2025 - present. Cephalgo.
+- Leading the development and training of deep-learning speech models, in collaboration with clinical partners, to identify early vocal signs associated primarily with Alzheimer's and Parkinson's disease, as well as conditions such as ALS and Huntington's disease. Previous work includes developing a RAG system and leading an international team on multi-agent AI model analysis and compliance.
+- Keywords: deep learning, speech analysis, RAG, multi-agent systems, model evaluation, fine-tuning.
+- Link: cephalgo.com https://cephalgo.com/
+
+### Diploma in Cybersecurity & Ethical Hacking
+- Jun 2025. UFV.
+- Completed a hands-on cybersecurity specialisation alongside my Computer Science degree, spanning ethical hacking and penetration testing, digital forensics, secure development with OWASP, systems administration, and security across web, mobile and IoT environments.
+- Keywords: pentesting, digital forensics, OWASP, web, mobile and IoT security, blockchain.
+- Link: Official UFV programme https://www.ufv.es/estudiar-grado-informatica-madrid/
+
+### Bachelor's in Computer Science & Engineering
+- Jun 2025. UFV.
+- Completed a four-year Computer Science and Engineering degree, building a solid foundation across algorithms, mathematics, databases, computer networks, operating systems, software engineering and artificial intelligence.
+- Link: Official UFV degree https://www.ufv.es/estudiar-grado-informatica-madrid/
+
+### Data & Analytics Internship
+- Sept 2024 - Jun 2025. NTTDATA.
+- Worked at the intersection of data and generative AI, turning vast collections of complex technical documents for major energy companies into accessible, reliable knowledge. Combined OCR and structured extraction with carefully engineered RAG pipelines and early-generation LLMs to produce grounded answers. Beyond project delivery, researched emerging prompt-engineering practices and distilled them into internal knowledge sessions, enabling teams to adopt more effective ways of working with LLMs.
+- Keywords: RAG, document AI, OCR, structured extraction, vector databases, advanced retrieval, prompt engineering.
+- Link: NTT DATA https://www.nttdata.com/
+
+### Academic Excellence Recognition
+- Jul 2024. UFV.
+- Recognised by the Computer Science and Engineering degree leadership for ranking among the top five students in my cohort during the 2023/2024 academic year, reflecting sustained academic performance, dedication and commitment to excellence.
+- Link: Computer Science & Engineering at UFV https://www.ufv.es/estudiar-grado-informatica-madrid/
+
+### International Conference Presentation
+- Jun 2024. CISTI.
+- Co-authored and presented ALPACA at CISTI 2024, the 19th Iberian Conference on Information Systems and Technologies. The project explored how a mobile application could reduce household food waste by turning barcode-scanned pantry data into expiration tracking and personalised recipe suggestions.
+- University of Salamanca, 25-28 June 2024. International research conference.
+- Links: ALPACA conference abstract https://itmasoc.org/cisti2024/modules/request.php?module=oc_program&action=summary.php&id=326 ; CISTI 2024 programme https://itmasoc.org/cisti2024/modules/request.php?module=oc_program&action=program.php
+
+### HackForGood Hackathon
+- Mar 2024. Telefónica.
+- Selected as one of the prize-winning projects at the Madrid edition of HackForGood 2024, Spain's largest hackathon, hosted at Telefónica's 42 Madrid campus. Our team conceived a technology-driven application to support people before and during meteorological disasters, transforming a social challenge into a practical digital solution.
+- Award-winning project. 42 Madrid. Nearly 1,000 participants across 16 cities. 48 hours.
+- Link: Fundación Telefónica coverage https://www.fundaciontelefonica.com/noticias/campus-42-sedes-mayor-hackathon-espana/
+
+### Competitive Programming "AdaByron"
+- Mar 2024. uc3m.
+- Selected as one of the students representing UFV at the 10th Madrid edition of the Ada Byron University Programming Contest, competing as a member of ByteHunters in a team-based algorithmic challenge hosted by Universidad Carlos III de Madrid.
+- Link: Official participating teams https://ada-byron.es/2024/reg/madrid/equipos.php
+
+### Volunteer Mentor, UniDiversidad
+- Sept 2022 - Jun 2023. Fundación ONCE.
+- Mentored young adults with intellectual disabilities as they developed the digital skills needed for future roles in web accessibility review. Helped participants build confidence with practical software tools and understand how digital interfaces are evaluated against legal requirements and recognised accessibility guidelines.
+- Keywords: digital inclusion, web accessibility, mentoring, employability.
+- Link: Fundación ONCE, University & Disability https://www.fundaciononce.es/es/que-hacemos/universidad-y-discapacidad
+
+### English C2 Proficiency
+- Mar 2021. Cambridge.
+- Achieved C2-level English proficiency, demonstrating advanced communication skills in academic and professional contexts.
+
+### French B1 DELF
+- Mar 2019. République Française.
+- Earned the DELF B1 qualification, certifying independent French language communication skills.
+
+## Contact Me
+
+Page: /ContactMe. Title "CONTACT ME", subtitle "Get in touch with me for collaboration or just a friendly chat!"
+- Phone: +34 660 164 574
+- Email: adrian.ortiz.prof@gmail.com
+- LinkedIn: https://www.linkedin.com/in/adri-ortiz
+- Address: Madrid, Spain
+- The page also has a contact form (name, subject, email and message, then "Send") that emails the message to adrian.ortiz.prof@gmail.com.

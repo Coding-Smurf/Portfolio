@@ -5,7 +5,6 @@ import Seo from '../components/Seo.jsx';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
-import fraktur from '../utils/fraktur.js';
 import styles from './ContactMe.module.css';
 
 export default function ContactMe() {
@@ -95,7 +94,7 @@ export default function ContactMe() {
       <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
         <section className={styles.hero}>
           <h1>{t('hero.title')}</h1>
-          <p>{fraktur(t('hero.subtitle'))}</p>
+          <p>{t('hero.subtitle')}</p>
           <div className={styles.contactWrapper}>
             <div className={styles.infoColumn}>
               <ul>

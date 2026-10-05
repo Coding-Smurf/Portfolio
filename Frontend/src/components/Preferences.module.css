@@ -1,4 +1,5 @@
-/* Fixed at the top right, vertically centred on the navigation bar (which is 55px tall at top: 50px) */
+/* Fixed at the top right, vertically centred on the navigation bar (which is 55px tall at top: 50px).
+   It is rendered inside the navigation bar's menu, which is why phones can place it there. */
 .preferences {
   position: fixed;
   top: 50px;
@@ -87,8 +88,25 @@
 /* Not enough room beside the navigation bar: sit above it instead */
 @media screen and (max-width: 1100px) {
   .preferences {
-    top: 6px;
-    right: 1rem;
+    top: 4px;
+    /* lines up with the right edge of the navigation bar, which is 70% wide (centred) */
+    right: 15%;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .preferences {
+    /* the navigation bar is 90% wide here */
+    right: 5%;
+  }
+}
+
+/* Phones: the hamburger menu is in the middle, so the preferences go inside the opened menu */
+@media screen and (max-width: 610px) {
+  .preferences {
+    position: static;
+    justify-content: center;
+    margin: 0.25rem 0 0.75rem;
   }
 }

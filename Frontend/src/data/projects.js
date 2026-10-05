@@ -3,6 +3,8 @@
 // src/locales/<language>/projects.json under "items.<id>", and buildProjects() joins both.
 //
 // To add a project: add its entry here, then add the same id under "items" in each language.
+// Links inside the description of a project that has a "tag" (the important ones) shimmer gold,
+// except those written as [text](url 'plain').
 
 // Files in public/ are served under the site's base path (/Portfolio/ on GitHub Pages)
 const asset = (path) => `${import.meta.env.BASE_URL}${path}`;

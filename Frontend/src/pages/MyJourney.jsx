@@ -2,7 +2,6 @@ import NavigationBar from '../components/NavigationBar.jsx';
 import Seo from '../components/Seo.jsx';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import fraktur from '../utils/fraktur.js';
 import styles from './MyJourney.module.css';
 
 // Language-independent data of each entry (URLs, DOI). Its texts live in
@@ -33,6 +32,7 @@ export default function MyJourney() {
   const { t } = useTranslation('journey');
   const [fadeStarted, setFadeStarted] = useState(false);
   const [openEntry, setOpenEntry] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     document.body.style.overflowY = 'hidden';
@@ -45,6 +45,13 @@ export default function MyJourney() {
       clearTimeout(timer);
       document.body.style.overflowY = 'auto';
     };
+  }, []);
+
+  // Hide the scroll hint once the page is scrolled
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Entries joined with the texts of the current language
@@ -65,7 +72,9 @@ export default function MyJourney() {
       <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
         <section className={styles.hero}>
           <h1>{t('hero.title')}</h1>
-          <p>{fraktur(t('hero.subtitle'))}</p>
+          <p>{t('hero.subtitle')}</p>
+          <div className={`${styles.heroSeparator} ${scrolled ? styles.hidden : ''}`}></div>
+          <p className={`${styles.heroScroll} ${scrolled ? styles.hidden : ''}`}>{t('hero.scroll')}</p>
         </section>
 
         <section className={styles.timelineSection} aria-label={t('timelineLabel')}>

@@ -1,6 +1,6 @@
 // Preferences.jsx
 // Language selector (EN / ES) and light / dark theme toggle,
-// shown at the top right, level with the navigation bar.
+// shown at the top right, level with the navigation bar (inside its menu on phones).
 
 import { useTranslation } from 'react-i18next';
 import useTheme from '../hooks/useTheme.js';

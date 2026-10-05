@@ -15,11 +15,7 @@
     "p2": "Me encanta hacer que las cosas parezcan sencillas."
   },
   "info": {
-    "title": "Sobre mí",
-    "age": "22 años.",
-    "degree": "Grado en Informática. Especialidad en Ciberseguridad.",
-    "languages": "Español (nativo). Inglés (C2).",
-    "location": "Madrid, España."
+    "age": "22 años."
   },
   "hashtags": {
     "title": "Hashtags que me encantan",
@@ -30,5 +26,66 @@
       "#Resolver Problemas Reales",
       "#Siempre Aprendiendo"
     ]
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "contactTitle": "Contacto",
+    "contact": {
+      "phone": "Teléfono",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "location": "Ubicación"
+    },
+    "locationValue": "Madrid, España",
+    "languagesTitle": "Idiomas",
+    "languages": [
+      {
+        "name": "Español",
+        "level": "Nativo"
+      },
+      {
+        "name": "Inglés",
+        "level": "C2 · Cambridge · mar 2021"
+      },
+      {
+        "name": "Francés",
+        "level": "B1 · DELF · mar 2019"
+      }
+    ],
+    "skillsTitle": "Habilidades",
+    "skills": [
+      {
+        "title": "IA y ML",
+        "items": "Aprendizaje profundo, Análisis del habla, RAG, Sistemas multiagente, Evaluación de modelos, Fine-tuning, Prompt engineering"
+      },
+      {
+        "title": "Datos",
+        "items": "Python, Ciencia de datos, Bases de datos"
+      },
+      {
+        "title": "Fundamentos",
+        "items": "Algoritmia, Matemáticas, Redes, Ingeniería del software"
+      }
+    ],
+    "sections": {
+      "experience": "Experiencia",
+      "education": "Formación",
+      "publications": "Publicaciones y charlas",
+      "honors": "Reconocimientos y premios"
+    },
+    "summaries": {
+      "cephalgo": "Lidero el desarrollo y el entrenamiento de modelos de voz de aprendizaje profundo, junto con socios clínicos, para detectar signos vocales tempranos de Alzheimer y Parkinson. Antes desarrollé un sistema RAG y dirigí un equipo internacional en el análisis y el cumplimiento normativo de IA multiagente.",
+      "nttdata": "Construí pipelines RAG con OCR y extracción estructurada para convertir grandes colecciones de documentos técnicos de empresas energéticas en respuestas fiables y fundamentadas. Impartí sesiones internas sobre prompt engineering.",
+      "mentor": "Mentoría a jóvenes con discapacidad intelectual en las habilidades digitales necesarias para la revisión de accesibilidad web.",
+      "bachelor": "Grado de cuatro años con una base sólida en algoritmos, matemáticas, bases de datos, redes, sistemas operativos, ingeniería del software e IA.",
+      "cybersecurityDiploma": "Especialización en hacking ético y pentesting, análisis forense digital, desarrollo seguro con OWASP y seguridad web, móvil e IoT.",
+      "journalPublication": "«Reconocimiento de objetos e IA conversacional en contextos reales», Street Art & Urban Creativity, vol. 11, pp. 21–47. Deriva de mi TFG.",
+      "articlePresentation": "Presenté mi trabajo sobre reconocimiento de objetos e IA conversacional para museos en el Smart City Expo World Congress 2025, Fira Barcelona Gran Via.",
+      "cisti": "Coautor y ponente de ALPACA, una app móvil contra el desperdicio de alimentos en casa, en la 19.ª Conferencia Ibérica de Sistemas y Tecnologías de la Información (Universidad de Salamanca).",
+      "excellence": "Entre los cinco mejores estudiantes de la promoción en el curso 2023/2024, reconocido por la dirección del grado.",
+      "hackforgood": "Proyecto premiado en la edición de Madrid del mayor hackathon de España, en el campus 42 Madrid de Telefónica: una app para ayudar a las personas antes y durante desastres meteorológicos.",
+      "adabyron": "Representé a la UFV con el equipo ByteHunters en la 10.ª edición de Madrid del Concurso de Programación Universitario Ada Byron (uc3m)."
+    },
+    "profileTitle": "Perfil"
   }
 }

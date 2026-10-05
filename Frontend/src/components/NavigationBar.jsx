@@ -18,9 +18,6 @@ export default function NavigationBar({currentPage}) {
 
   return (
     <>
-    {/* Language selector and theme toggle, top right */}
-    <Preferences />
-
     <nav className={styles.navContainer}>
 
       {/* Hamburger menu icon (mobile only via CSS) */}
@@ -52,6 +49,10 @@ export default function NavigationBar({currentPage}) {
         <div className={styles.rightLink}>
           <Link to="/ContactMe" className={linkClass("ContactMe")} onClick={() => setIsOpen(false)}>{t('nav.contactMe')}</Link>
         </div>
+
+        {/* Language selector and theme toggle: fixed at the top right on wide screens
+            (see Preferences.module.css), inside this menu on phones */}
+        <Preferences />
 
       </div>
     </nav>

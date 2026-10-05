@@ -4,11 +4,20 @@ import NavigationBar from '../components/NavigationBar.jsx';
 import Seo from '../components/Seo.jsx';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import fraktur from '../utils/fraktur.js';
 import styles from './AboutMe.module.css';
+
+// Entries of the CV, grouped by section. Dates, titles and organisations come from the
+// journey texts (so they never disagree with My Journey); the short summaries are in about.json.
+const CV_SECTIONS = [
+  { id: 'experience', entries: ['cephalgo', 'nttdata', 'mentor'] },
+  { id: 'education', entries: ['bachelor', 'cybersecurityDiploma'] },
+  { id: 'publications', entries: ['journalPublication', 'articlePresentation', 'cisti'] },
+  { id: 'honors', entries: ['excellence', 'hackforgood', 'adabyron'] },
+];
 
 export default function AboutMe() {
   const { t } = useTranslation('about');
+  const { t: tj } = useTranslation('journey');
   const [fadeStarted, setFadeStarted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -55,7 +64,7 @@ export default function AboutMe() {
         {/* Fullscreen Hero */}
         <section className={styles.hero}>
           <h1>{t('hero.title')}</h1>
-          <p>{fraktur(t('hero.subtitle'))}</p>
+          <p>{t('hero.subtitle')}</p>
           <div className={`${styles.heroSeparator} ${scrolled ? styles.hidden : ''}`}></div>
           <p className={scrolled ? styles.hidden : ''}>{t('hero.scroll')}</p>
         </section>
@@ -64,54 +73,85 @@ export default function AboutMe() {
         {/* Page Content */}
         <section className={styles.contentSection}>
 
-          {/* Intro Section */}
-          <section className={styles.introSection}>
-            <div className={styles.imageWrapper}>
-              <img src={`${import.meta.env.BASE_URL}images/other/AdrianOrtizRamirez.png`} alt={t('intro.name')} className={styles.profileImage}/>
-            </div>
-            <div className={styles.textColumn}>
-              <p>{t('intro.role')}</p>
-              <h2>{t('intro.name')}</h2>
-              <p>{t('intro.p1')}</p>
-              <p>{t('intro.p2')}</p>
-            </div>
-          </section>
-          {/* Intro Section */}
+          {/* Curriculum Vitae */}
+          <section className={styles.cv} aria-labelledby="cv-title">
+            <h3 id="cv-title" className={styles.cvTitle}>{t('cv.title')}</h3>
 
-          {/* Personal Info Section */}
-          <section className={styles.personalInfoSection}>
-            <h3>{t('info.title')}</h3>
-            <div>
-              <span className="material-symbols-rounded">person</span>
-              <p>{t('info.age')}</p>
-            </div>
-            <div>
-              <span className="material-symbols-rounded">school</span>
-              <p>{t('info.degree')}</p>
-            </div>
-            <div>
-              <span className="material-symbols-rounded">language_chinese_dayi</span>
-              <p>{t('info.languages')}</p>
-            </div>
-            <div>
-              <span className="material-symbols-rounded">location_on</span>
-              <p>{t('info.location')}</p>
-            </div>
-          </section>
-          {/* Personal Info Section */}
-
-          {/* Hashtags Section */}
-          <section className={styles.hashtagsSection}>
-            <h3>{t('hashtags.title')}</h3>
-            <div className={styles.hashtagsContainer}>
-              {t('hashtags.items', { returnObjects: true }).map((tag) => (
-                <div key={tag}>
-                  <p>{tag}</p>
+            <div className={styles.cvBody}>
+              <aside className={styles.cvSide}>
+                <div className={styles.cvIdentity}>
+                  <div className={styles.imageWrapper}>
+                    <img src={`${import.meta.env.BASE_URL}images/other/AdrianOrtizRamirez.png`} alt={t('intro.name')} className={styles.profileImage}/>
+                  </div>
+                  <h2>{t('intro.name')}</h2>
+                  <p className={styles.cvRole}>{t('intro.role')}</p>
+                  <p className={styles.cvAge}>{t('info.age')}</p>
                 </div>
-              ))}
+
+                <h4>{t('cv.contactTitle')}</h4>
+                <dl className={styles.cvContact}>
+                  <dt>{t('cv.contact.phone')}</dt>
+                  <dd><a href="tel:+34660164574">+34 660 164 574</a></dd>
+                  <dt>{t('cv.contact.email')}</dt>
+                  <dd><a href="mailto:adrian.ortiz.prof@gmail.com">adrian.ortiz.prof@gmail.com</a></dd>
+                  <dt>{t('cv.contact.linkedin')}</dt>
+                  <dd><a href="https://www.linkedin.com/in/adri-ortiz" target="_blank" rel="noreferrer">linkedin.com/in/adri-ortiz</a></dd>
+                  <dt>{t('cv.contact.location')}</dt>
+                  <dd>{t('cv.locationValue')}</dd>
+                </dl>
+
+                <h4>{t('cv.languagesTitle')}</h4>
+                <ul className={styles.cvList}>
+                  {t('cv.languages', { returnObjects: true }).map((language) => (
+                    <li key={language.name}>
+                      <strong>{language.name}</strong> <span>{language.level}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h4>{t('cv.skillsTitle')}</h4>
+                <ul className={styles.cvList}>
+                  {t('cv.skills', { returnObjects: true }).map((group) => (
+                    <li key={group.title}>
+                      <strong>{group.title}</strong> <span>{group.items}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <h4>{t('hashtags.title')}</h4>
+                <ul className={styles.cvTags}>
+                  {t('hashtags.items', { returnObjects: true }).map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              </aside>
+
+              <div className={styles.cvMain}>
+                <section className={styles.cvSection}>
+                  <h4>{t('cv.profileTitle')}</h4>
+                  <p className={styles.cvProfile}>{t('intro.p1')}</p>
+                  <p className={`${styles.cvProfile} ${styles.cvQuote}`}>{t('intro.p2')}</p>
+                </section>
+
+                {CV_SECTIONS.map((section) => (
+                  <section key={section.id} className={styles.cvSection}>
+                    <h4>{t(`cv.sections.${section.id}`)}</h4>
+                    {section.entries.map((id) => (
+                      <article key={id} className={styles.cvEntry}>
+                        <p className={styles.cvDate}>{tj(`entries.${id}.date`)}</p>
+                        <div>
+                          <h5>{tj(`entries.${id}.title`)}</h5>
+                          <p className={styles.cvOrg}>{tj(`entries.${id}.organization`)}</p>
+                          <p className={styles.cvSummary}>{t(`cv.summaries.${id}`)}</p>
+                        </div>
+                      </article>
+                    ))}
+                  </section>
+                ))}
+              </div>
             </div>
           </section>
-          {/* Hashtags Section */}
+          {/* Curriculum Vitae */}
 
         </section>
         {/* Page Content */}

@@ -5,7 +5,8 @@
   },
   "hero": {
     "title": "MI TRAYECTORIA",
-    "subtitle": "Explora mi camino y mis experiencias"
+    "subtitle": "Explora mi camino y mis experiencias",
+    "scroll": "Desliza"
   },
   "timelineLabel": "Cronología profesional y académica",
   "doi": "DOI",

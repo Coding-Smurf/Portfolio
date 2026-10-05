@@ -34,12 +34,21 @@ function StarIcon() {
 // Slight tilt per star so they look stamped by hand rather than placed by a grid
 const STAR_TILTS = [-4, 3, -2, 4, -3];
 
-// Turns "[text](url)" inside a description string into a link
-function renderInline(text) {
+// Turns "[text](url)" inside a description string into a link; `gold` makes them shimmer.
+// Write [text](url 'plain') for a link that should stay plain even when `gold` is on.
+function renderInline(text, gold) {
   return text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
-    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    const match = part.match(/^\[([^\]]+)\]\(([^)\s]+)(\s+'plain')?\)$/);
     return match ? (
-      <a key={i} href={match[2]} target="_blank" rel="noreferrer">{match[1]}</a>
+      <a
+        key={i}
+        href={match[2]}
+        target="_blank"
+        rel="noreferrer"
+        className={gold && !match[3] ? styles.goldLink : undefined}
+      >
+        {match[1]}
+      </a>
     ) : (
       part
     );
@@ -59,12 +68,14 @@ function InkFilter() {
   );
 }
 
-// Five stars; `rating` goes from 0 to 5 and may include halves (or any fraction)
-function Stars({ rating }) {
+// Five stars; `rating` goes from 0 to 5 and may include halves (or any fraction).
+// With `filledOnly` the empty stars are left out, so a lower rating shows fewer stars (centred by the parent).
+function Stars({ rating, filledOnly = false }) {
   const { t } = useTranslation('projects');
+  const shown = [0, 1, 2, 3, 4].filter((i) => !filledOnly || rating - i > 0);
   return (
     <span className={styles.stars} role="img" aria-label={t('ui.ratedAria', { rating })}>
-      {[0, 1, 2, 3, 4].map((i) => (
+      {shown.map((i) => (
         <span key={i} className={styles.star} style={{ transform: `rotate(${STAR_TILTS[i]}deg)` }}>
           <span className={styles.starEmpty}><StarIcon /></span>
           <span className={styles.starFill} style={{ width: `${clamp(rating - i, 0, 1) * 100}%` }}>
@@ -240,7 +251,7 @@ function ProjectDetail({ project, index, onClose }) {
 
           <div className={styles.sheetBody}>
             {project.description.map((paragraph, i) => (
-              <p key={i}>{renderInline(paragraph)}</p>
+              <p key={i}>{renderInline(paragraph, Boolean(project.tag))}</p>
             ))}
           </div>
 
@@ -414,8 +425,8 @@ function ProjectCarousel({ items, label, onOpenCollection }) {
             // 0 when the card faces the viewer, 1 once it is one step away or more
             const away = Math.min(distance, 1);
             const opacity = distance <= 1
-              ? 1 - 0.6 * distance
-              : Math.max(0, 0.4 - (distance - 1) * 0.2);
+              ? 1 - 0.75 * distance
+              : Math.max(0, 0.25 - (distance - 1) * 0.125);
             return (
               <div
                 key={i}
@@ -425,7 +436,7 @@ function ProjectCarousel({ items, label, onOpenCollection }) {
                   opacity,
                   // blur softens the image and the card's outline, growing with distance
                   // (the images are already black and white, so no grayscale here)
-                  filter: `blur(${Math.min(distance, 3) * 2.5}px) brightness(${1 - away * 0.12})`,
+                  filter: `blur(${Math.min(distance, 3) * 5}px) brightness(${1 - away * 0.12})`,
                   boxShadow: `0 ${18 + 12 * (1 - away)}px 30px -14px rgba(26, 24, 22, ${0.2 + 0.35 * (1 - away)})`,
                   pointerEvents: distance > 2.5 ? 'none' : 'auto',
                 }}
@@ -447,6 +458,13 @@ function ProjectCarousel({ items, label, onOpenCollection }) {
                   <ColorTrailImage src={p.image} alt={p.title} enabled={i === active} />
                 ) : (
                   <div className={`${styles.plate} ${PLATES[i % PLATES.length]}`} />
+                )}
+
+                {/* Rating, centred at the bottom of the card */}
+                {p.rating != null && (
+                  <div className={styles.cardRating}>
+                    <Stars rating={p.rating} filledOnly />
+                  </div>
                 )}
               </div>
             );
@@ -487,7 +505,6 @@ function ProjectCarousel({ items, label, onOpenCollection }) {
               {String(i + 1).padStart(2, '0')} / {String(count).padStart(2, '0')}
             </p>
             <h2>{p.title}</h2>
-            {p.rating != null && <Stars rating={p.rating} />}
             <p className={styles.blurb}>{p.blurb}</p>
             <p className={styles.details}>
               {p.stack} — <em>{[p.year, p.status].filter(Boolean).join(', ')}</em>
@@ -512,6 +529,7 @@ export default function Projects() {
   const [fadeStarted, setFadeStarted] = useState(false);
   // Which carousel is in front: the main one or a collection's (Kaggle)
   const [view, setView] = useState('main');
+  const [scrolled, setScrolled] = useState(false);
 
   // Project data joined with the texts of the current language (rebuilt when it changes)
   const { projects, kaggle } = useMemo(() => buildProjects(t), [t]);
@@ -533,6 +551,12 @@ export default function Projects() {
     };
   }, []);
 
+  // Hide the scroll hint once the page is scrolled
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Render the Projects page: two curved carousels, one swinging out as the other swings in
   return (
@@ -554,11 +578,16 @@ export default function Projects() {
 
       <div className={`${styles.landingContent} ${fadeStarted ? styles.fadeIn : ''}`}>
 
-        <h1 className={styles.title}>{t('ui.title')}</h1>
-
-        <p className={styles.lede}>
-          {t('ui.ledeBefore')}<em>{t('ui.ledeEm')}</em>{t('ui.ledeAfter')}
-        </p>
+        {/* Fullscreen Hero */}
+        <section className={styles.hero}>
+          <h1 className={styles.title}>{t('ui.title')}</h1>
+          <p className={styles.lede}>
+            {t('ui.ledeBefore')}<em>{t('ui.ledeEm')}</em>{t('ui.ledeAfter')}
+          </p>
+          <div className={`${styles.heroSeparator} ${scrolled ? styles.hidden : ''}`}></div>
+          <p className={`${styles.heroScroll} ${scrolled ? styles.hidden : ''}`}>{t('ui.scroll')}</p>
+        </section>
+        {/* Fullscreen Hero */}
 
         {/* Both carousels share one cell; the inactive one is moved out of view */}
         <div className={styles.viewport}>

@@ -1,4 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500&family=IM+Fell+English:ital@0;1&display=swap');
+
+/* Dark theme palette for this page (same as the Projects page) */
+:global(:root[data-theme='dark']) .container {
+  --paper: #1d1c1a;
+  --ink: #ebe7df;
+  --ink-soft: #a8a196;
+  --gold-base: #9a7b2f;
+  --gold-mid: #e0b84c;
+  --gold-hi: #fff1b8;
+}
+
 .container {
+  --paper: #f4f3ef;
+  --ink: #1a1816;
+  --ink-soft: #57504a;
+  --gold-base: #8a6a1c;
+  --gold-mid: #b8860b;
+  --gold-hi: #e8c34a;
+
   display: flex;
   min-height: 100vh;
   width: 90vw;
@@ -6,12 +25,22 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'IM Fell English', Georgia, serif;
+  color: var(--ink);
+}
+
+/* Soft off-white page covering the whole viewport */
+.container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--paper);
 }
 
 .landingContent {
   width: 100%;
-  padding: 0rem;
+  padding: 0;
   min-height: calc(100vh - 6rem);
   display: flex;
   flex-direction: column;
@@ -19,18 +48,6 @@
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
-}
-
-.landingContent p {
-  font-size: 1.125rem;
-  font-weight: 400;
-  color: var(--text-faint);
-  margin-top: 1rem;
-}
-
-.landingContent h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
 }
 
 .fadeIn {
@@ -43,6 +60,7 @@ html, body {
   padding: 0;
 }
 
+/* Hero */
 .hero {
   position: relative;
   height: 100vh;
@@ -56,210 +74,273 @@ html, body {
 }
 
 .hero h1 {
-  font-size: 10rem;
-  color: var(--color-bg-dark);
-  text-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
-  margin: 0;
+  margin: 0 0 0.5rem;
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 10vw, 8rem);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--ink);
 }
 
-.hero h1,
 .hero p:first-of-type {
+  max-width: 40rem;
   margin: 0;
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: var(--ink);
 }
 
+/* Scroll hint: a thin line and a small caption at the bottom */
+.heroSeparator,
+.heroScroll {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.heroSeparator {
+  bottom: 5.5rem;
+  width: 1px;
+  height: 3rem;
+  background: var(--ink-soft);
+}
+
+.heroScroll {
+  bottom: 3rem;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+/* Timeline: one thin ink line with a small tick for each entry */
 .timelineSection {
-  width: 100%;
+  position: relative;
+  width: min(36rem, 90%);
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 4rem;
-  position: relative; 
+  gap: 0.5rem;
 }
 
-/* === LÍNEA GLOBAL === */
 .timelineSection::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
-  left: calc(50% - 270px);
-  width: 10px;
-  border-radius: 20px;
-  box-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
+  left: 0;
+  width: 1px;
+  background: color-mix(in srgb, var(--ink) 50%, transparent);
 }
 
-/* === EACH TIMELINE ENTRY === */
 .timelineContainer {
   position: relative;
-  padding-left: 70px;
-  width: 400px; 
-  max-width: 90vw; 
+  padding-left: 2.75rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .timelineContainer::after {
-  content: "";
+  content: '';
   position: absolute;
-  left: 0px;
-  /* Anclada a la fila del evento, no al alto total del desplegable. */
-  top: 24px;
-  width: 50px;
-  height: 8px;
-  border-radius: 50px;
-  /* Estado de reposo: relieve suave, a medio salir. */
-  box-shadow: 2px 2px 3px var(--shadow-dark), -1.5px -1.5px 3px var(--shadow-light);
-  transition: box-shadow 0.2s ease;
+  left: 0;
+  top: 1.7rem;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--ink-soft);
+  transform-origin: left;
+  transition: width 0.3s ease, background 0.3s ease;
 }
 
-.timelineContainer:hover::after {
-  /* Al pasar el cursor, el marcador se eleva por completo. */
-  box-shadow: 4px 4px 5px var(--shadow-dark), -3px -3px 5px var(--shadow-light);
+.timelineContainer:hover::after,
+.timelineContainerOpen::after {
+  width: 2.25rem;
+  background: var(--gold-mid);
 }
 
-/* === TEXTO DEL EVENTO === */
+/* Entry header (a button, so the global button styles are overridden) */
 .timelineEntry {
   display: flex;
   width: 100%;
   flex-direction: row;
-  justify-content: space-between; 
-  align-items: flex-end; 
-  gap: 1rem; 
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
   text-align: left;
-  padding: 10px 0; 
-  cursor: pointer; 
+  padding: 0.7rem 0;
+  cursor: pointer;
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: inherit;
+  color: var(--ink);
+  font-family: inherit;
   font-weight: 400;
+  transition: opacity 0.25s ease;
 }
 
 .timelineEntry:hover,
 .timelineEntry:focus-visible {
   border: 0;
   background: transparent;
-  color: inherit;
+  color: var(--ink);
+  opacity: 0.6;
+  outline: none;
 }
 
-.timelineEntry:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 4px;
+.timelineContainerOpen .timelineEntry {
+  opacity: 1;
 }
 
+.timelineContentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex-grow: 1;
+}
+
+.timelineEntryDate {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.timelineEntryTitle {
+  color: var(--ink);
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 500;
+  font-size: 1.45rem;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+
+.timelineEntryOrganization {
+  flex-shrink: 0;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Expandable details */
 .timelineDetails {
   display: grid;
   grid-template-rows: 0fr;
-  margin-left: 0;
-  transition: grid-template-rows 0.3s ease, margin-top 0.3s ease;
+  transition: grid-template-rows 0.4s ease, margin-top 0.4s ease;
 }
 
 .timelineDetailsInner {
   min-height: 0;
   overflow: hidden;
   box-sizing: border-box;
-  padding: 0 1.15rem;
-  color: var(--text-strong);
-  font-size: 0.9rem;
-  line-height: 1.45;
+  padding: 0;
   text-align: left;
   opacity: 0;
   transform: translateY(-4px);
-  transition: opacity 0.2s ease, transform 0.3s ease, padding 0.3s ease;
-}
-
-.timelineDetailsInner p {
-  margin: 0 !important;
-  color: var(--text-strong) !important;
-  font-size: 0.9rem !important;
-  font-weight: 400;
-}
-
-.timelineCitation {
-  margin-top: 0.8rem !important;
-  color: var(--text-muted);
-  font-size: 0.72rem;
-  font-style: italic;
-}
-
-.timelineDoi {
-  display: inline-block;
-  margin-top: 0.55rem;
-  color: var(--text-soft);
-  font-size: 0.74rem;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.timelineDoi:hover,
-.timelineDoi:focus-visible {
-  color: var(--color-primary-hover);
-}
-
-.timelineDoi + .timelineDoi {
-  margin-left: 0.9rem;
+  transition: opacity 0.3s ease, transform 0.4s ease, padding 0.4s ease;
 }
 
 .timelineContainerOpen .timelineDetails {
   grid-template-rows: 1fr;
-  margin-top: 0.75rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .timelineContainerOpen .timelineDetailsInner {
-  padding: 1rem 1.15rem;
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
   opacity: 1;
   transform: translateY(0);
-  border-radius: 6px;
-  box-shadow: inset 2px 2px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
 }
 
-.timelineContentWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  flex-grow: 1;
+.timelineDetailsInner p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-align: justify;
+  hyphens: auto;
 }
-.timelineEntryDate {
-  color: var(--text-faint);
-  font-size: 0.75rem;
+
+.timelineDetailsInner .timelineCitation {
+  margin-top: 0.8rem;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
   font-style: italic;
+  text-align: left;
 }
 
-.timelineEntryTitle {
-  color: var(--text-muted);
-  font-size: 1rem;
-  font-style: italic;
+.timelineDoi {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
 }
 
-/* Organization Element: Aligns to the right */
-.timelineEntryOrganization {
-  font-weight: 800;
-  font-style: italic;
-  color: var(--text-faint);
-  font-size: 1rem;
-  text-align: right;
-  white-space: nowrap;
-  flex-shrink: 0;
+.timelineDoi:hover,
+.timelineDoi:focus-visible {
+  color: var(--ink);
+  outline: none;
+  opacity: 0.6;
 }
 
+.timelineDoi + .timelineDoi {
+  margin-left: 1.5rem;
+}
+
+/* Footer */
 .footer {
-  margin-top: 7rem;
-  margin-bottom: 4rem;
+  margin: 7rem 0 4rem;
   text-align: center;
-  color: var(--text-faint);
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: var(--ink);
 }
 
 .contactIconsWrapper {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .contactLink {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: opacity 0.25s ease;
+}
+
+.contactLink:hover,
+.contactLink:focus-visible {
+  opacity: 0.6;
+  outline: none;
 }
 
 .contactIcon {
@@ -267,65 +348,41 @@ html, body {
   object-fit: contain;
 }
 
-
-
-
 /* Responsive adjustments */
-@media (max-width: 1200px) {
-  .hero h1 {
-    font-size: 7rem;
-  }
-}
-
 @media (max-width: 768px) {
   .hero {
     padding: 0 2rem;
   }
-  .hero h1 {
-    font-size: 4rem;
-  }
-  .landingContent p {
-    font-size: 1rem;
-    padding: 0 1rem;
-  }
-
 }
 
-@media screen and (max-width: 610px) {
+@media (max-width: 610px) {
   .timelineContainer {
-    padding-left: 70px; /* Reduced from 70px */
-    margin: 0 auto; /* Centers the container */
-    width: 200px
+    padding-left: 2rem;
   }
-  
   .timelineContainer::after {
-    width: 50px;
-    left: 0px;
-    top: 31px;
+    width: 1rem;
   }
-  
+  .timelineContainer:hover::after,
+  .timelineContainerOpen::after {
+    width: 1.5rem;
+  }
   .timelineEntry {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
   }
-  
   .timelineEntryOrganization {
     text-align: left;
     white-space: normal;
   }
-  
-  /* Hide the vertical line on mobile */
-  .timelineSection::before {
-    display: none;
+  .timelineEntryTitle {
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  .landingContent p {
+  .timelineDetailsInner p {
     font-size: 0.9rem;
+    text-align: left;
   }
 }

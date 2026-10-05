@@ -7,7 +7,8 @@
     "title": "PROYECTOS",
     "ledeBefore": "Una selección de trabajos de ",
     "ledeEm": "IA y software",
-    "ledeAfter": ", desde Madrid.",
+    "ledeAfter": ".",
+    "scroll": "Desliza",
     "selectedWorks": "Trabajos destacados",
     "backToAll": "← todos los proyectos",
     "prev": "← anterior",
@@ -33,20 +34,20 @@
       "description": [
         "Un sistema interactivo que lleva la visita al museo más allá del acceso estático y tradicional a la información. Combina detección de objetos en tiempo real con un pipeline de Generación Aumentada por Recuperación (RAG) para ofrecer una guía conversacional contextual, personalizada e inmersiva.",
         "La validación mostró una comprensión espacial y conversacional precisa, y una mejora significativa en la veracidad y la relevancia de las respuestas frente a las de un LLM estándar.",
-        "Publicado en Street Art & Urban Creativity, vol. 11, n.º 7 (2025), número especial: Smart City World Congress, junto a Álvaro Illana y Marta Salas (UFV).",
+        "Publicado en [Street Art & Urban Creativity, vol. 11, n.º 7 (2025)](https://doi.org/10.62161/sauc.v11.6010), número especial: Smart City World Congress, junto a Álvaro Illana y Marta Salas (UFV).",
         "También presentado en el escenario del [Smart City Expo World Congress 2025](https://www.smartcityexpo.com/), el principal evento mundial sobre innovación urbana, en Fira Barcelona Gran Via."
       ],
       "stack": "Detección de objetos · RAG · IA generativa",
       "role": "Autor",
       "status": "Publicado y presentado",
-      "tag": ["Artículo", "Publicado", "Smart City Expo World Congress 2025"],
+      "tag": ["Artículo", "Publicado"],
       "links": { "doi": "Artículo (DOI)", "pdf": "PDF" }
     },
     "robustBiomarkers": {
       "title": "Biomarcadores de voz robustos",
       "blurb": "Mantener estables los biomarcadores de voz del Parkinson cuando cambia la cancelación de ruido del teléfono a mitad de un estudio.",
       "description": [
-        "Una evaluación comparativa de cuatro arquitecturas de clasificación en condiciones simuladas posteriores a una actualización del sistema operativo, usando el [Italian Parkinson’s Voice and Speech Dataset](https://doi.org/10.1109/MeMeA.2016.7533761). Se plantea si los biomarcadores de voz basados en aprendizaje profundo resisten un cambio en el algoritmo de cancelación de ruido del sistema operativo durante la monitorización longitudinal de la enfermedad de Parkinson.",
+        "Una evaluación comparativa de cuatro arquitecturas de clasificación en condiciones simuladas posteriores a una actualización del sistema operativo, usando el [Italian Parkinson’s Voice and Speech Dataset](https://doi.org/10.1109/MeMeA.2016.7533761 'plain'). Se plantea si los biomarcadores de voz basados en aprendizaje profundo resisten un cambio en el algoritmo de cancelación de ruido del sistema operativo durante la monitorización longitudinal de la enfermedad de Parkinson.",
         "En seis escenarios de cambio del algoritmo de cancelación de ruido a mitad de estudio, nuestro clasificador de doble pipeline mantuvo la sensibilidad dentro de un margen de 11,3 puntos porcentuales (del 86,4 % al 97,7 %), mientras que las tres arquitecturas de referencia mostraron márgenes de 42 a 46 puntos, unas cuatro veces mayores.",
         "Seleccionado como póster en la [9.ª Annual Digital Biomarkers in Clinical Trials Summit](https://digitalbiomarkers.panagorapharma.com/) (Basilea, junio de 2026), organizada en colaboración con Roche. La evaluación usó una sola cohorte pública (n = 50, 10 sujetos de test retenidos) y algoritmos simulados por software, por lo que los resultados son evidencia exploratoria y no una validación directa frente a actualizaciones reales del sistema operativo.",
         "La misma cuestión, aplicada a ensayos de la enfermedad de Alzheimer, también fue aceptada como póster P446 en [CTAD 2026 (Clinical Trials on Alzheimer’s Disease)](https://www.ctad-alzheimer.com/program-0): “Noise-cancellation variability as a source of longitudinal drift in speech-based digital endpoints for Alzheimer’s disease trials”, con Lisa Chiang (Cephalgo, Estrasburgo), quien lo presentó."
@@ -54,7 +55,7 @@
       "stack": "Aprendizaje profundo · Biomarcadores de voz · Enfermedad de Parkinson",
       "role": "Investigación, Cephalgo SAS",
       "status": "Pósteres aceptados",
-      "tag": ["Póster", "Aceptado", "Digital Biomarkers Summit · CTAD 2026"],
+      "tag": ["Póster", "Aceptado"],
       "links": { "publications": "Publicaciones de investigación" }
     },
     "explainableAlzheimer": {
@@ -68,7 +69,7 @@
       "stack": "IA explicable · Análisis de voz · Enfermedad de Alzheimer",
       "role": "Investigación, Cephalgo SAS",
       "status": "ePóster",
-      "tag": ["ePóster", "Aceptado", "AD/PD 2026"],
+      "tag": ["ePóster", "Aceptado"],
       "links": {}
     },
     "explainableParkinson": {
@@ -82,7 +83,7 @@
       "stack": "IA explicable · Análisis de voz · Enfermedad de Parkinson",
       "role": "Investigación, Cephalgo SAS",
       "status": "ePóster",
-      "tag": ["ePóster", "Seleccionado", "AD/PD 2026"],
+      "tag": ["ePóster", "Seleccionado"],
       "links": { "parkinson": "Página de Parkinson" }
     },
     "alpaca": {
@@ -95,7 +96,7 @@
       "stack": "App móvil · Desperdicio alimentario · Informática de la salud",
       "role": "Proyecto universitario, 3.º curso",
       "status": "Presentado",
-      "tag": ["Congreso", "Presentado", "CISTI 2024"],
+      "tag": ["Congreso", "Presentado"],
       "links": {}
     },
     "kaggleStudies": {
@@ -103,8 +104,7 @@
       "blurb": "Un puñado de proyectos pequeños pero profesionales de ciencia de datos.",
       "stack": "Ciencia de datos · Aprendizaje automático",
       "year": "En curso",
-      "status": "{{n}} proyectos",
-      "tag": ["Colección", "Kaggle"]
+      "status": "{{n}} proyectos"
     },
     "titanic": {
       "title": "Titanic",

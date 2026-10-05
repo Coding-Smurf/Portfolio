@@ -6,12 +6,18 @@
   --paper: #1d1c1a;
   --ink: #ebe7df;
   --ink-soft: #a8a196;
+  --gold-base: #9a7b2f;
+  --gold-mid: #e0b84c;
+  --gold-hi: #fff1b8;
 }
 
 .container {
   --paper: #f4f3ef;
   --ink: #1a1816;
   --ink-soft: #57504a;
+  --gold-base: #8a6a1c;
+  --gold-mid: #b8860b;
+  --gold-hi: #e8c34a;
 
   display: flex;
   min-height: 100vh;
@@ -48,7 +54,7 @@
 
 .landingContent {
   width: 100%;
-  padding: 9.5rem 0 2.5rem;
+  padding: 0 0 2.5rem;
   min-height: calc(100vh - 6rem);
   display: flex;
   flex-direction: column;
@@ -68,22 +74,70 @@ html, body {
   padding: 0;
 }
 
+/* Hero: same as the other pages */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  text-align: center;
+}
+
 .title {
   font-family: 'Cormorant SC', 'IM Fell English', serif;
   font-weight: 500;
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(3rem, 10vw, 8rem);
   letter-spacing: 0.02em;
   line-height: 1;
   color: var(--ink);
-  margin: 0 0 2rem;
+  margin: 0 0 0.5rem;
 }
 
 .lede {
-  max-width: 22rem;
-  margin: 0 0 0.75rem;
-  font-size: 0.95rem;
-  line-height: 1.35;
-  letter-spacing: 0.06em;
+  max-width: 40rem;
+  margin: 0;
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+
+/* Scroll hint: a thin line and a small caption at the bottom */
+.heroSeparator,
+.heroScroll {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.heroSeparator {
+  bottom: 5.5rem;
+  width: 1px;
+  height: 3rem;
+  background: var(--ink-soft);
+}
+
+.heroScroll {
+  bottom: 3rem;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-20px);
 }
 
 /* Curved carousel: cards sit on an arc in 3D space */
@@ -220,15 +274,45 @@ html, body {
   top: 0.6rem;
   left: 0;
   right: 0;
-  margin: 0;
+  /* the box hugs the text (centred by the auto margins) so the sweep crosses the letters, not empty space */
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
   padding: 0 1rem;
   text-align: center;
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  /* luxury gold: a bright golden band sweeps across the letters over a deeper gold base */
+  color: var(--gold-mid);
+  font-weight: 500;
+  background: linear-gradient(
+    105deg,
+    var(--gold-base) 0%,
+    var(--gold-base) 34%,
+    var(--gold-mid) 44%,
+    var(--gold-hi) 50%,
+    var(--gold-mid) 56%,
+    var(--gold-base) 66%,
+    var(--gold-base) 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   pointer-events: none;
-  animation: detailIn 0.6s ease;
+  animation: detailIn 0.6s ease, tagShine 2.4s linear infinite, tagGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes tagShine {
+  from { background-position: 100% 0; }
+  to { background-position: 0% 0; }
+}
+
+/* a soft halo that pulses with the sweep (drop-shadow, since text-shadow would show through the clipped fill) */
+@keyframes tagGlow {
+  0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+  50% { filter: drop-shadow(0 0 6px color-mix(in srgb, var(--gold-mid) 60%, transparent)); }
 }
 
 .ring {
@@ -443,10 +527,23 @@ html, body {
   fill: currentColor;
 }
 
-.detail .stars {
-  margin-bottom: 0.7rem;
+/* Rating printed on the card itself: light stars over a soft dark fade so they read on any image */
+.cardRating {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 0.7rem;
+  background: linear-gradient(to top, rgba(20, 18, 16, 0.6), rgba(20, 18, 16, 0));
+  pointer-events: none;
 }
 
+.cardRating .stars {
+  color: #f4f3ef;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
 .detail h2 {
   margin-bottom: 0.45rem;
 }
@@ -527,6 +624,9 @@ html, body {
   --paper: #f4f3ef;
   --ink: #1a1816;
   --ink-soft: #57504a;
+  --gold-base: #8a6a1c;
+  --gold-mid: #b8860b;
+  --gold-hi: #e8c34a;
 
   position: fixed;
   inset: 0;
@@ -703,6 +803,34 @@ html, body {
   opacity: 0.6;
 }
 
+/* Links to journals and conferences: same golden shimmer as the caption above the cards.
+   Listed after the .sheetBody a / .links a rules so it wins over them. */
+.sheetBody a.goldLink {
+  color: var(--gold-mid);
+  background: linear-gradient(
+    105deg,
+    var(--gold-base) 0%,
+    var(--gold-base) 34%,
+    var(--gold-mid) 44%,
+    var(--gold-hi) 50%,
+    var(--gold-mid) 56%,
+    var(--gold-base) 66%,
+    var(--gold-base) 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 1px solid var(--gold-mid);
+  animation: tagShine 2.4s linear infinite, tagGlow 2.4s ease-in-out infinite;
+}
+
+.sheetBody a.goldLink:hover,
+.sheetBody a.goldLink:focus-visible {
+  opacity: 1;
+  animation-duration: 1.2s;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -744,6 +872,10 @@ html, body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .goldLink,
+  .tag {
+    animation: none;
+  }
   .overlay,
   .sheet,
   .sheetImage,
@@ -804,15 +936,17 @@ html, body {
 
 @media (max-width: 768px) {
   .landingContent {
-    padding: 8rem 1.5rem 2rem;
+    padding: 0 1.5rem 2rem;
+  }
+  .hero {
+    padding: 0 2rem;
+    /* the hero is as wide as the page, not as the padded content */
+    margin: 0 -1.5rem;
+    width: calc(100% + 3rem);
   }
   /* let the carousels use the page padding so side cards are not cut off */
   .viewport {
     width: calc(100% + 3rem);
-  }
-  .lede {
-    max-width: 20rem;
-    font-size: 0.9rem;
   }
   .detail h2 {
     font-size: 1.6rem;
@@ -835,14 +969,14 @@ html, body {
 /* Phone */
 @media (max-width: 480px) {
   .landingContent {
-    padding: 7.5rem 1rem 1.5rem;
+    padding: 0 1rem 1.5rem;
+  }
+  .hero {
+    margin: 0 -1rem;
+    width: calc(100% + 2rem);
   }
   .viewport {
     width: calc(100% + 2rem);
-  }
-  .lede {
-    max-width: 17rem;
-    margin-bottom: 0.5rem;
   }
   .carousel {
     --top: 3.9rem; /* the caption can wrap to two lines */

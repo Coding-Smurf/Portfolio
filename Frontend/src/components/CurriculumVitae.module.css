@@ -1,0 +1,220 @@
+/* Curriculum Vitae, set like a newspaper page. No card or shadow: the headline sits between
+   a thin rule and a double one (like the name above the portrait on About me), and the two
+   columns are split by a thin rule. The rules wear like the text (#ink-print, see index.html).
+   It uses the --ink and --ink-soft colours of the page that shows it. */
+.cv {
+  width: min(60rem, 100%);
+  margin-top: 4.5rem;
+  text-align: left;
+  /* when a link jumps here (#cv), stop below the fixed navigation bar */
+  scroll-margin-top: 7rem;
+}
+
+.cvTitle {
+  margin: 0 0 2rem;
+  padding: 0.45rem 0 0.55rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 3px double var(--ink);
+  text-align: center;
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.cvBody {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 2.5rem;
+}
+
+/* the left column carries the dividing rule; it takes the worn filter itself,
+   so the text inside does not get it twice */
+.cvSide {
+  padding-right: 2.5rem;
+  border-right: 1px solid var(--ink);
+  filter: url(#ink-print);
+}
+
+.cvSide * {
+  filter: none;
+}
+
+/* Section headings: the same label as the "Currently" box, over a thin rule */
+.cvBody h4 {
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--ink-soft);
+  font-family: 'IM Fell English', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.cvSide h4:not(:first-child) {
+  margin-top: 2rem;
+}
+
+.cvContact {
+  margin: 0;
+}
+
+.cvContact dt {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.cvContact dt:first-child {
+  margin-top: 0;
+}
+
+.cvContact dd {
+  margin: 0.1rem 0 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+
+.cvContact a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.cvContact a:hover,
+.cvContact a:focus-visible {
+  color: var(--ink);
+  outline: none;
+  opacity: 0.6;
+}
+
+.cvList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cvList li {
+  margin-bottom: 0.7rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+.cvList strong {
+  display: block;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.cvList span {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.cvSide .cvTags {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: var(--ink);
+}
+
+.cvSection {
+  margin-bottom: 2.2rem;
+}
+
+.cvSection:last-child {
+  margin-bottom: 0;
+}
+
+/* Dates in a narrow column on the left, like a printed CV */
+.cvEntry {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+.cvEntry:last-child {
+  margin-bottom: 0;
+}
+
+.cvBody .cvDate {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: var(--ink-soft);
+}
+
+.cvEntry h5 {
+  margin: 0;
+  font-family: 'IM Fell English', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  color: var(--ink);
+  filter: url(#ink-print);
+}
+
+.cvBody .cvOrg {
+  margin: 0.1rem 0 0.35rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: var(--ink-soft);
+}
+
+.cvBody .cvSummary {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  text-align: justify;
+  hyphens: auto;
+  color: var(--ink);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .cvBody {
+    gap: 2rem;
+  }
+
+  .cvSide {
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* one column: the dividing rule moves under the details */
+  .cvBody {
+    grid-template-columns: 1fr;
+  }
+
+  .cvSide {
+    padding: 0 0 2rem;
+    border-right: none;
+    border-bottom: 1px solid var(--ink);
+  }
+}
+
+@media (max-width: 480px) {
+  /* dates go above the entry */
+  .cvEntry {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}

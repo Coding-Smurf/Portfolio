@@ -43,6 +43,14 @@ const PROJECTS_BASE = [
       { key: 'doi', href: 'https://doi.org/10.62161/sauc.v11.6010' },
       { key: 'pdf', href: 'https://visualcompublications.es/SAUC/article/view/6010/4435' },
     ],
+    // Short case study at the bottom of the sheet (see components/CaseStudy.jsx).
+    // Texts: items.museum.story.<id>. Figures from the published article (tables 1, 9 and 10).
+    caseStudy: [
+      { type: 'steps', id: 'how' },
+      // Image of the system working: set `src` (e.g. asset('images/projects/museum/demo.png')) to replace the placeholder
+      { type: 'image', id: 'demo', src: null },
+      { type: 'stats', id: 'results', items: [{ key: 'detection' }, { key: 'factuality' }, { key: 'size' }] },
+    ],
   },
   {
     id: 'robustBiomarkers',

@@ -5,7 +5,7 @@
   top: 50px;
   right: 1.5rem;
   height: 55px;
-  /* above the navigation bar, whose full-width background (z-index 1000) would otherwise hide it */
+  /* above the navigation bar (z-index 1000) */
   z-index: 1001;
   display: flex;
   align-items: center;
@@ -13,14 +13,30 @@
 }
 
 /* ========== LANGUAGE SELECTOR ========== */
+/* equal columns, so the indicator can slide exactly one button width per language */
 .languages {
-  display: flex;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--count, 2), 1fr);
   align-items: center;
-  gap: 2px;
   padding: 4px;
   border-radius: 20px;
   background: var(--color-bg-dark);
   box-shadow: 3px 3px 5px var(--shadow-dark), -2px -2px 4px var(--shadow-light);
+}
+
+/* the pressed-in "pill" behind the selected language; it slides and settles without overshooting */
+.indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc((100% - 8px) / var(--count, 2));
+  border-radius: 16px;
+  box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+  transform: translateX(calc(var(--index, 0) * 100%));
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
 }
 
 /* Plain buttons: they override the global button styles (including hover and focus) */
@@ -35,6 +51,7 @@
 }
 
 .languageButton {
+  position: relative;
   padding: 4px 10px;
   border-radius: 16px;
   font-size: 0.8rem;
@@ -52,10 +69,16 @@
   outline: none;
 }
 
-/* the selected language looks pressed in */
+/* the selected language sits on the indicator: full opacity and a small pop */
 .languageButton.active {
   opacity: 1;
-  box-shadow: inset 2px 2px 4px var(--shadow-dark), inset -2px -2px 4px var(--shadow-light);
+  animation: languagePop 0.45s ease;
+}
+
+@keyframes languagePop {
+  0%   { transform: scale(0.85); }
+  60%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
 }
 
 /* ========== THEME TOGGLE ========== */
@@ -82,6 +105,43 @@
 
 .themeButton span {
   font-size: 20px;
+}
+
+/* on click the button sinks in like a physical key and comes back up */
+.themeButton.pressed {
+  animation: themePress 0.35s ease;
+}
+
+@keyframes themePress {
+  0%   { transform: scale(1); }
+  35%  {
+    transform: scale(0.88);
+    box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light);
+  }
+  100% { transform: scale(1); }
+}
+
+/* the new sun / moon icon turns in when the theme changes */
+.themeIcon {
+  animation: themeIconIn 0.35s ease;
+}
+
+@keyframes themeIconIn {
+  from { transform: rotate(-90deg) scale(0.6); opacity: 0; }
+  to   { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+/* no sliding, popping or pressing for people who ask for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .indicator {
+    transition: none;
+  }
+
+  .languageButton.active,
+  .themeButton.pressed,
+  .themeIcon {
+    animation: none;
+  }
 }
 
 /* ========== RESPONSIVE ========== */

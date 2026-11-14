@@ -108,36 +108,42 @@ html, body {
   color: var(--ink);
 }
 
-/* Scroll hint: a thin line and a small caption at the bottom */
-.heroSeparator,
-.heroScroll {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.5s, transform 0.5s;
+/* Heading above the carousel: small capitals in ink between two thin rules, and a quiet hint below */
+.carouselIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
-.heroSeparator {
-  bottom: 5.5rem;
-  width: 1px;
-  height: 3rem;
-  background: var(--ink-soft);
-}
-
-.heroScroll {
-  bottom: 3rem;
+/* Set like the name above the portrait on About me: a newspaper headline in bold small
+   capitals between a thin rule and a double one, worn like the rest of the text */
+.introTitle {
+  box-sizing: border-box;
+  width: min(26rem, 100%);
   margin: 0;
-  white-space: nowrap;
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
+  padding: 0.45rem 0 0.55rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 3px double var(--ink);
+  text-align: center;
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+  color: var(--ink);
 }
 
-.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-50%) translateY(-20px);
+.introHint {
+  margin: 0;
+  max-width: 32rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
 }
 
 /* Curved carousel: cards sit on an arc in 3D space */
@@ -300,6 +306,7 @@ html, body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: none; /* the ink bleed from index.css would show through the clipped fill */
   pointer-events: none;
   animation: detailIn 0.6s ease, tagShine 2.4s linear infinite, tagGlow 2.4s ease-in-out infinite;
 }
@@ -686,8 +693,9 @@ html, body {
   z-index: 1;
   border: 0;
   border-radius: 0;
-  background: none;
-  padding: 0;
+  /* paper behind it so the scrolling content does not show through the letters */
+  background: var(--paper);
+  padding: 0.3rem 0.5rem;
   color: var(--ink);
   font-family: inherit;
   font-size: 0.85rem;
@@ -700,7 +708,7 @@ html, body {
 .close:hover,
 .close:focus-visible {
   border-color: transparent;
-  background: none;
+  background: var(--paper);
   color: var(--ink);
   opacity: 0.6;
   outline: none;
@@ -821,6 +829,7 @@ html, body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: none; /* the ink bleed from index.css would show through the clipped fill */
   border-bottom: 1px solid var(--gold-mid);
   animation: tagShine 2.4s linear infinite, tagGlow 2.4s ease-in-out infinite;
 }

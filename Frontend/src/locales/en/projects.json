@@ -10,6 +10,7 @@
     "ledeAfter": " work.",
     "scroll": "Scroll",
     "selectedWorks": "Selected works",
+    "carouselHint": "Drag or use the arrows to browse; click the centred card to read more.",
     "backToAll": "← all projects",
     "prev": "← prev",
     "next": "next →",
@@ -24,6 +25,7 @@
     "myRating": "My rating",
     "ratedAria": "Rated {{rating}} out of 5",
     "number": "No.",
+    "caseStudy": "The project in detail",
     "closingText": "Want to make something together?",
     "closingLink": "Get in touch"
   },
@@ -41,7 +43,52 @@
       "role": "Author",
       "status": "Published & presented",
       "tag": ["Article", "Published"],
-      "links": { "doi": "Paper (DOI)", "pdf": "PDF" }
+      "links": { "doi": "Paper (DOI)", "pdf": "PDF" },
+      "story": {
+        "how": {
+          "title": "How it works",
+          "steps": [
+            {
+              "title": "Sees",
+              "detail": "The camera recognises the artwork in front of you (YOLOv10m)."
+            },
+            {
+              "title": "Remembers",
+              "detail": "It keeps what you have seen and asked during the visit."
+            },
+            {
+              "title": "Searches",
+              "detail": "It finds the information in the museum’s documents (RAG)."
+            },
+            {
+              "title": "Answers",
+              "detail": "A small local model replies, grounded in those documents."
+            }
+          ]
+        },
+        "demo": {
+          "placeholder": "Image to come: the system recognising an artwork",
+          "alt": "The guide recognising a sculpture at the Louvre",
+          "caption": "Proof of concept in two rooms of the Louvre."
+        },
+        "results": {
+          "title": "Results",
+          "items": {
+            "detection": {
+              "value": "0.978",
+              "label": "F1 recognising the sculptures in room 1"
+            },
+            "factuality": {
+              "value": "−0.39 → 0.13",
+              "label": "Factuality of the answers (SummaCZS) without and with the museum’s documents"
+            },
+            "size": {
+              "value": "3B > 70B",
+              "label": "With the documents, a 3-billion-parameter model is more factual than Llama 3.1 70B"
+            }
+          }
+        }
+      }
     },
     "robustBiomarkers": {
       "title": "Robust Speech Biomarkers",

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@500;600;700&display=swap');
+
 /* ========== CONTAINER ========== */
 .navContainer {
   position: fixed;
@@ -7,7 +9,14 @@
   display: flex;
   justify-content: center;
   z-index: 1000;
-  background: var(--color-bg-dark);
+  /* transparent and click-through: only the pill itself covers the page behind it */
+  background: transparent;
+  pointer-events: none;
+}
+
+.navbar,
+.hamburger {
+  pointer-events: auto;
 }
 
 /* ========== NAVBAR ========== */
@@ -36,10 +45,6 @@
   margin-left: auto;
 }
 
-.rightLink a {
-  font-weight: 600;
-}
-
 a {
   text-decoration: none;
   color: var(--nav-link);
@@ -52,14 +57,65 @@ a:hover {
   outline: none;
 }
 
+/* Engraved small capitals, like the page titles */
 .navLink {
+  position: relative;
+  padding: 2px 0;
+  font-family: 'Cormorant SC', 'IM Fell English', Georgia, serif;
+  /* shrinks with the window so the four links fit on tablets */
+  font-size: clamp(0.95rem, 0.6rem + 0.55vw, 1.15rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  /* never break a link over two lines (e.g. "Mi trayectoria") */
+  white-space: nowrap;
   text-decoration: none;
+  color: var(--nav-link);
+  transition: color 0.3s ease;
 }
 
+/* thin gold rule that grows from the centre on hover and stays under the current page */
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--nav-link);
+  outline: none;
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  transform: translateX(-50%) scaleX(0.6);
+}
+
+/* Current page: bold, with a full underline */
 .navLink.active {
-  text-decoration: underline;
-  text-decoration-color: var(--text-muted);
-  text-underline-offset:2px;
+  font-weight: 700;
+}
+
+.navLink.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Contact Me, on its own at the right: a touch heavier so it reads as the call to action */
+.rightLink .navLink {
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLink,
+  .navLink::after {
+    transition: none;
+  }
 }
 
 
@@ -110,6 +166,21 @@ a:hover {
 @media screen and (max-width: 1400px) {
   .navbar {
     width: 70%;
+  }
+}
+
+/* Tablets (iPad portrait and landscape): tighter spacing so the links do not run into each other */
+@media screen and (max-width: 1100px) {
+  .navbar {
+    padding: 10px 22px;
+  }
+
+  .leftLinks {
+    gap: 12px;
+  }
+
+  .navLink {
+    letter-spacing: 0.05em;
   }
 }
 
@@ -178,6 +249,10 @@ a:hover {
 
   .leftLinks a {
     margin-bottom: 10px;
+  }
+
+  .navLink {
+    font-size: 1.35rem;
   }
 
   .rightLink {

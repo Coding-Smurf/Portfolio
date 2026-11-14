@@ -12,5 +12,11 @@
     "switchToDark": "Cambiar a tema oscuro",
     "switchToLight": "Cambiar a tema claro"
   },
+  "social": {
+    "label": "Enlaces de contacto",
+    "linkedin": "Perfil de LinkedIn",
+    "phone": "Llámame",
+    "email": "Envíame un correo"
+  },
   "notFound": "Página no encontrada"
 }

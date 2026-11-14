@@ -10,6 +10,7 @@
     "ledeAfter": ".",
     "scroll": "Desliza",
     "selectedWorks": "Trabajos destacados",
+    "carouselHint": "Arrastra o usa las flechas para recorrerlos; pulsa la tarjeta central para leer más.",
     "backToAll": "← todos los proyectos",
     "prev": "← anterior",
     "next": "siguiente →",
@@ -24,6 +25,7 @@
     "myRating": "Mi valoración",
     "ratedAria": "Valorado con {{rating}} de 5",
     "number": "N.º",
+    "caseStudy": "El proyecto en detalle",
     "closingText": "¿Quieres que hagamos algo juntos?",
     "closingLink": "Ponte en contacto"
   },
@@ -41,7 +43,52 @@
       "role": "Autor",
       "status": "Publicado y presentado",
       "tag": ["Artículo", "Publicado"],
-      "links": { "doi": "Artículo (DOI)", "pdf": "PDF" }
+      "links": { "doi": "Artículo (DOI)", "pdf": "PDF" },
+      "story": {
+        "how": {
+          "title": "Cómo funciona",
+          "steps": [
+            {
+              "title": "Ve",
+              "detail": "La cámara reconoce la obra que tienes delante (YOLOv10m)."
+            },
+            {
+              "title": "Recuerda",
+              "detail": "Guarda lo que has visto y lo que has preguntado durante la visita."
+            },
+            {
+              "title": "Busca",
+              "detail": "Encuentra la información en los documentos del museo (RAG)."
+            },
+            {
+              "title": "Responde",
+              "detail": "Un modelo pequeño en local contesta basándose en esos documentos."
+            }
+          ]
+        },
+        "demo": {
+          "placeholder": "Imagen pendiente: el sistema reconociendo una obra",
+          "alt": "El guía reconociendo una escultura en el Louvre",
+          "caption": "Prueba de concepto en dos salas del Louvre."
+        },
+        "results": {
+          "title": "Resultados",
+          "items": {
+            "detection": {
+              "value": "0,978",
+              "label": "F1 al reconocer las esculturas de la sala 1"
+            },
+            "factuality": {
+              "value": "−0,39 → 0,13",
+              "label": "Veracidad de las respuestas (SummaCZS) sin y con los documentos del museo"
+            },
+            "size": {
+              "value": "3B > 70B",
+              "label": "Con los documentos, un modelo de 3.000 millones de parámetros es más veraz que Llama 3.1 70B"
+            }
+          }
+        }
+      }
     },
     "robustBiomarkers": {
       "title": "Biomarcadores de voz robustos",

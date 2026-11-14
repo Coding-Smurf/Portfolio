@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Preferences from './Preferences.jsx';
+import SocialLinks from './SocialLinks.jsx';
 import styles from './NavigationBar.module.css';
 
 export default function NavigationBar({currentPage}) {
@@ -56,6 +57,9 @@ export default function NavigationBar({currentPage}) {
 
       </div>
     </nav>
+
+    {/* LinkedIn, phone and email: fixed at the bottom right on every screen size */}
+    <SocialLinks />
     </>
   );
 }

@@ -5,7 +5,7 @@
 
 ## Site structure
 
-The site is a personal portfolio with five pages, reached from a navigation bar: Landing (/), About Me (/AboutMe), Projects (/Projects), My Journey (/MyJourney) and Contact Me (/ContactMe). Any other address shows a "Page not found" message. The top right of every page (inside the menu on phones) has a language selector (EN / ES) and a light / dark theme toggle. The pages share one visual style: a soft off-white "paper" background in light theme, serif typography, and a large title with a short subtitle at the top.
+The site is a personal portfolio with five pages, reached from a navigation bar: Landing (/), About Me (/AboutMe), Projects (/Projects), My Journey (/MyJourney) and Contact Me (/ContactMe). Any other address shows a "Page not found" message. The top right of every page (inside the menu on phones) has a language selector (EN / ES) and a light / dark theme toggle. The bottom right of every page has three links: LinkedIn (https://www.linkedin.com/in/adri-ortiz), phone (+34 660 164 574) and email (adrian.ortiz.prof@gmail.com). The pages share one visual style: a soft off-white "paper" background in light theme, serif typography, and a large title with a short subtitle at the top.
 
 ### Landing
 
@@ -13,7 +13,7 @@ Page: /. A typed greeting: "Hey, I'm Adrian! Welcome to my Portfolio."
 
 ## Projects
 
-Page: /Projects. A selection of AI & Software work. The page is a carousel of project cards; opening a card shows the full description. Each project has a "My rating" out of 5 stars, given by the author. The last card is a collection, "Kaggle Studies", which opens a second carousel.
+Page: /Projects. A selection of AI & Software work. The page is a carousel of project cards, introduced by the heading "Selected works"; opening a card shows the full description. Each project has a "My rating" out of 5 stars, given by the author. The last card is a collection, "Kaggle Studies", which opens a second carousel.
 
 ### Museum Conversational Guide
 - Year: 2025. Rating: 5/5. Role: Author. Status: Published and presented.
@@ -25,6 +25,10 @@ Page: /Projects. A selection of AI & Software work. The page is a carousel of pr
 - Published in Street Art & Urban Creativity, Vol. 11 No. 7 (2025) (https://doi.org/10.62161/sauc.v11.6010), Special Issue: Smart City World Congress, with Álvaro Illana and Marta Salas (UFV).
 - Also presented on stage at the Smart City Expo World Congress 2025 (https://www.smartcityexpo.com/), at Fira Barcelona Gran Via.
 - Links: Paper (DOI) https://doi.org/10.62161/sauc.v11.6010 ; PDF https://visualcompublications.es/SAUC/article/view/6010/4435
+- The project sheet includes a short section "The project in detail":
+  - How it works: (1) Sees: the camera recognises the artwork in front of the visitor (YOLOv10m). (2) Remembers: it keeps what the visitor has seen and asked during the visit. (3) Searches: it finds the information in the museum's documents (RAG). (4) Answers: a small local model replies, grounded in those documents.
+  - Proof of concept in two rooms of the Louvre.
+  - Results: F1 of 0.978 recognising the sculptures in room 1; factuality of the answers (SummaCZS) goes from -0.39 without the museum's documents to 0.13 with them; with the documents, a 3-billion-parameter model is more factual than Llama 3.1 70B.
 
 ### Robust Speech Biomarkers
 - Year: 2026. Rating: 5/5. Role: Research, Cephalgo SAS. Status: Accepted posters.
@@ -84,45 +88,19 @@ A handful of small but professional data-science projects. Stack: Data Science, 
 
 ## About me
 
-Page: /AboutMe. Adrián Ortiz Ramírez, computer scientist and AI engineer based in Madrid, Spain, 22 years old. The page is a single structured Curriculum Vitae, summarised below, with a portrait photo. The dates, titles and organisations are the same as on the My Journey page (/MyJourney).
+Page: /AboutMe. Title "ABOUT ME", subtitle "Get to know more about my background, skills, and passions". The page is being redesigned. Below the title it shows a portrait photo of Adrián Ortiz Ramírez in a white shirt, standing in a green wheat field, with "AI Engineer" written vertically down its right side, "Madrid, Spain" and "22 years" written below it and his name above it as a newspaper-style headline, followed by two paragraphs about his way of seeing things (quoted below) and a small boxed "Currently" note that reads: "I am developing deep learning models within an EU initiative to analyse voice biomarkers and predict the risk of neurodegenerative diseases at the presymptomatic stage (From speech to predictions @Cephalgo)." followed, at the end of the same text, by an underlined link "See my CV" to his Curriculum Vitae on the My Journey page (/MyJourney#cv); after the box come two more paragraphs (quoted below). The page ends with a short credit: "Created by A.O & Claude Code".
 
-### Curriculum Vitae
+"Before the projects and the dates, I want to tell you how I see things. My name is Adrián, I am an AI engineer, and I like minimalism: clear, direct solutions with nothing that is not needed. I think good technology should not get in the way; it simply works and lets people focus on what matters."
 
-Profile: "Hi there! I'm Adrián and I'm currently working as an AI engineer. Lately, I've been focused on bringing Speech Emotion Recognition, AI Compliance Evaluation and Psychology AI into the real world. I love making things look simple."
+"That is why I have always been drawn to process automation. I enjoy taking a messy, manual process and turning it into a clear one that runs on its own. With every challenge I aim for the same thing: to understand it fully and build a solution that looks simple, even if it was not."
 
-Hashtags he loves: #Data Science, #Machine Learning, #Deep Learning, #Solving Real Problems, #Always Learning.
+"I believe the most interesting problems are found where the physical world meets the world of data. Almost everything we can touch, see or hear leaves a trace that can be measured, and that trace, read well, says more than it seems: a voice, a field of crops, the rhythm of a process. With automation, that knowledge does not stay on a screen: it turns into better decisions, time saved and better care for people."
 
-Contact: phone +34 660 164 574; email adrian.ortiz.prof@gmail.com; LinkedIn https://www.linkedin.com/in/adri-ortiz; location Madrid, Spain.
-
-Languages: Spanish (native); English C2 (Cambridge, Mar 2021); French B1 (DELF, Mar 2019).
-
-Skills:
-- AI & ML: deep learning, speech analysis, RAG, multi-agent systems, model evaluation, fine-tuning, prompt engineering.
-- Data: Python, data science, databases.
-- Foundations: algorithms, mathematics, networks, software engineering.
-
-Experience:
-- Jun 2025 - present. AI Engineer, Cephalgo. Leads the development and training of deep-learning speech models, with clinical partners, to detect early vocal signs of Alzheimer's and Parkinson's disease. Previously built a RAG system and led an international team on multi-agent AI analysis and compliance.
-- Sept 2024 - Jun 2025. Data & Analytics Internship, NTTDATA. Built RAG pipelines with OCR and structured extraction to turn large collections of technical documents for energy companies into reliable, grounded answers. Ran internal sessions on prompt engineering.
-- Sept 2022 - Jun 2023. Volunteer Mentor (UniDiversidad), Fundación ONCE. Mentored young adults with intellectual disabilities in the digital skills needed for web accessibility review.
-
-Education:
-- Jun 2025. Bachelor's in Computer Science & Engineering, UFV. Four-year degree with a foundation in algorithms, mathematics, databases, networks, operating systems, software engineering and AI.
-- Jun 2025. Diploma in Cybersecurity & Ethical Hacking, UFV. Ethical hacking and pentesting, digital forensics, secure development with OWASP, and web, mobile and IoT security.
-
-Publications and talks:
-- Nov 2025. Journal Publication, SAUC. "Object Recognition and Conversational AI in Real-World Contexts", Street Art & Urban Creativity, vol. 11, pp. 21-47 (https://doi.org/10.62161/sauc.v11.6010). Derived from the Bachelor's thesis.
-- 6 Nov 2025. Article Presentation, Fira Barcelona. Presented the work on object recognition and conversational AI for museums at Smart City Expo World Congress 2025, Fira Barcelona Gran Via.
-- Jun 2024. International Conference Presentation, CISTI. Co-authored and presented ALPACA, a mobile app against household food waste, at the 19th Iberian Conference on Information Systems and Technologies (University of Salamanca).
-
-Honors and awards:
-- Jul 2024. Academic Excellence Recognition, UFV. Among the top five students of the cohort in the 2023/2024 academic year.
-- Mar 2024. HackForGood Hackathon, Telefónica. Prize-winning project at the Madrid edition of Spain's largest hackathon, at Telefónica's 42 Madrid campus: an app to support people before and during meteorological disasters.
-- Mar 2024. Competitive Programming "AdaByron", uc3m. Represented UFV with team ByteHunters at the 10th Madrid edition of the Ada Byron University Programming Contest.
+"I also believe research matters, and a great deal: it is how what we learn stops belonging to a single person and gets shared, tested and put to use by others. I still have a lot to learn, but I have been doing my bit through publications, articles, talks and scientific posters, and each of them has taught me something new." The paragraph ends with a link "See my research" to his ORCID profile: https://orcid.org/0009-0001-2059-2424
 
 ## My Journey
 
-Page: /MyJourney. Title "MY JOURNEY", subtitle "Explore my path and experiences". A vertical timeline, newest first, of education, work, publications, awards and certificates. Each entry shows a date, a title and an organisation, and opens to show a description, a citation line and links. The page ends with "Want to contact me?" and links to LinkedIn (https://www.linkedin.com/in/adri-ortiz) and email (adrian.ortiz.prof@gmail.com). The entries are:
+Page: /MyJourney. Title "MY JOURNEY", subtitle "Explore my path and experiences". Below the title comes his Curriculum Vitae, set like a newspaper page (summarised under "Curriculum Vitae" below), and after it a vertical timeline, newest first, of education, work, publications, awards and certificates, drawn as a vertical git graph with the main line down the middle, "Education" on the left (in green) and "Experience" on the right (in blue). Vertical distances follow real time (a longer gap between two dates is a longer stretch of line). One-off milestones are commits on the main line, and the stages with a start and an end date are branches that leave the main line at their start date and merge back at their end date: on the left, the bachelor's degree and the cybersecurity diploma (both Sept 2021 - Jun 2025); on the right, Cephalgo (ongoing, so its branch stays open at the top), the NTTDATA internship and the Fundación ONCE mentoring. Education entries (degree, diploma, academic excellence award, AdaByron contest, English and French certificates) are shown on the left; experience entries (Cephalgo, NTTDATA, mentoring, journal publication, article presentation, CISTI conference, HackForGood) on the right. On phones the graph sits on the left edge and all entries are listed to its right. Each entry shows a date, a title and an organisation, and opens to show a description, a citation line and links. The page ends with "Want to contact me?" and links to LinkedIn (https://www.linkedin.com/in/adri-ortiz) and email (adrian.ortiz.prof@gmail.com). The entries are:
 
 ### Journal Publication
 - Nov 2025. SAUC.
@@ -143,13 +121,13 @@ Page: /MyJourney. Title "MY JOURNEY", subtitle "Explore my path and experiences"
 - Link: cephalgo.com https://cephalgo.com/
 
 ### Diploma in Cybersecurity & Ethical Hacking
-- Jun 2025. UFV.
+- Sept 2021 - Jun 2025. UFV.
 - Completed a hands-on cybersecurity specialisation alongside my Computer Science degree, spanning ethical hacking and penetration testing, digital forensics, secure development with OWASP, systems administration, and security across web, mobile and IoT environments.
 - Keywords: pentesting, digital forensics, OWASP, web, mobile and IoT security, blockchain.
 - Link: Official UFV programme https://www.ufv.es/estudiar-grado-informatica-madrid/
 
 ### Bachelor's in Computer Science & Engineering
-- Jun 2025. UFV.
+- Sept 2021 - Jun 2025. UFV.
 - Completed a four-year Computer Science and Engineering degree, building a solid foundation across algorithms, mathematics, databases, computer networks, operating systems, software engineering and artificial intelligence.
 - Link: Official UFV degree https://www.ufv.es/estudiar-grado-informatica-madrid/
 
@@ -194,6 +172,40 @@ Page: /MyJourney. Title "MY JOURNEY", subtitle "Explore my path and experiences"
 ### French B1 DELF
 - Mar 2019. République Française.
 - Earned the DELF B1 qualification, certifying independent French language communication skills.
+
+### Curriculum Vitae
+
+Shown below the page title, above the timeline. Its dates, titles and organisations are the same as the timeline entries, and the contact details are also on the Contact Me page (/ContactMe).
+
+Hashtags he loves: #Data Science, #Machine Learning, #Deep Learning, #Solving Real Problems, #Always Learning.
+
+Contact: phone +34 660 164 574; email adrian.ortiz.prof@gmail.com; LinkedIn https://www.linkedin.com/in/adri-ortiz; location Madrid, Spain.
+
+Languages: Spanish (native); English C2 (Cambridge, Mar 2021); French B1 (DELF, Mar 2019).
+
+Skills:
+- AI & ML: deep learning, speech analysis, RAG, multi-agent systems, model evaluation, fine-tuning, prompt engineering.
+- Data: Python, data science, databases.
+- Foundations: algorithms, mathematics, networks, software engineering.
+
+Experience:
+- Jun 2025 - present. AI Engineer, Cephalgo. Leads the development and training of deep-learning speech models, with clinical partners, to detect early vocal signs of Alzheimer's and Parkinson's disease. Previously built a RAG system and led an international team on multi-agent AI analysis and compliance.
+- Sept 2024 - Jun 2025. Data & Analytics Internship, NTTDATA. Built RAG pipelines with OCR and structured extraction to turn large collections of technical documents for energy companies into reliable, grounded answers. Ran internal sessions on prompt engineering.
+- Sept 2022 - Jun 2023. Volunteer Mentor (UniDiversidad), Fundación ONCE. Mentored young adults with intellectual disabilities in the digital skills needed for web accessibility review.
+
+Education:
+- Sept 2021 - Jun 2025. Bachelor's in Computer Science & Engineering, UFV. Four-year degree with a foundation in algorithms, mathematics, databases, networks, operating systems, software engineering and AI.
+- Sept 2021 - Jun 2025. Diploma in Cybersecurity & Ethical Hacking, UFV. Ethical hacking and pentesting, digital forensics, secure development with OWASP, and web, mobile and IoT security.
+
+Publications and talks:
+- Nov 2025. Journal Publication, SAUC. "Object Recognition and Conversational AI in Real-World Contexts", Street Art & Urban Creativity, vol. 11, pp. 21-47 (https://doi.org/10.62161/sauc.v11.6010). Derived from the Bachelor's thesis.
+- 6 Nov 2025. Article Presentation, Fira Barcelona. Presented the work on object recognition and conversational AI for museums at Smart City Expo World Congress 2025, Fira Barcelona Gran Via.
+- Jun 2024. International Conference Presentation, CISTI. Co-authored and presented ALPACA, a mobile app against household food waste, at the 19th Iberian Conference on Information Systems and Technologies (University of Salamanca).
+
+Honors and awards:
+- Jul 2024. Academic Excellence Recognition, UFV. Among the top five students of the cohort in the 2023/2024 academic year.
+- Mar 2024. HackForGood Hackathon, Telefónica. Prize-winning project at the Madrid edition of Spain's largest hackathon, at Telefónica's 42 Madrid campus: an app to support people before and during meteorological disasters.
+- Mar 2024. Competitive Programming "AdaByron", uc3m. Represented UFV with team ByteHunters at the 10th Madrid edition of the Ada Byron University Programming Contest.
 
 ## Contact Me
 

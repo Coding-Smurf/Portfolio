@@ -94,45 +94,9 @@ html, body {
   color: var(--ink);
 }
 
-/* Scroll hint: a thin line and a small caption at the bottom */
-.heroSeparator,
-.hero p:last-of-type {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.5s, transform 0.5s;
-}
-
-.heroSeparator {
-  bottom: 5.5rem;
-  width: 1px;
-  height: 3rem;
-  background: var(--ink-soft);
-}
-
-.hero p:last-of-type {
-  bottom: 3rem;
-  margin: 0;
-  white-space: nowrap;
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-
-.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.heroSeparator.hidden,
-.hero p:last-of-type.hidden {
-  transform: translateX(-50%) translateY(-20px);
-}
-
 /* Page content */
 .contentSection {
-  margin: 4rem 0;
+  margin: 4rem 0 0; /* no bottom margin: the colophon sets the page's last space */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -141,295 +105,248 @@ html, body {
   width: min(62rem, 65%);
 }
 
-/* Photo and name at the top of the sidebar */
-.cvIdentity {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
+/* Portrait: the name above as a headline, the photo with a thin border,
+   and place and age below */
+.portrait {
+  /* on narrow screens it leaves room for the caption on its right side (.photoSide) */
+  width: min(26rem, calc(100% - 2.5rem));
+  margin: 2rem 0 0;
   text-align: center;
 }
 
-/* Portrait printed like a plate: black and white, colour on hover */
-.imageWrapper {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 13rem;
-  aspect-ratio: 4 / 5;
-  margin-bottom: 1.25rem;
-  box-shadow: 0 18px 30px -14px rgba(26, 24, 22, 0.45);
-}
-
-.profileImage {
+.portrait img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 20%;
-  filter: grayscale(1);
-  transition: filter 1.4s ease;
+  height: auto;
+  /* a hairline border, drawn as a shadow so it takes no room */
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent);
 }
 
-.imageWrapper:hover .profileImage {
-  filter: none;
-  transition-duration: 0.25s;
+/* The photo and the caption that runs down its right side */
+.photo {
+  position: relative;
 }
 
-.cvIdentity h2 {
-  margin: 0;
-  font-family: 'Cormorant SC', 'IM Fell English', serif;
-  font-weight: 500;
-  font-size: 1.8rem;
-  letter-spacing: 0.03em;
-  line-height: 1.05;
-}
-
-/* Role: small golden caption, like the one above the cards in Projects */
-.cvRole {
-  margin: 0.5rem 0 0;
+/* Vertical caption outside the right edge, starting at the top corner and reading downwards */
+.photoSide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 0.6rem;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold-mid);
-  background: linear-gradient(
-    105deg,
-    var(--gold-base) 0%,
-    var(--gold-base) 34%,
-    var(--gold-mid) 44%,
-    var(--gold-hi) 50%,
-    var(--gold-mid) 56%,
-    var(--gold-base) 66%,
-    var(--gold-base) 100%
-  );
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: tagShine 2.4s linear infinite, tagGlow 2.4s ease-in-out infinite;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  color: var(--ink);
 }
 
-.cvAge {
-  margin: 0.4rem 0 0;
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  color: var(--ink-soft);
-}
-
-@keyframes tagShine {
-  from { background-position: 100% 0; }
-  to { background-position: 0% 0; }
-}
-
-/* a soft halo that pulses with the sweep */
-@keyframes tagGlow {
-  0%, 100% { filter: drop-shadow(0 0 0 transparent); }
-  50% { filter: drop-shadow(0 0 6px color-mix(in srgb, var(--gold-mid) 60%, transparent)); }
-}
-
-/* Hashtags: outlined, uppercase, like the stack tags of a project */
-.cvTags {
+/* Place on the left and age on the right, as small editorial captions */
+.photoMeta {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.cvTags li {
-  padding: 0.15rem 0.6rem;
-  border: 1px solid color-mix(in srgb, var(--ink) 50%, transparent);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.8rem;
   font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
 }
 
-/* Profile text on the right */
-.cvBody .cvProfile {
-  margin: 0 0 0.75rem;
+.photoMeta > span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* the icon is drawn from its name, so it must not be spaced out or capitalised */
+.photoMeta :global(.material-symbols-rounded) {
   font-size: 0.95rem;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Text below the portrait, set like a magazine column: justified, with a large drop cap
+   in the headline font opening the first paragraph */
+.story {
+  width: min(34rem, 100%);
+  margin-top: 2.5rem;
+}
+
+.story p {
+  margin: 0 0 1.1rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
   text-align: justify;
   hyphens: auto;
   color: var(--ink);
 }
 
-.cvBody .cvQuote {
-  font-style: italic;
-  text-align: right;
-  color: var(--ink-soft);
-}
-
-/* Curriculum Vitae: a printed sheet, sidebar on the left and dated entries on the right */
-.cv {
-  width: 100%;
-  margin-top: 4rem;
-  text-align: left;
-}
-
-.cvTitle {
-  margin: 0 0 1.5rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
+.story p:first-child::first-letter {
+  float: left;
+  margin: 0.08em 0.12em 0 0;
   font-family: 'Cormorant SC', 'IM Fell English', serif;
-  font-weight: 500;
-  font-size: 1.9rem;
-  letter-spacing: 0.04em;
-  line-height: 1.1;
+  font-weight: 700;
+  font-size: 3.6em;
+  line-height: 0.8;
 }
 
-.cvBody {
-  display: grid;
-  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-  gap: 3rem;
-  padding: 2.5rem 3rem;
-  background: var(--paper);
-  box-shadow: 0 18px 30px -14px rgba(26, 24, 22, 0.45), 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent);
-}
-
-/* Section headings of the sheet */
-.cvBody h4 {
-  margin: 0 0 0.9rem;
-  font-family: 'Cormorant SC', 'IM Fell English', serif;
-  font-weight: 500;
-  font-size: 1.35rem;
-  letter-spacing: 0.06em;
-  line-height: 1.1;
-  color: var(--ink);
-}
-
-.cvSide h4:not(:first-child) {
-  margin-top: 2rem;
-}
-
-.cvContact {
+/* after the "Currently" box the text goes on: no second drop cap */
+.storyContinued p:first-child::first-letter {
+  float: none;
   margin: 0;
+  font: inherit;
+  line-height: inherit;
 }
 
-.cvContact dt {
-  margin-top: 0.8rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
+/* the following paragraphs start indented, as in print */
+.story p + p {
+  text-indent: 1.5em;
 }
 
-.cvContact dt:first-child {
-  margin-top: 0;
+/* "Currently": a boxed note, as in a newspaper sidebar. A double rule frames it and the
+   title opens it from the inside, in the same worn type as the text, over a thin rule */
+.currently {
+  box-sizing: border-box;
+  width: min(34rem, 100%); /* same width as the paragraphs above (.story) */
+  margin-top: 2.5rem;
+  padding: 0.9rem 1.2rem 1rem;
+  border: 3px double var(--ink);
+  /* worn like the rules around the name (#ink-print, see index.html); the box carries
+     the filter for its rules and its text, so the text inside does not get it twice */
+  filter: url(#ink-print);
 }
 
-.cvContact dd {
-  margin: 0.1rem 0 0;
-  font-size: 0.9rem;
+.currently h2,
+.currently p {
+  filter: none;
+}
+
+.currently h2 {
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--ink-soft);
+  font-family: 'IM Fell English', Georgia, serif;
+  font-weight: 400;
+  font-size: 0.95rem;
   letter-spacing: 0.04em;
-  word-break: break-word;
+  line-height: 1.2;
+  color: var(--ink);
 }
 
-.cvContact a {
+.currently p {
+  margin: 0;
+  text-indent: 1.5em; /* every paragraph starts indented, as in print */
+  font-size: 0.9rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  text-align: justify;
+  hyphens: auto;
   color: var(--ink);
-  text-decoration: none;
+}
+
+/* "See my CV" inside the "Currently" box: a plain underlined link in the text's own ink */
+.cvLink {
+  color: var(--ink);
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
   transition: opacity 0.25s ease;
 }
 
-.cvContact a:hover,
-.cvContact a:focus-visible {
+.cvLink:hover,
+.cvLink:focus-visible {
   color: var(--ink);
   outline: none;
   opacity: 0.6;
 }
 
-.cvList {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.cvList li {
-  margin-bottom: 0.7rem;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  letter-spacing: 0.04em;
-}
-
-.cvList strong {
-  display: block;
-  font-weight: 400;
+/* Colophon at the foot of the page, as at the end of a printed book: a short credit in
+   italics, then a thin rule running to the edge of the column that ends in a fleuron.
+   The text with the logo, the rule and the ornament wear like the rest of the page
+   (#ink-print) */
+.colophon {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: min(34rem, 100%); /* same width as the paragraphs above (.story) */
+  /* At the very bottom of the page it lines up with the fixed social buttons in the
+     corner (components/SocialLinks.module.css): same height as their pill (30px buttons
+     + 4px padding above and below) and the same distance from the bottom edge */
+  min-height: 38px;
+  margin: 5rem 0 1.5rem;
   color: var(--ink);
 }
 
-.cvList span {
-  color: var(--ink-soft);
-}
-
-.cvSection {
-  margin-bottom: 2rem;
-}
-
-.cvSection:last-child {
-  margin-bottom: 0;
-}
-
-.cvSection h4 {
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
-}
-
-/* Dates in a narrow column on the left, like a printed CV */
-.cvEntry {
-  display: grid;
-  grid-template-columns: 6.5rem minmax(0, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-
-.cvEntry:last-child {
-  margin-bottom: 0;
-}
-
-.cvBody .cvDate {
-  margin: 0.2rem 0 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-align: left;
-  color: var(--ink-soft);
-}
-
-.cvEntry h5 {
-  margin: 0;
-  font-family: 'Cormorant SC', 'IM Fell English', serif;
-  font-weight: 500;
-  font-size: 1.15rem;
-  letter-spacing: 0.03em;
-  line-height: 1.2;
-}
-
-.cvBody .cvOrg {
-  margin: 0.1rem 0 0.35rem;
-  font-size: 0.8rem;
-  font-style: italic;
-  letter-spacing: 0.08em;
-  text-align: left;
-  color: var(--ink-soft);
-}
-
-.cvBody .cvSummary {
-  margin: 0;
-  font-size: 0.9rem;
-  font-style: normal;
-  line-height: 1.45;
-  letter-spacing: 0.04em;
-  text-align: left;
-  color: var(--ink);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cvRole {
-    animation: none;
+@media screen and (max-width: 610px) {
+  .colophon {
+    margin-bottom: 1rem;
   }
+}
+
+.colophonText {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  flex-shrink: 0;
+  font-family: 'IM Fell English', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  filter: url(#ink-print);
+}
+
+/* the logo, in the ink of the text: its file is a mask over a block of the text colour */
+.colophonLogo {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  background-color: currentColor;
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  mask: var(--logo) center / contain no-repeat;
+}
+
+.colophonRule {
+  flex: 1;
+  border-top: 1px solid currentColor;
+  filter: url(#ink-print);
+}
+
+.colophonOrnament {
+  margin-left: -0.8rem; /* the rule runs into the ornament */
+  font-family: 'IM Fell English', Georgia, 'Segoe UI Symbol', serif;
+  font-size: 1.35rem;
+  line-height: 1;
+  filter: url(#ink-print);
+}
+
+/* Small photo below the last paragraph, centred, with the same hairline border as the portrait */
+.storyImage {
+  display: block;
+  width: min(15rem, 60%);
+  height: auto;
+  margin: 1.5rem auto 0;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+/* The name above the photo, set like a newspaper headline: bold small capitals in dark ink
+   between a thin rule and a double one, worn like the rest of the text (#ink-print, see index.html) */
+.portrait figcaption {
+  margin: 0 0 1rem;
+  padding: 0.45rem 0 0.55rem;
+  border-top: 1px solid var(--ink);
+  border-bottom: 3px double var(--ink);
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+  color: var(--ink);
+  filter: url(#ink-print);
 }
 
 /* Responsive adjustments */
@@ -438,50 +355,10 @@ html, body {
     width: 90%;
     margin-top: 2rem;
   }
-
-  .cvBody {
-    gap: 2rem;
-    padding: 2rem;
-  }
 }
 
 @media (max-width: 768px) {
   .hero {
     padding: 0 2rem;
-  }
-
-  /* the CV sheet becomes a single column */
-  .cvBody {
-    grid-template-columns: 1fr;
-    padding: 2rem 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .imageWrapper {
-    max-width: 11rem;
-  }
-
-  .cvTitle {
-    font-size: 1.6rem;
-  }
-
-  .cvBody {
-    padding: 1.5rem 1.1rem;
-  }
-
-  .cvBody .cvProfile {
-    font-size: 0.9rem;
-    text-align: left;
-  }
-
-  .cvBody .cvQuote {
-    text-align: right;
-  }
-
-  /* dates go above the entry */
-  .cvEntry {
-    grid-template-columns: 1fr;
-    gap: 0.2rem;
   }
 }

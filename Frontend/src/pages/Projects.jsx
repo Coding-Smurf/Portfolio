@@ -3,6 +3,8 @@
 import { createPortal } from 'react-dom';
 import NavigationBar from '../components/NavigationBar.jsx';
 import Seo from '../components/Seo.jsx';
+import ScrollHint from '../components/ScrollHint.jsx';
+import CaseStudy from '../components/CaseStudy.jsx';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { buildProjects } from '../data/projects.js';
@@ -271,6 +273,9 @@ function ProjectDetail({ project, index, onClose }) {
             </div>
           )}
         </div>
+
+        {/* Longer, visual explanation (only for projects that have one) */}
+        <CaseStudy sections={project.caseStudy} story={project.story} />
         </div>
       </div>
     </div>,
@@ -529,7 +534,6 @@ export default function Projects() {
   const [fadeStarted, setFadeStarted] = useState(false);
   // Which carousel is in front: the main one or a collection's (Kaggle)
   const [view, setView] = useState('main');
-  const [scrolled, setScrolled] = useState(false);
 
   // Project data joined with the texts of the current language (rebuilt when it changes)
   const { projects, kaggle } = useMemo(() => buildProjects(t), [t]);
@@ -549,13 +553,6 @@ export default function Projects() {
       clearTimeout(timer);
       document.body.style.overflowY = 'auto';
     };
-  }, []);
-
-  // Hide the scroll hint once the page is scrolled
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Render the Projects page: two curved carousels, one swinging out as the other swings in
@@ -584,10 +581,15 @@ export default function Projects() {
           <p className={styles.lede}>
             {t('ui.ledeBefore')}<em>{t('ui.ledeEm')}</em>{t('ui.ledeAfter')}
           </p>
-          <div className={`${styles.heroSeparator} ${scrolled ? styles.hidden : ''}`}></div>
-          <p className={`${styles.heroScroll} ${scrolled ? styles.hidden : ''}`}>{t('ui.scroll')}</p>
+          <ScrollHint label={t('ui.scroll')} />
         </section>
         {/* Fullscreen Hero */}
+
+        {/* Small heading that introduces the carousel */}
+        <header className={styles.carouselIntro}>
+          <h2 className={styles.introTitle}>{t('ui.selectedWorks')}</h2>
+          <p className={styles.introHint}>{t('ui.carouselHint')}</p>
+        </header>
 
         {/* Both carousels share one cell; the inactive one is moved out of view */}
         <div className={styles.viewport}>

@@ -1,0 +1,146 @@
+/* Case study at the bottom of a project sheet.
+   It lives inside the sheet, so --paper, --ink and --ink-soft come from .overlay in Projects.module.css. */
+
+.caseStudy {
+  --hairline: color-mix(in srgb, var(--ink) 18%, transparent);
+  --wash: color-mix(in srgb, var(--ink) 5%, transparent);
+
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
+  text-align: left;
+}
+
+.lead {
+  margin: 0 0 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.section {
+  margin: 0 0 2.5rem;
+}
+
+.section:last-child {
+  margin-bottom: 0.5rem;
+}
+
+.section h3 {
+  margin: 0 0 1rem;
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+/* ========== STEPS ========== */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 0.75rem;
+  border-top: 2px solid var(--ink);
+}
+
+.stepNumber {
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.steps strong {
+  font-family: 'Cormorant SC', 'IM Fell English', serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+.steps li > span:last-child {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  letter-spacing: 0.03em;
+}
+
+/* ========== IMAGE ========== */
+.figure {
+  margin: 0;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 26rem;
+  object-fit: contain;
+}
+
+/* Stand-in until the real image is added */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 21 / 9;
+  padding: 1rem;
+  border: 1px dashed color-mix(in srgb, var(--ink) 40%, transparent);
+  background: var(--wash);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ========== STATS ========== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.stat dd {
+  margin: 0;
+}
+
+.statValue {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.stat dt {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+}

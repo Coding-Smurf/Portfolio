@@ -12,4 +12,6 @@ Whenever you add information to the site, or correct information that is already
 - changes to the About me, My journey, Contact or landing texts (`locales/*`);
 - new pages or sections, and changed links, contact details or the site structure.
 
+The build also writes a static HTML version of each route into `dist/` (`Frontend/src/prerender/render.jsx`, run from `vite.config.js`). It reads the same locales and data, so text changes reach it automatically. A new page, a new kind of content on a page, or new data outside `locales/` and `src/data/` has to be added there by hand.
+
 Write `llms.txt` in English, as plain facts and without markup that depends on the layout. If something is removed from the site, remove it from `llms.txt` too, so the two never disagree.

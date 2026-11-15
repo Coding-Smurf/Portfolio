@@ -2,6 +2,7 @@
 
 > The site is rendered with JavaScript. This file is the plain-text version of its content.
 > Texts are available in English and Spanish; this file is in English.
+> Each page's URL also serves a shorter static HTML version of that page in English, for clients that do not run JavaScript.
 
 ## Site structure
 
@@ -214,4 +215,5 @@ Page: /ContactMe. Title "CONTACT ME", subtitle "Get in touch with me for collabo
 - Email: adrian.ortiz.prof@gmail.com
 - LinkedIn: https://www.linkedin.com/in/adri-ortiz
 - Address: Madrid, Spain
+- The page also has a contact form (name, subject, email and message) that sends the message by email; it needs JavaScript.
 - The page also has a contact form (name, subject, email and message, then "Send") that emails the message to adrian.ortiz.prof@gmail.com.

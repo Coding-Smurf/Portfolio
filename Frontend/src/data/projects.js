@@ -29,8 +29,8 @@ const KAGGLE_BASE = [
     ],
   },
   // Placeholders until the real projects arrive
-  { id: 'kagglePlaceholder1', textKey: 'kagglePlaceholder', year: '2024', rating: 3.5, image: null, links: [] },
-  { id: 'kagglePlaceholder2', textKey: 'kagglePlaceholder', year: '2024', rating: 4, image: null, links: [] },
+  { id: 'kagglePlaceholder1', textKey: 'kagglePlaceholder', placeholder: true, year: '2024', rating: 3.5, image: null, links: [] },
+  { id: 'kagglePlaceholder2', textKey: 'kagglePlaceholder', placeholder: true, year: '2024', rating: 4, image: null, links: [] },
 ];
 
 const PROJECTS_BASE = [

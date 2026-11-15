@@ -1,15 +1,8 @@
 import { useTranslation } from 'react-i18next';
+import { CV_SECTIONS } from '../data/journey.js';
 import styles from './CurriculumVitae.module.css';
 
-// Entries of the CV, grouped by section. Dates, titles and organisations are the same texts
-// as the My Journey timeline (journey.json "entries"), so the two never disagree; the short
-// summaries and the rest of the CV are under "cv" and "hashtags" in journey.json.
-const CV_SECTIONS = [
-  { id: 'experience', entries: ['cephalgo', 'nttdata', 'mentor'] },
-  { id: 'education', entries: ['bachelor', 'cybersecurityDiploma'] },
-  { id: 'publications', entries: ['journalPublication', 'articlePresentation', 'cisti'] },
-  { id: 'honors', entries: ['excellence', 'hackforgood', 'adabyron'] },
-];
+// Sections and entries of the CV: see data/journey.js
 
 // Curriculum Vitae, set like a newspaper page: a headline between rules, then two columns
 // split by a thin rule (details on the left, dated entries on the right).

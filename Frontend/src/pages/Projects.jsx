@@ -8,6 +8,7 @@ import CaseStudy from '../components/CaseStudy.jsx';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { buildProjects } from '../data/projects.js';
+import { parseInlineLinks } from '../utils/inlineLinks.js';
 import styles from './Projects.module.css';
 
 const PLATES = [styles.plateDusk, styles.plateMoss, styles.plateClay, styles.plateSlate];
@@ -39,22 +40,21 @@ const STAR_TILTS = [-4, 3, -2, 4, -3];
 // Turns "[text](url)" inside a description string into a link; `gold` makes them shimmer.
 // Write [text](url 'plain') for a link that should stay plain even when `gold` is on.
 function renderInline(text, gold) {
-  return text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
-    const match = part.match(/^\[([^\]]+)\]\(([^)\s]+)(\s+'plain')?\)$/);
-    return match ? (
+  return parseInlineLinks(text).map((part, i) =>
+    typeof part === 'string' ? (
+      part
+    ) : (
       <a
         key={i}
-        href={match[2]}
+        href={part.href}
         target="_blank"
         rel="noreferrer"
-        className={gold && !match[3] ? styles.goldLink : undefined}
+        className={gold && !part.plain ? styles.goldLink : undefined}
       >
-        {match[1]}
+        {part.text}
       </a>
-    ) : (
-      part
-    );
-  });
+    )
+  );
 }
 
 // Shared SVG filter that roughens the edges of the stars like ink bleeding into paper.
